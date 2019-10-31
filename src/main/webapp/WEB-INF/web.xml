@@ -8,20 +8,17 @@
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
     </listener>
 
-   <listener>
-	<listener-class>
-			org.apache.shiro.web.env.EnvironmentLoaderListener
-	</listener-class>
-	</listener>
 
-	<filter>
-    <filter-name>securityFilter</filter-name>
-    <filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
-    <!-- no init-param means load the INI config from classpath:shiro.ini -->
-</filter>
+    <filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>org.apache.shiro.web.servlet.IniShiroFilter</filter-class>
+		<!-- no init-param means load the INI config from classpath:shiro.ini -->
+	</filter>
+
 
 	<filter-mapping>
-		<filter-name>securityFilter</filter-name>
+	<filter-name>securityFilter</filter-name>
+
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>

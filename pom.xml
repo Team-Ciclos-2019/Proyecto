@@ -8,43 +8,31 @@
   <name>web Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+     <groupId>javax</groupId>
+     <artifactId>javaee-web-api</artifactId>
+     <version>7.0</version>
+     <scope>provided</scope>
+	</dependency>
+	  <dependency>
             <groupId>commons-collections</groupId>
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.oltu.oauth2</groupId>
-            <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
-            <version>0.31</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.oltu.oauth2</groupId>
-            <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
-            <version>0.31</version>
-        </dependency>
-
-
-        <dependency>
+		 <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.2</version>
-        </dependency>
+        
+	<!-- Shiro -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
@@ -77,69 +65,39 @@
             <artifactId>shiro-spring</artifactId>
             <version>1.2.2</version>
         </dependency>
-
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.25</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>0.2.23</version>
-        </dependency>
-
-
-        <!-- aspectj相关jar包-->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjrt</artifactId>
-            <version>1.7.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.7.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>4.0.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.0.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>4.0.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>4.0.0.RELEASE</version>
-        </dependency>
-
-        <!--jackson -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.2.3</version>
-        </dependency>
 		<dependency>  
 			<groupId>commons-logging</groupId>  
 			<artifactId>commons-logging</artifactId>  
 			<version>1.1.3</version>  
 		</dependency>
+		   <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.21</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.21</version>
+            <scope>test</scope>
+        </dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/taglibs/standard -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
 
-    </dependencies>
+    
+		
+  </dependencies>
   <build>
    <plugins>
        <plugin>
@@ -151,6 +109,7 @@
                <target>1.8</target>
            </configuration>
        </plugin>
+	   
        <plugin>
            <groupId>org.apache.maven.plugins</groupId>
            <artifactId>maven-war-plugin</artifactId>
@@ -190,53 +149,12 @@
            <artifactId>tomcat7-maven-plugin</artifactId>
            <version>2.2</version>
            <configuration>
-               <port>80</port>
+               <port>8080</port>
                <path>/</path>
            </configuration>
        </plugin>
-	   <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>8.1.8.v20121106</version>
-                <configuration>
-                    <webAppConfig>
-                        <contextPath>/${project.build.finalName}</contextPath>
-                    </webAppConfig>
-                </configuration>
-            </plugin>
-		<plugin>
-		<groupId>org.codehaus.mojo</groupId>
-		<artifactId>keytool-maven-plugin</artifactId>
-		<version>1.0</version>
-		<executions>
-			<execution>
-				<phase>generate-resources</phase>
-				<id>clean</id>
-				<goals>
-					<goal>clean</goal>
-				</goals>
-			</execution>
-			<execution>
-				<phase>generate-resources</phase>
-				<id>genkey</id>
-				<goals>
-					<goal>genkey</goal>
-				</goals>
-			</execution>
-		</executions>
-		<configuration>
-			<keystore>${project.build.directory}/ssl.keystore</keystore>
-			<dname>cn=localhost</dname>
-			<keypass>appfuse</keypass>
-			<storepass>appfuse</storepass>
-			<alias>appfuse</alias>
-			<keyalg>RSA</keyalg>
-		</configuration>
-	</plugin>
-
-          
+	   
    </plugins>
 </build>
- 
 </project>
 

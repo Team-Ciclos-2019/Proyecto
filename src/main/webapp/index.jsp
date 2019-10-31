@@ -16,7 +16,7 @@ body {
     
         
 <body>
-<form name="loginform" action="" method="post">
+<form name="loginform" action="/inicio.jsp" method="post">
 <table align="left" border="0" cellspacing="0" cellpadding="3">
     <tr>
         <td>Username:</td>

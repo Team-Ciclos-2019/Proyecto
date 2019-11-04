@@ -1,5 +1,5 @@
 # Proyecto
-## cuentas:
+## cuentas administardores:
 
        correo : fernando.barrera@mail.escuelaing.edu.co
        password: ciclos1
@@ -11,4 +11,13 @@
        correo : sebastian.caseres@mail.escuelaing.edu.co
        password: ciclos3
        
+## Cuentas estudiantes:
+
+       correo : miguel.sanchez@mail.escuelaing.edu.co
+       password: ciclos4
+       
+
+## Modelo relacional:
+
+![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/modelo%20relacional.PNG)  
        

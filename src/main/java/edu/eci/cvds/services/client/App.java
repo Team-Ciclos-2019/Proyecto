@@ -1,4 +1,4 @@
-package edu.eci.cvds.samples.services.client;
+package edu.eci.cvds.services.client;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -40,20 +40,26 @@ public class App implements Serializable{
 		this.contrasena = contrasena;
 	}	
 	
-	public void iniciar(){
+	public void iniciar() throws IOException{
             Subject subject = SecurityUtils.getSubject();
 
             UsernamePasswordToken token = new UsernamePasswordToken(correo,contrasena);
-
+            
             try {
                 subject.login(token);
-                FacesContext.getCurrentInstance().getExternalContext().redirect("inicio.xhtml");
+                if (subject.hasRole("administrador")) {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("inicio2.xhtml");
+                }
+                else{
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("inicio.xhtml");
+                }
                 
             }
-            catch (UnknownAccountException ex) {
-               System.out.println(ex.getMessage());
-            } catch (IOException ex) {
-                java.util.logging.Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+          catch (UnknownAccountException ex) {
+               FacesContext.getCurrentInstance().getExternalContext().redirect("error.xhtml");
+           }
+            catch (IncorrectCredentialsException ex) {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("error.xhtml");
             }
-	}
+        }        
 }

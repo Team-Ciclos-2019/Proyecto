@@ -11,6 +11,8 @@ public class Recurso {
     private String ubicacion;
     private boolean estado;
     private int capacidad;
+    private String tiempo_de_disponibilidad;
+    
     
     
     public int getID(){

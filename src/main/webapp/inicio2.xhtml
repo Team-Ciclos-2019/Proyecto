@@ -9,6 +9,35 @@
     </head>
     <h:body>
         <h1>Hello administrador!</h1>
+         <h:form id = "registEqui">
+            <center>
+                <p:panel header="Registro de recurso" style="width: 400px;" id="panel">
+                    <p:panelGrid columns="2" style="margin-bottom: 5px;" >
+
+	                	<h:outputText value="Nombre:" />
+	                    <p:inputText id="marca2" value="#{recursoBean.nombre}" required="true"/>
+
+	                    <h:outputText value="Ubicacion:" />
+	                    <p:inputText id="marca3" value="#{recursoBean.ubicacion}" required="true"/>
+
+	                    <h:outputText value="tipo:" />
+	                    <p:inputText id="marca5" value="#{recursoBean.tipo}" required="true"/>
+
+	                    <h:outputText value="capacidad:" />
+	                    <p:inputText id="marca4" value="#{recursoBean.capacidad}" required="true"/>
+                            <h:outputText value="estado:" />
+	                    <p:inputText id="marca6" value="#{recursoBean.estado}" required="true"/>
+                            <h:outputText value="disponibilidad:" />
+	                    <p:inputText id="marca7" value="#{recursoBean.disponibilidad}" required="true"/>
+                             <h:outputText value="identificador:" />
+	                    <p:inputText id="marca7" value="#{recursoBean.identificador}" required="true"/>
+                	</p:panelGrid>
+	                <f:facet name="footer">
+	                    <h:commandButton class="botonRegistrar" value="Registrar" style="border-radius: 15px" actionListener="#{recursoBean.registrarRecurso()}" />
+	                </f:facet>
+                </p:panel>
+            </center>
+         </h:form>
      </h:body>
      
  

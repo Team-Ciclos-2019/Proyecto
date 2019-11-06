@@ -7,7 +7,6 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
-import javax.transaction.Transactional;
 
 
 public class ServiciosReservaImpl implements ServiciosReserva{
@@ -16,7 +15,6 @@ public class ServiciosReservaImpl implements ServiciosReserva{
     private RecursoDAO recursoDAO;
     
     @Override
-    @Transactional
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
         try{
             recursoDAO.save(r);

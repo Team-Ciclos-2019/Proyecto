@@ -3,28 +3,33 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<properties resource="config.properties">
-	</properties>
+    <!--<settings>
+        <setting name="logImpl" value="LOG4J"/>        
+    </settings>-->
+    
+    <properties resource="config.properties">
+    </properties>
+    <typeAliases>
+        <typeAlias type="edu.eci.cvds.samples.entities.Recurso" alias="Recurso"/>
+    </typeAliases>	
 
-	<typeAliases>
-                <typeAlias type='edu.eci.cvds.entities.Recurso' alias='Recurso' />
-	</typeAliases>
 
-	<environments default="development">
-		<environment id="development">
-			<transactionManager type="JDBC" />
-			<dataSource type="POOLED">
-				<property name="driver" value="${driver}" />
-				<property name="url" value="${url}" />
-				<property name="username" value="${username}" />
-				<property name="password" value="${password}" />
-			</dataSource>
-		</environment>
-	</environments>
 
-	<mappers>
-                
-                <mapper resource="mappers/RecursoMapper.xml"></mapper>
-	</mappers>
 
-</configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver" />
+                <property name="url" value="jdbc:postgres://ec2-54-83-55-122.compute-1.amazonaws.com:5432/da3a03i6iapl13?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/> 
+                <property name="username" value="ojotjaszqguehi" />
+                <property name="password" value="259166fdbcf63e0c553f33b506446ad8e3bd602daea9c7d1318d487ef1ea53d9" />
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers> 
+        <mapper resource="mappers/RecursoMapper.xml"></mapper>
+    </mappers>
+   
+</configuration> 

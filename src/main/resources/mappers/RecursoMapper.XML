@@ -5,13 +5,13 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper">
     <resultMap type='Recurso' id='RecursoResult'>
-        <id property='id' column='id' />
+        <id property='identificador' column='id' />
         <result property='nombre' column='nombre' />
         <result property='tipo' column='tipo' />
         <result property='ubicacion' column='ubicacion' />
         <result property='estado' column='estado' />
         <result property='capacidad' column='capacidad' />
-        <result property='tiempo de disponibilidad' column='tiempo de disponibilidad' />     
+        <result property='disponibilidad' column='disponibilidad' />     
     </resultMap>
 
     <select id="consultarRecursos" resultMap="RecursoResult">
@@ -22,13 +22,13 @@
         re.ubicacion,
         re.estado,
         re.capacidad,
-        re."tiempo de disponibilidad"
+        re.disponibilidad
         FROM
         Recurso as re
     </select>
-    <insert id="insertarRecurso" parameterType="edu.eci.cvds.entities.Recurso">
-        insert into Recurso 
-        values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado}#{recurso.capacidad},#{recurso.tiempo_de_disponibilidad})
+    <insert parameterType="map" id="insertarRecurso">
+        insert into Recurso (id,nombre,tipo,ubicacion,estado,capacidad,disponibilidad)
+        values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado}#{recurso.capacidad},#{recurso.disponibilidad})
     </insert>
 
 </mapper>

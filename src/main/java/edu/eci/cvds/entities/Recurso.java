@@ -8,18 +8,21 @@ public class Recurso {
     
     private int identificador;
     private String nombre;
+    private String tipo;
     private String ubicacion;
     private boolean estado;
     private int capacidad;
-    private int tiempo_de_disponibilidad;
+    private int disponibilidad;
     
-    public Recurso(int identificador,String nombre, String ubicacion, boolean estado, int capacidad, int tiempo_de_disponibilidad){
+    public Recurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         this.identificador=identificador;
         this.nombre=nombre;
+        this.tipo=tipo;
         this.ubicacion=ubicacion;
         this.estado=estado;
         this.capacidad=capacidad;
-        this.tiempo_de_disponibilidad=tiempo_de_disponibilidad;
+        this.disponibilidad=capacidad;
+        
     }
     
     public int getID(){
@@ -64,6 +67,6 @@ public class Recurso {
     
     @Override
     public String toString() {
-        return "Recurso " +  " id =" + identificador + ", nombre =" + nombre ;
+        return "Recurso{" +  " id=" + identificador + ", nombre=" + nombre + '}';
     }
 }

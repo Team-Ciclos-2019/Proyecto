@@ -17,14 +17,11 @@ import org.mybatis.guice.transactional.Transactional;
 public class ServiciosReservaTest{
     
    
-     private ServiciosReserva ServiciosReserva;
+     private ServiciosReserva ServiciosReserva= ServiciosReservaFactory.getInstance().getBlogServices();
     
     
     
-    public ServiciosReservaTest() {
-         ServiciosReserva= ServiciosReservaFactory.getInstance().getBlogServices();
-    }
-   
+  
     @Test
     public void testRegistrarRecurso(){
         Recurso recurso= new Recurso(2,"salon1","salon","Bloque G",true,3,11);

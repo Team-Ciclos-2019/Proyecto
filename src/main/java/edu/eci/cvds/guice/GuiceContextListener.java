@@ -9,7 +9,7 @@ import javax.servlet.ServletContextListener;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import edu.eci.cvds.persistence.RecursoDAO;
-import edu.eci.cvds.persistence.mybatisimpl.MyBatisRecursoDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBATISRecursoDAO;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.impl.ServiciosReservaImpl;
 
@@ -40,7 +40,7 @@ public class GuiceContextListener implements ServletContextListener {
 
                 // Laboratories
                 bind(ServiciosReserva.class).to(ServiciosReservaImpl.class);
-                bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+                bind(RecursoDAO.class).to(MyBATISRecursoDAO.class);
             }
         }
         );

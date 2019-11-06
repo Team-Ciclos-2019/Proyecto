@@ -1,4 +1,4 @@
-package edu.eci.cvds.services.client;
+package edu.eci.cvds.managedbeans;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

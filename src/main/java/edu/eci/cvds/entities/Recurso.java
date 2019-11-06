@@ -11,9 +11,9 @@ public class Recurso {
     private String ubicacion;
     private boolean estado;
     private int capacidad;
-    private String tiempo_de_disponibilidad;
+    private int tiempo_de_disponibilidad;
     
-    public Recurso(int identificador,String nombre, String ubicacion, boolean estado, int capacidad, String tiempo_de_disponibilidad){
+    public Recurso(int identificador,String nombre, String ubicacion, boolean estado, int capacidad, int tiempo_de_disponibilidad){
         this.identificador=identificador;
         this.nombre=nombre;
         this.ubicacion=ubicacion;

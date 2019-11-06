@@ -20,7 +20,7 @@ public class ServiciosReservaImplTest extends TestCase {
      * Test of registrarRecurso method, of class ServiciosReservaImpl.
      */
     public void testRegistrarRecurso(){
-        Recurso recurso= new Recurso(1,"salon1","Bloque G",true,3,"8AM - 5PM");
+        Recurso recurso= new Recurso(1,"salon1","Bloque G",true,3,13);
         try{
             servicio.registrarRecurso(recurso);
         }

@@ -8,4 +8,6 @@ public interface RecursoDAO {
     
     public void save(Recurso r) throws PersistenceException;
     
+     public void setestado(boolean var,int id) throws PersistenceException;
+    
 }

@@ -17,20 +17,20 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Override
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
-        if(r.getCapacidad()<=0){
-            throw new ExceptionServiciosReserva("Error, la capacidad no puede ser menor o igual a 0");
-        }
-        if(r.getDisponibilidad()<=0){
-            throw new ExceptionServiciosReserva("Error, la disponibilidad debe ser mayor que 0 horas");
-        }
-        if(r==null){
-            throw new ExceptionServiciosReserva("Error, el recurso no puede ser nulo");
-        }
         try{
             recursoDAO.save(r);
         }
         catch (PersistenceException e){
-           throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString(),e);
+           e.printStackTrace();
+        }
+    }
+    @Override
+    public void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva {
+        try{
+            recursoDAO.setestado(var,id);
+        }
+        catch (PersistenceException e){
+           e.printStackTrace();
         }
     }
     

@@ -30,5 +30,8 @@
         insert into Recurso (id,nombre,tipo,ubicacion,estado,capacidad,disponibilidad)
         values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado},#{recurso.capacidad},#{recurso.disponibilidad})
     </insert>
-
+    <update parameterType="map" id="cambiarEstado">
+        update Recurso set estado=#{est}
+        where id=#{ide}
+    </update>
 </mapper>

@@ -7,10 +7,10 @@ edu\eci\cvds\guice\GuiceContextListener$1.class
 edu\eci\cvds\services\impl\ServiciosReservaImpl.class
 edu\eci\cvds\persistence\RecursoDAO.class
 edu\eci\cvds\entities\Estudiante.class
-edu\eci\cvds\persistence\mybatisimpl\MyBATISRecursoDAO.class
 edu\eci\cvds\managedbeans\BasePageBean.class
 edu\eci\cvds\services\ServiciosReservaFactory$1.class
 edu\eci\cvds\persistence\PersistenceException.class
+edu\eci\cvds\persistence\mybatisimpl\MyBatisRecursoDAO.class
 edu\eci\cvds\services\client\App.class
 edu\eci\cvds\entities\RecursoReservado.class
 edu\eci\cvds\managedbeans\RecursoBean.class

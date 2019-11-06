@@ -4,7 +4,7 @@ import static com.google.inject.Guice.createInjector;
 
 import com.google.inject.Injector;
 import edu.eci.cvds.persistence.RecursoDAO;
-import edu.eci.cvds.persistence.mybatisimpl.MyBATISRecursoDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.services.impl.ServiciosReservaImpl;
 import java.util.Optional;
 
@@ -28,27 +28,19 @@ public class ServiciosReservaFactory {
 				install(jdbcHelper);
 				setClassPathResource(pathResource);
 				bind(ServiciosReserva.class).to(ServiciosReservaImpl.class);
-				bind(RecursoDAO.class).to(MyBATISRecursoDAO.class);
+				bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
 				
 			}
 		});
 	}
 
-	public ServiciosReserva getServiciosBiblioteca() {
+	public ServiciosReserva getBlogServices() {
 		if (!optInjector.isPresent()) {
-			optInjector = Optional.of(myBatisInjector("development", "mybatis-config.xml", JdbcHelper.PostgreSQL));
+			optInjector = Optional.of(myBatisInjector("development", "mybatis-config.xml", JdbcHelper.MySQL));
 		}
 
 		return optInjector.get().getInstance(ServiciosReserva.class);
 	}
-        
-        public ServiciosReserva getServiciosBibliotecaTesting(){
-        if (!optInjector.isPresent()) {
-            optInjector = Optional.of(myBatisInjector("test","mybatis-config-h2.xml", JdbcHelper.PostgreSQL));
-        }
-
-        return optInjector.get().getInstance(ServiciosReserva.class);
-    }
 
 	public static ServiciosReservaFactory getInstance() {
 		return instance;

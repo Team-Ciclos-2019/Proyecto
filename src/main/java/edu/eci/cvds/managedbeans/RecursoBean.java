@@ -102,5 +102,15 @@ public class RecursoBean extends BasePageBean {
             e.printStackTrace();
         }
     }
+    public void cambiarEstado(boolean var,int id){
+         try{
+            
+            ServiciosReserva.cambiarEstado(var,id);
+            System.out.println("fin");
+
+        } catch (ExceptionServiciosReserva e) {
+            e.printStackTrace();
+        }
+    }
 
 }

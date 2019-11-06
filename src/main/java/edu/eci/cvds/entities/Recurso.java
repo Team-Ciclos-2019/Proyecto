@@ -36,11 +36,11 @@ public class Recurso {
     public void setDisponibilidad(int disponibilidad){
         this.disponibilidad = disponibilidad;
     }
-    public int getIdentificador(){
+    public int getID(){
         return identificador;
     }
     
-    public void setIdentificador(int identificador){
+    public void setID(int identificador){
         this.identificador =identificador;
     }
     

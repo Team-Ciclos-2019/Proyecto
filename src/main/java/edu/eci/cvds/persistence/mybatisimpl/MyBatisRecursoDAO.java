@@ -8,7 +8,7 @@ import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 
  
 
-public class MyBATISRecursoDAO implements RecursoDAO{
+public class MyBatisRecursoDAO implements RecursoDAO{
 
     @Inject
     RecursoMapper recursoMapper;

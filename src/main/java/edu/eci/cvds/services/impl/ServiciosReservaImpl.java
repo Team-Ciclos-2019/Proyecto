@@ -7,9 +7,10 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
+import java.io.Serializable;
 
 
-public class ServiciosReservaImpl implements ServiciosReserva{
+public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Inject
     private RecursoDAO recursoDAO;
@@ -20,7 +21,7 @@ public class ServiciosReservaImpl implements ServiciosReserva{
             recursoDAO.save(r);
         }
         catch (PersistenceException e){
-            throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString(),e);
+           e.printStackTrace();
         }
     }
     

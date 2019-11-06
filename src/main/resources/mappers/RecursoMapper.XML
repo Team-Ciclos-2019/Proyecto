@@ -28,7 +28,7 @@
     </select>
     <insert parameterType="map" id="insertarRecurso">
         insert into Recurso (id,nombre,tipo,ubicacion,estado,capacidad,disponibilidad)
-        values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado}#{recurso.capacidad},#{recurso.disponibilidad})
+        values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado},#{recurso.capacidad},#{recurso.disponibilidad})
     </insert>
 
 </mapper>

@@ -1,5 +1,7 @@
 package edu.eci.cvds.services.client;
 
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
@@ -14,21 +16,20 @@ import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
 /**
  *
  * @author user
  */
-@Named
-@Stateless
-@ViewScoped
-@ManagedBean(name="recursoBean",eager =true)
 
-public class RecursoBean implements Serializable {
-    private static final Logger log = LoggerFactory.getLogger(App.class);
 
-    private final ServiciosReserva serviciosReserva;
-
+@ManagedBean(name = "recursoBean", eager =true)
+@SessionScoped
+public class RecursoBean extends BasePageBean {
+    @Inject
+    private ServiciosReserva ServiciosReserva;
     private String nombre;
     private String ubicacion;
     private String tipo;
@@ -36,10 +37,6 @@ public class RecursoBean implements Serializable {
     private int identificador;
     private boolean estado;
     private int disponibilidad;
-
-    public RecursoBean(){
-        serviciosReserva = ServiciosReservaFactory.getInstance().getServiciosBiblioteca();
-    }
 
     public int getCapacidad() {
         return capacidad;
@@ -49,11 +46,11 @@ public class RecursoBean implements Serializable {
         this.capacidad = capacidad;
     }
 
-    public int getIdentificadorInterno() {
+    public int getIdentificador() {
         return identificador;
     }
 
-    public void setIdentificadorInterno(int identificador) {
+    public void setIdentificador(int identificador) {
         this.identificador = identificador;
     }
 
@@ -65,43 +62,45 @@ public class RecursoBean implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getRecursoTipo() {
+    public String getTipo() {
         return tipo;
     }
 
     
 
-    public void setRecursoTipo(String tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
+    public int getDisponibilidad(){
+        return disponibilidad;
+    }
+    public void setDisponibilidad(int disponibilidad){
+        this.disponibilidad=disponibilidad;
+    }
     public String getUbicacion() {
         return ubicacion;
     }
-
+    public boolean getEstado(){
+        return estado;
+    }
+    public void setEstado(boolean estado){
+        this.estado=estado;
+    }
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
 
-    public void registrarRecurso() {
+    public void registrarRecurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         try{
             System.out.println("si");
             Recurso recurso = new Recurso(identificador,nombre,tipo,ubicacion,estado, capacidad,disponibilidad);
             System.out.println("recurso ");
-            serviciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.registrarRecurso(recurso);
             System.out.println("fin");
-            facesError("Registro exitoso");
 
         } catch (ExceptionServiciosReserva e) {
-            facesError(e.getMessage());
+            e.printStackTrace();
         }
-    }
-    /**
-     * Adds a new SEVERITY_ERROR FacesMessage for the ui
-     * @param message Error Message
-     */
-    private void facesError(String message) {
-        FacesContext.getCurrentInstance().addMessage("Registro: ", new FacesMessage(FacesMessage.SEVERITY_ERROR, message, "error"));
     }
 
 }

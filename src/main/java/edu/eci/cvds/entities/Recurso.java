@@ -21,10 +21,21 @@ public class Recurso {
         this.ubicacion=ubicacion;
         this.estado=estado;
         this.capacidad=capacidad;
-        this.disponibilidad=capacidad;
+        this.disponibilidad=disponibilidad;
         
     }
-    
+    public String getTipo(){
+        return tipo;
+    }
+    public void setTipo(String tipo){
+        this.tipo = tipo;
+    }
+    public int getDisponibilidad(){
+        return disponibilidad;
+    }
+    public void setDisponibilidad(int disponibilidad){
+        this.disponibilidad = disponibilidad;
+    }
     public int getID(){
         return identificador;
     }

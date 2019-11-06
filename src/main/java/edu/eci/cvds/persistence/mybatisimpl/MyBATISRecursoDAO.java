@@ -6,7 +6,7 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
 
-public class MYBATISRecursoDAO implements RecursoDAO{
+public class MyBatisRecursoDAO implements RecursoDAO{
 
     @Inject
     RecursoMapper recursoMapper;
@@ -16,7 +16,7 @@ public class MYBATISRecursoDAO implements RecursoDAO{
             recursoMapper.insertarRecurso(r);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            throw new PersistenceException("Error al registrar recurso "+r.toString(),e);
+            e.printStackTrace();
         } 
         
     }

@@ -1,12 +1,10 @@
--- -----------------------------------------------------
--- Table `Recurso`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Recurso` (
-  `id` NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(50)  NOT NULL,
-  `tipo` VARCHAR(500)  NOT NULL,
-  `ubicacion` VARCHAR(500)  NOT NULL,
-  `estado`  BOOLEAN NOT NULL,
-  `capacidad` INT(11) NOT NULL,
-  `disponibilidad` INT(11) NOT NULL);
+
+CREATE TABLE if not exists Recurso (
+  id int not null,
+  nombre VARCHAR(100)  not null,
+  tipo VARCHAR(100)  not null,
+  ubicacion VARCHAR(100)  not null,
+  estado  BOOLEAN not null,
+  capacidad INT not null,
+  disponibilidad INT not null);
 

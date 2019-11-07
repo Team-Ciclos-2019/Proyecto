@@ -1,11 +1,15 @@
 package edu.eci.cvds.services.impl;
 
+import com.google.common.util.concurrent.Service;
+import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
 import java.util.List;
+import javax.ejb.Stateless;
+import javax.faces.bean.ViewScoped;
 import org.junit.Assert;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -13,11 +17,20 @@ import org.junit.Test;
 import org.mybatis.guice.transactional.Transactional;
 
 
-@Transactional
+@SuppressWarnings("deprecation")
+@Singleton
+@Stateless
+@ViewScoped
+
 public class ServiciosReservaTest{
     
+    
    
-     private ServiciosReserva ServiciosReserva= ServiciosReservaFactory.getInstance().getBlogServices();
+     private final ServiciosReserva ServiciosReserva;
+
+    public ServiciosReservaTest() {
+        this.ServiciosReserva = ServiciosReservaFactory.getInstance().getBlogServices();
+    }
     
     
     
@@ -39,7 +52,7 @@ public class ServiciosReservaTest{
             ServiciosReserva.registrarRecurso(recurso);
         }
         catch(Exception e){
-            Assert.assertEquals(e.getMessage(),"Error, la capacidad no puede ser menor o igual a 0");
+            Assert.assertEquals("Error, la capacidad no puede ser menor o igual a 0", e.getMessage());
         }
     }
 
@@ -50,21 +63,12 @@ public class ServiciosReservaTest{
             ServiciosReserva.registrarRecurso(recurso);
         }
         catch(Exception e){
-            Assert.assertEquals(e.getMessage(),"Error, la disponibilidad debe ser mayor que 0 horas");
+            Assert.assertEquals("Error, la disponibilidad debe ser mayor que 0 horas", e.getMessage());
         }
     }
    
     
-    @Test
-    public void testRegistrarRecursoErrorNulo(){
-        Recurso recurso= null;
-        try{
-            ServiciosReserva.registrarRecurso(recurso);
-        }
-        catch(Exception e){
-            Assert.assertEquals(e.getMessage(),"Error, el recurso no puede ser nulo");
-        }
-    }
+    
   
     
     

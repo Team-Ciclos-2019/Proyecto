@@ -13,7 +13,7 @@ import org.mybatis.guice.datasource.helper.JdbcHelper;
 
 public class ServiciosReservaFactory {
 
-        private static ServiciosReservaFactory instance = new ServiciosReservaFactory();
+        private static final ServiciosReservaFactory instance = new ServiciosReservaFactory();
 
 	private static Optional<Injector> optInjector = Optional.empty();
 

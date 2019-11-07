@@ -5,7 +5,7 @@
 <configuration>
 
     <typeAliases>
-        <typeAlias type="edu.eci.cvds.samples.entities.Recurso" alias="Recurso"/>
+        <typeAlias type="edu.eci.cvds.entities.Recurso" alias="Recurso"/>
   
     </typeAliases>
 

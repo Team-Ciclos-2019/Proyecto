@@ -36,7 +36,7 @@ public class ServiciosReservaFactory {
 
 	public ServiciosReserva getBlogServices() {
 		if (!optInjector.isPresent()) {
-			optInjector = Optional.of(myBatisInjector("development", "mybatis-config.xml", JdbcHelper.MySQL));
+			optInjector = Optional.of(myBatisInjector("test", "mybatis-config-h2.xml", JdbcHelper.H2_FILE));
 		}
 
 		return optInjector.get().getInstance(ServiciosReserva.class);

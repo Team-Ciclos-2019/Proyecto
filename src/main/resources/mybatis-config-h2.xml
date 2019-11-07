@@ -22,7 +22,7 @@
    </environments>
 
    <mappers>
-       <mapper resource="mappers/RecursoMapper.xml"></mapper>
+       <mapper resource="mappers/RecursoMapper.XML"></mapper>
    </mappers> 
 
 </configuration>

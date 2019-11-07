@@ -20,7 +20,4 @@
 ## Modelo relacional:
 
 ![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/modelo%20relacional.PNG)  
-
-## Integracion Continua:
        
-[![CircleCI](https://circleci.com/gh/Team-Ciclos-2019/Proyecto.svg?style=svg)](https://circleci.com/gh/Team-Ciclos-2019/Proyecto)

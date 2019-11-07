@@ -17,11 +17,17 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Override
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
+        if(r.getCapacidad()<=0){
+           throw new ExceptionServiciosReserva("Error, la capacidad debe ser mayor que 0"); 
+        }
+        if(r.getDisponibilidad()<=0){
+            throw new ExceptionServiciosReserva("Error, la disponibilidad debe ser mayor que 0");
+        }
         try{
             recursoDAO.save(r);
         }
         catch (PersistenceException e){
-           e.printStackTrace();
+           throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString());
         }
     }
     @Override
@@ -30,7 +36,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             recursoDAO.setestado(var,id);
         }
         catch (PersistenceException e){
-           e.printStackTrace();
+           throw new ExceptionServiciosReserva("Error al cambiar estado");
         }
     }
     

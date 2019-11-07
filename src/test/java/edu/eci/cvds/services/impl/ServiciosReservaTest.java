@@ -52,7 +52,7 @@ public class ServiciosReservaTest{
             ServiciosReserva.registrarRecurso(recurso);
         }
         catch(Exception e){
-            Assert.assertEquals("Error, la capacidad no puede ser menor o igual a 0", e.getMessage());
+            Assert.assertEquals("Error, la capacidad debe ser mayor que 0", e.getMessage());
         }
     }
 
@@ -63,19 +63,7 @@ public class ServiciosReservaTest{
             ServiciosReserva.registrarRecurso(recurso);
         }
         catch(Exception e){
-            Assert.assertEquals("Error, la disponibilidad debe ser mayor que 0 horas", e.getMessage());
-        }
-    }
-   
-    
-    @Test
-    public void testRegistrarRecursoErrorNulo(){
-        Recurso recurso= null;
-        try{
-            ServiciosReserva.registrarRecurso(recurso);
-        }
-        catch(Exception e){
-            Assert.assertEquals("Error, el recurso no puede ser nulo", e.getMessage());
+            Assert.assertEquals("Error, la disponibilidad debe ser mayor que 0", e.getMessage());
         }
     }
   

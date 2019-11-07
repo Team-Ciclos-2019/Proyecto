@@ -5,6 +5,8 @@ import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
  
 
@@ -18,7 +20,7 @@ public class MyBatisRecursoDAO implements RecursoDAO{
             recursoMapper.insertarRecurso(r);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            e.printStackTrace();
+            setErrorMessage(e.getMessage());
         } 
         
     }
@@ -31,6 +33,11 @@ public class MyBatisRecursoDAO implements RecursoDAO{
         } 
     
     
+    }
+    
+    protected static void setErrorMessage(String message){
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
     }
 
 }

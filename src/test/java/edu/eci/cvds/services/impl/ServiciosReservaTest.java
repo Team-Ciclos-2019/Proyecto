@@ -68,7 +68,16 @@ public class ServiciosReservaTest{
     }
    
     
-    
+    @Test
+    public void testRegistrarRecursoErrorNulo(){
+        Recurso recurso= null;
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error, el recurso no puede ser nulo", e.getMessage());
+        }
+    }
   
     
     

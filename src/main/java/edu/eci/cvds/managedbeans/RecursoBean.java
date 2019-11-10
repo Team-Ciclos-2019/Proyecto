@@ -6,6 +6,7 @@ import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
+import edu.eci.cvds.services.client.App;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,11 +26,11 @@ import javax.inject.Named;
  */
 
 
-@ManagedBean(name = "recursoBean", eager =true)
-@SessionScoped
-public class RecursoBean extends BasePageBean {
-    @Inject
-    private ServiciosReserva ServiciosReserva;
+@ManagedBean(name = "recursoBean")
+@ViewScoped
+public class RecursoBean implements Serializable {
+    private static final Logger log = LoggerFactory.getLogger( RecursoBean.class);
+    private final ServiciosReserva ServiciosReserva;
     private String nombre;
     private String ubicacion;
     private String tipo;
@@ -37,6 +38,11 @@ public class RecursoBean extends BasePageBean {
     private int identificador;
     private boolean estado;
     private int disponibilidad;
+    
+    public RecursoBean(){
+        ServiciosReserva = ServiciosReservaFactory.getInstance().getServiciosReserva();
+    }
+
 
     public int getCapacidad() {
         return capacidad;

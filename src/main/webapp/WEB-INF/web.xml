@@ -21,9 +21,12 @@
     <welcome-file-list>
         <welcome-file>faces/index.xhtml</welcome-file>
     </welcome-file-list>
-
+	
     <listener>
         <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+	<listener>
+        <listener-class>edu.eci.cvds.guice.GuiceContextListener</listener-class>
     </listener>
 
     <filter>

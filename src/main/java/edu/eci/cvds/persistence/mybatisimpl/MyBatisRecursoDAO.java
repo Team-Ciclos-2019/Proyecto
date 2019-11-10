@@ -5,15 +5,13 @@ import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoMapper;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 
  
 
 public class MyBatisRecursoDAO implements RecursoDAO{
 
     @Inject
-    RecursoMapper recursoMapper;
+    private RecursoMapper recursoMapper;
     @Override
     public void save(Recurso r) throws PersistenceException{ 
         try{

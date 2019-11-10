@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Inject
-    RecursoDAO recursoDAO;
+    private RecursoDAO recursoDAO;
     
     @Override
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {

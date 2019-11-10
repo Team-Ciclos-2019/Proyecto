@@ -14,16 +14,17 @@ public class MyBatisRecursoDAO implements RecursoDAO{
 
     @Inject
     RecursoMapper recursoMapper;
-    
+    @Override
     public void save(Recurso r) throws PersistenceException{ 
         try{
             recursoMapper.insertarRecurso(r);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-            setErrorMessage(e.getMessage());
+             e.printStackTrace();
         } 
         
     }
+    @Override
     public void setestado(boolean var,int id) throws PersistenceException{
          try{
             recursoMapper.cambiarEstado(var,id);
@@ -34,10 +35,6 @@ public class MyBatisRecursoDAO implements RecursoDAO{
     
     
     }
-    
-    protected static void setErrorMessage(String message){
-        FacesContext.getCurrentInstance().addMessage(null,
-                new FacesMessage(FacesMessage.SEVERITY_ERROR, message, null));
-    }
+ 
 
 }

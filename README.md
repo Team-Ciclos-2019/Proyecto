@@ -4,8 +4,6 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c37e9a90c2dd4db5b9949e123ec49d7d)](https://www.codacy.com/manual/fernando-b15/Proyecto?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Team-Ciclos-2019/Proyecto&amp;utm_campaign=Badge_Grade)
 
-
-
 ## cuentas administardores
 
        correo : fernando.barrera@mail.escuelaing.edu.co

@@ -1,7 +1,8 @@
 # Proyecto
 
-
-[![CircleCI](https://circleci.com/gh/Team-Ciclos-2019/Proyecto.svg?style=svg)](https://circleci.com/gh/Team-Ciclos-2019/Proyecto)
+## Integracion continua:
+[![CircleCI](https://circleci.com/gh/Team-Ciclos-2019/Proyecto.svg?style=svg)]
+(https://circleci.com/gh/Team-Ciclos-2019/Proyecto)
 
 ## cuentas administardores:
 

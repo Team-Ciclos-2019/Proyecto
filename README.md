@@ -1,10 +1,10 @@
 # Proyecto
 
-## Integracion continua:
+## Integracion continua
 
 [![CircleCI](https://circleci.com/gh/Team-Ciclos-2019/Proyecto.svg?style=svg)](https://circleci.com/gh/Team-Ciclos-2019/Proyecto)
 
-## cuentas administardores:
+## cuentas administardores
 
        correo : fernando.barrera@mail.escuelaing.edu.co
        password: ciclos1
@@ -16,13 +16,13 @@
        correo : sebastian.caseres@mail.escuelaing.edu.co
        password: ciclos3
        
-## Cuentas estudiantes:
+## Cuentas estudiantes
 
        correo : miguel.sanchez@mail.escuelaing.edu.co
        password: ciclos4
        
 
-## Modelo relacional:
+## Modelo relacional
 
 ![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/modelo%20relacional.PNG)  
        

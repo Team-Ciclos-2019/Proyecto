@@ -1,8 +1,6 @@
 
 package edu.eci.cvds.entities;
 
-import edu.eci.cvds.*;
-
 public class Estudiante {
     
     private int identificador;

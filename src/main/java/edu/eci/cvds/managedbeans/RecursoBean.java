@@ -1,29 +1,14 @@
 package edu.eci.cvds.managedbeans;
-
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
-import edu.eci.cvds.services.client.App;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.faces.application.FacesMessage;
-import javax.inject.Named;
 import javax.faces.view.ViewScoped;
-import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
 
-/**
- *
- * @author user
- */
 
 
 @ManagedBean(name = "recursoBean")

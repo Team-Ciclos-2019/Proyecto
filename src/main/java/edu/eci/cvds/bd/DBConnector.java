@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public class DBConnector {
-    private Connection connection;
+    private final Connection connection;
 	
 	public DBConnector(String dbURL, String user, String pwd) throws ClassNotFoundException, SQLException{
             Class.forName("org.postgresql.Driver");

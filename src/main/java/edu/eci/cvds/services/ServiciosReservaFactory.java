@@ -6,7 +6,6 @@ import com.google.inject.Injector;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.services.impl.ServiciosReservaImpl;
-import java.util.Optional;
 
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;

@@ -3,7 +3,9 @@ package edu.eci.cvds.services;
 import static com.google.inject.Guice.createInjector;
 
 import com.google.inject.Injector;
+import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.RecursoDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBatisEstudianteDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.services.impl.ServiciosReservaImpl;
 
@@ -26,6 +28,7 @@ public class ServiciosReservaFactory {
                 setClassPathResource("mybatis-config.xml");
                 bind(ServiciosReserva.class).to(ServiciosReservaImpl.class);
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+                bind(EstudianteDAO.class).to(MyBatisEstudianteDAO.class);
             }
         }
         );
@@ -36,6 +39,7 @@ public class ServiciosReservaFactory {
                 setClassPathResource("mybatis-config-h2.xml");
                 bind(ServiciosReserva.class).to(ServiciosReservaImpl.class);
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
+                bind(EstudianteDAO.class).to(MyBatisEstudianteDAO.class);
             }
         }
         );

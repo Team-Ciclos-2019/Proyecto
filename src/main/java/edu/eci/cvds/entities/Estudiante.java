@@ -1,12 +1,32 @@
 
 package edu.eci.cvds.entities;
 
+import java.util.ArrayList;
+
 public class Estudiante {
     
     private int identificador;
     private String nombre;
     private String carrera;
     private boolean penalizado;
+    private ArrayList<RecursoReservado> recursos;
+    
+    public Estudiante(int identificador,String nombre, String carrera,boolean penalizado, ArrayList<RecursoReservado> recursos){
+        this.identificador=identificador;
+        this.nombre=nombre;
+        this.carrera=carrera;
+        this.penalizado=penalizado;
+        this.recursos=recursos;
+    }
+    
+    
+    public Estudiante(int identificador,String nombre, String carrera){
+        this.identificador=identificador;
+        this.nombre=nombre;
+        this.carrera=carrera;
+        penalizado=false;
+        recursos=new ArrayList();
+    }
     
     public int getID(){
         return identificador;
@@ -38,5 +58,13 @@ public class Estudiante {
     
     public void setPenalizado(boolean penalizado){
         this.penalizado=penalizado;
+    }
+    
+    public ArrayList<RecursoReservado> getRecursos(){
+        return recursos;
+    }
+    
+    public void setRecurso(ArrayList<RecursoReservado> recursos){
+        this.recursos=recursos;
     }
 }

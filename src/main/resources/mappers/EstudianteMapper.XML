@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.EstudianteMapper">
+    <resultMap type='Estudiante' id='EstudianteResult'>
+		<id property='identificador' column='id' />
+        <result property='nombre' column='nombre' />
+        <result property='carrera' column='carrera' />
+        <result property='penalizado' column='penalizado' />
+        <collection property='recursos' ofType='RecursoReservado'
+					resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoReservadoMapper.RecursoReservadoResult" columnPrefix="rr_"></collection>    
+    </resultMap>
+
+    <select id="consultarEstudiantes" resultMap="EstudianteResult">
+        SELECT
+        u.id,
+        u.nombre,
+        u.carrera,
+        u.penalizado,
+        FROM
+        Usuarios as u
+    </select>
+	
+	<select parameterType='map' id='consultarEstudiante' resultMap='EstudianteResult'>
+		SELECT
+		u.id,
+        u.nombre,
+        u.carrera,
+        u.penalizado,
+        FROM
+        Usuarios as u
+		<if test="ide != null">
+			where u.id=#{ide}
+		</if>
+  </select>
+  
+  </mapper>

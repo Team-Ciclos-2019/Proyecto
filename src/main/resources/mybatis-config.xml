@@ -7,7 +7,9 @@
 	</properties>
 
 	<typeAliases>
-                <typeAlias type='edu.eci.cvds.entities.Recurso' alias='Recurso' />
+            <typeAlias type='edu.eci.cvds.entities.Recurso' alias='Recurso' />
+			<typeAlias type='edu.eci.cvds.entities.Estudiante' alias='Estudiante' />
+			<typeAlias type="edu.eci.cvds.entities.RecursoReservado" alias="RecursoReservado"/>
       
 	</typeAliases>
 
@@ -25,7 +27,10 @@
 
 	<mappers>
                
-                <mapper resource="mappers/RecursoMapper.XML"></mapper>
+            <mapper resource="mappers/RecursoMapper.XML"></mapper>
+			<mapper resource="mappers/EstudianteMapper.XML"></mapper>
+			<mapper resource="mappers/RecursoReservadoMapper.XML"></mapper>
+			
 	</mappers>
 
 </configuration>

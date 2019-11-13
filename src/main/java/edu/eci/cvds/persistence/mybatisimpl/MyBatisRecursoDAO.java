@@ -18,7 +18,7 @@ public class MyBatisRecursoDAO implements RecursoDAO{
             recursoMapper.insertarRecurso(r);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
-             e.printStackTrace();
+            e.printStackTrace();
         } 
         
     }

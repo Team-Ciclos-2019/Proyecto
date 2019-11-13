@@ -36,4 +36,8 @@
 		</if>
   </select>
   
+	<insert id="agregarItemRentadoACliente" parameterType="map" >
+		insert into recurso_reservado(recurso,estudiante,horaInicio, horaFin) values (#{idr},#{ide},#{FechaI},#{FechaF});
+	</insert>
+	
   </mapper>

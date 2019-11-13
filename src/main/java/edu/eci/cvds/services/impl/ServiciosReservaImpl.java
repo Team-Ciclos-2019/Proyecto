@@ -75,8 +75,24 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         if(horaInicio.compareTo(horaFin)>0){
             throw new ExceptionServiciosReserva("Error, la fecha de inicio no puede ser después de la fecha final");
         }
-        //if(consultarEstudiante(docu)==null)throw new ExcepcionServiciosAlquiler("Error, el estudiante no esta registrado");
-        //if(consultarItem(r.getID())==null)throw new ExcepcionServiciosAlquiler("Eror, el recurso no esta registrado");
+        if(consultarEstudiante(id)==null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
+        //if(consultarRecurso(r.getID())==null)throw new ExceptionServiciosReserva("Eror, el recurso no esta registrado");
+        List<Estudiante> listaEstudiantes = consultarEstudiantes();
+        for (int i=0; i< listaEstudiantes.size();i++){
+            listaEstudiantes.get(i).getID();
+            ArrayList<RecursoReservado> listaRecursos= listaEstudiantes.get(i).getRecursos();
+            for (int j=0; j<listaRecursos.size(); j++){
+                if(listaRecursos.get(j).getRecurso()== r){
+                    throw new ExceptionServiciosReserva("Este recurso ya se encuentra rentado");
+                }
+            }
+        }
+         try {
+            estudianteDAO.agregarItemRentadoACliente(id,r.getID(),horaInicio,horaFin);
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al agregar el recurso"
+                    +r.toString()+" al usuario "+id);
+        }
         
         //for (RecursoReservado recursos:consultarEstudiante(id).getRentados()) {
         //    if (itemRentado.getItem().getId() == item.getId())
@@ -85,26 +101,5 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         
     }
     
-    /**
-    @Override
-    @Transactional
-    public void registrarAlquilerCliente(Date date, long docu, Item item, int numdias) throws ExcepcionServiciosAlquiler {
-        LocalDate actual=date.toLocalDate();
-        LocalDate entrega=actual.plusDays(numdias);
-        if(numdias<1)throw  new ExcepcionServiciosAlquiler("el numero de dias debe ser mayor o igual a 1");
-        if(consultarCliente(docu)==null)throw new ExcepcionServiciosAlquiler("El cliente no esta registrado");
-        if(consultarItem(item.getId())==null)throw new ExcepcionServiciosAlquiler("El item no esta registrado");
-        for (ItemRentado itemRentado:consultarCliente(docu).getRentados()) {
-            if (itemRentado.getItem().getId() == item.getId())
-                throw new ExcepcionServiciosAlquiler("Este item con id: " + item.getId() + " ya se encuentra rentado");
-        }
-        try {
-            clienteDAO.agregarItemRentadoACliente(docu,item.getId(),date,java.sql.Date.valueOf(entrega));
-        } catch (PersistenceException e) {
-            throw new ExcepcionServiciosAlquiler("Error al agregar el item"
-                    +item+" a los items rentados del cliente"+docu,e);
-        }
-    }
-    */
     
 }

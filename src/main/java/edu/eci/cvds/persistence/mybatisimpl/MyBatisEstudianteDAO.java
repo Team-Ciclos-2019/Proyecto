@@ -10,6 +10,7 @@ import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.EstudianteMapper;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -35,6 +36,16 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
     public List<Estudiante> consultarEstudiantes() throws PersistenceException{
         try{
             return estudianteMapper.consultarEstudiantes();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar los estudiantes");
+        }
+    }
+    
+    @Override
+    public void agregarItemRentadoACliente(int idUsuario, int idRecurso, Date horaInicio, Date horaFin)  throws PersistenceException{
+        try{
+            estudianteMapper.agregarRecursoAUsuario(idUsuario,idRecurso,horaInicio,horaFin);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al consultar los estudiantes");

@@ -18,7 +18,7 @@ import javax.faces.bean.ManagedBean;
 @ViewScoped
 @ManagedBean(name="InicioBean",eager =true)
 public class App implements Serializable{
-        private static final Logger log = LoggerFactory.getLogger(App.class);
+    private static final Logger log = LoggerFactory.getLogger(App.class);
 	private String correo;
 	private String contrasena;
 	

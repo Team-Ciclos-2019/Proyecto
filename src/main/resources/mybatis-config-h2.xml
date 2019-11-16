@@ -24,9 +24,9 @@
    </environments>
 
    <mappers>
-       <mapper resource="mappers/RecursoMapper.XML"></mapper>
-	   <mapper resource="mappers/EstudianteMapper.XML"></mapper>
-	   <mapper resource="mappers/RecursoReservadoMapper.XML"></mapper>
+        <mapper resource="mappers/RecursoMapper.XML"></mapper>
+        <mapper resource="mappers/EstudianteMapper.XML"></mapper>
+	<mapper resource="mappers/RecursoReservadoMapper.XML"></mapper>
    </mappers> 
 
 </configuration>

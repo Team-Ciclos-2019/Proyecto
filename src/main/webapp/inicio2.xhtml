@@ -4,9 +4,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui">
-    <head>
+    <h:head>
         <title>administrador</title>
-    </head>
+    </h:head>
     <h:body>
         <h1>Hello administrador!</h1>
          <h:form id = "registro">
@@ -35,14 +35,54 @@
                         <legend>Cambiar estado</legend>             
                             <label class="bmd-label-floating">setid</label>
                             <p:inputText class="form-control" id="setid" type="int" binding="#{setid}"/>
-                            <label class="bmd-label-floating">setestado</label>
-                            <p:inputText class="form-control" id="setestado" type="boolean" binding="#{setest}"/>
+                           
                             
                         
                 	
-	                    <p:commandButton class="btn pull-right" value="cambiar" actionListener="#{recursoBean.cambiarEstado(setest.value,setid.value)}" />
+	                    <p:commandButton class="btn pull-right" value="cambiar" actionListener="#{recursoBean.cambiarEstado(setid.value)}" />
 	        </fieldset> 
-            </center>
+			</center>
+			
+			
+			
+			 
+			
+			<p:dataTable var="re" value="#{recursoBean.consultarRecursos()}">
+						<p:column headerText="Id">
+							<h:outputText value="#{re.getID()}" />
+						</p:column>
+					 
+						<p:column headerText="Nombre">
+							<h:outputText value="#{re.getNombre()}" />
+						</p:column>
+						<p:column headerText="Tipo">
+							<h:outputText value="#{re.getTipo()}" />
+						</p:column>
+						<p:column headerText="Ubicacion">
+							<h:outputText value="#{re.getUbicacion()}" />
+						</p:column>
+						<p:column headerText="Estado">
+							<h:outputText value="#{re.getEstado()}" />
+						</p:column>
+						<p:column headerText="Capacidad">
+							<h:outputText value="#{re.getCapacidad()}" />
+						</p:column>
+						<p:column headerText="Disponibilidad">
+							<h:outputText value="#{re.getDisponibilidad()}" />
+						</p:column>
+						<p:column headerText="Reservar">
+							
+							<p:commandButton  class="btn pull-right" process="@form" value="#{re.getEstado() ? 'Deshabilitar' : 'Habilitar'}" update="@all" actionListener="#{recursoBean.cambiarEstado(re.getID())}" />
+						
+						</p:column>
+						
+						
+						
+					 
+						
+			</p:dataTable>
+		
+            
          </h:form>
         
    

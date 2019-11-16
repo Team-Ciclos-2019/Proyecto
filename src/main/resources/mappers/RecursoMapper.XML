@@ -13,7 +13,20 @@
         <result property='capacidad' column='capacidad' />
         <result property='disponibilidad' column='disponibilidad' />     
     </resultMap>
-
+    <select id="consultarRecursosDisponibles" resultMap="RecursoResult">
+        SELECT
+        re.id,
+        re.nombre,
+        re.tipo,
+        re.ubicacion,
+        re.estado,
+        re.capacidad,
+        re.disponibilidad
+        FROM
+        Recurso as re
+        WHERE
+        re.estado=true
+     </select>    
     <select id="consultarRecursos" resultMap="RecursoResult">
         SELECT
         re.id,

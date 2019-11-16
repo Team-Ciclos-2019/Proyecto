@@ -6,9 +6,10 @@ import java.sql.Date;
 import java.util.List;
 
 public interface ServiciosReserva{
-    
-    public Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
-    public List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
+    public abstract List<Recurso> consultarRecursosDisponibles() throws ExceptionServiciosReserva;
+    public abstract  Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
+    public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
+    public abstract List<Recurso> consultarRecursos() throws ExceptionServiciosReserva;
     public abstract void registrarRecurso(Recurso r) throws ExceptionServiciosReserva;
     public abstract void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva;
     public abstract void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin) throws ExceptionServiciosReserva;

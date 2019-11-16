@@ -5,7 +5,7 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.EstudianteMapper">
     <resultMap type='Estudiante' id='EstudianteResult'>
-		<id property='identificador' column='id' />
+	<id property='identificador' column='id' />
         <result property='nombre' column='nombre' />
         <result property='carrera' column='carrera' />
         <result property='penalizado' column='penalizado' />
@@ -26,14 +26,14 @@
 	<select parameterType='map' id='consultarEstudiante' resultMap='EstudianteResult'>
 		SELECT
 		u.id,
-        u.nombre,
-        u.carrera,
-        u.penalizado,
-        FROM
-        Usuarios as u
-		<if test="ide != null">
-			where u.id=#{ide}
-		</if>
+                u.nombre,
+                u.carrera,
+                u.penalizado,
+                FROM
+                Usuarios as u
+                        <if test="ide != null">
+                                where u.id=#{ide}
+                        </if>
   </select>
   
 	<insert id="agregarItemRentadoACliente" parameterType="map" >

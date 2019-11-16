@@ -1,15 +1,50 @@
-<?xml version="1.0" encoding="windows-1252"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
-<html>
-    <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
         <title>login</title>
-    </head>
+    </h:head>
     <body>
         <h1>Hello team!</h1>
+		<h:form id = "consultar">
+			<p:dataTable var="re" value="#{recursoBean.consultarRecursosDisponibles()}">
+				<p:column headerText="Id">
+					<h:outputText value="#{re.getID()}" />
+				</p:column>
+			 
+				<p:column headerText="Nombre">
+					<h:outputText value="#{re.getNombre()}" />
+				</p:column>
+				<p:column headerText="Tipo">
+					<h:outputText value="#{re.getTipo()}" />
+				</p:column>
+				<p:column headerText="Ubicacion">
+					<h:outputText value="#{re.getUbicacion()}" />
+				</p:column>
+				<p:column headerText="Estado">
+					<h:outputText value="#{re.getEstado()}" />
+				</p:column>
+				<p:column headerText="Capacidad">
+					<h:outputText value="#{re.getCapacidad()}" />
+				</p:column>
+				<p:column headerText="Disponibilidad">
+					<h:outputText value="#{re.getDisponibilidad()}" />
+				</p:column>
+				<p:column headerText="Reservar">
+					
+					<p:commandButton  class="btn pull-right" process="@form" value="Reservar" update="@all" actionListener="#{recursoBean.cambiarEstado(re.getID())}" />
+				
+				</p:column>
+				
+				
+				
+			 
+				
+			</p:dataTable>
+		 
+		 </h:form>
     </body>
 </html>

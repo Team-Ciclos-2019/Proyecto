@@ -5,14 +5,15 @@ import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.faces.view.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import java.util.List;
 
 
 
 @ManagedBean(name = "recursoBean")
-@ViewScoped
+@SessionScoped
 public class RecursoBean implements Serializable {
     private static final Logger log = LoggerFactory.getLogger( RecursoBean.class);
     private final ServiciosReserva ServiciosReserva;
@@ -85,7 +86,7 @@ public class RecursoBean implements Serializable {
         try{
             System.out.println("si");
             Recurso recurso = new Recurso(identificador,nombre,tipo,ubicacion,estado, capacidad,disponibilidad);
-            System.out.println("recurso ");
+            System.out.println("recurso");
             ServiciosReserva.registrarRecurso(recurso);
             System.out.println("fin");
 
@@ -93,15 +94,46 @@ public class RecursoBean implements Serializable {
             e.printStackTrace();
         }
     }
-    public void cambiarEstado(boolean var,int id){
+    public void cambiarEstado(int id){
          try{
-            
-            ServiciosReserva.cambiarEstado(var,id);
-            System.out.println("fin");
+			 if(estado){
+				System.out.println(this.estado);
+				ServiciosReserva.cambiarEstado(false,id);
+                                this.setEstado(false);
+				System.out.println("fin");
+			 }
+			 else{
+				System.out.println(this.estado);
+				ServiciosReserva.cambiarEstado(true,id);
+                                this.setEstado(true);
+				System.out.println("fin");
+			 }
 
         } catch (ExceptionServiciosReserva e) {
             e.printStackTrace();
         }
     }
+    public  List<Recurso> consultarRecursos(){
+	try{
+			 
+            System.out.println("lista");
+            return ServiciosReserva.consultarRecursos();
+          
+        } catch (ExceptionServiciosReserva e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+     public  List<Recurso> consultarRecursosDisponibles(){
+         try{
+			 
+            System.out.println("lista");
+            return ServiciosReserva.consultarRecursosDisponibles();
+          
+        } catch (ExceptionServiciosReserva e) {
+            e.printStackTrace();
+            return null;
+        }
+     }
 
 }

@@ -8,6 +8,7 @@ import edu.eci.cvds.entities.RecursoReservado;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.EstudianteDAO;
+import edu.eci.cvds.persistence.ReservaDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
 import java.io.Serializable;
@@ -23,6 +24,8 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     private RecursoDAO recursoDAO;
     @Inject
     private EstudianteDAO estudianteDAO;
+    @Inject
+    private ReservaDAO reservaDAO;
     
     @Override
     public Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva {
@@ -103,17 +106,25 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             }
         }
          try {
-            estudianteDAO.agregarItemRentadoACliente(id,r.getID(),horaInicio,horaFin);
+            estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin);
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar el recurso"
                     +r.toString()+" al usuario "+id);
         }
         
-        //for (RecursoReservado recursos:consultarEstudiante(id).getRentados()) {
-        //    if (itemRentado.getItem().getId() == item.getId())
-        //        throw new ExcepcionServiciosAlquiler("Este item con id: " + item.getId() + " ya se encuentra rentado");
-        //}
         
+    }
+    
+    @Override
+    @Transactional
+    public void cancelarReservasFuturas(int id) throws ExceptionServiciosReserva{
+        //if (consultarReserva(id)== null)throw new ExceptionServiciosReserva("Error,la reserva no está registrada")
+        try{
+            reservaDAO.cancelarReservaFutura(id);
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al agregar la reserva " + id);
+        }
     }
     
     

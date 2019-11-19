@@ -15,7 +15,7 @@ public class RecursoReservado {
     public RecursoReservado(int id, Recurso recurso,boolean activo, Date horaInicio,Date horaFin){
         this.id=id;
         this.recurso=recurso;
-        this. activo=activo;
+        this.activo=activo;
         this.horaInicio=horaInicio;
         this.horaFin=horaFin;
     }
@@ -40,7 +40,7 @@ public class RecursoReservado {
         return activo;
     }
     
-    public void setActivo(){
+    public void setActivo(boolean activo){
         this.activo=activo;
     }
     

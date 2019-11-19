@@ -43,7 +43,7 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
     }
     
     @Override
-    public void agregarItemRentadoACliente(int idUsuario, int idRecurso, Date horaInicio, Date horaFin)  throws PersistenceException{
+    public void agregarReservaFuturaAUsuario(int idUsuario, int idRecurso, Date horaInicio, Date horaFin)  throws PersistenceException{
         try{
             estudianteMapper.agregarRecursoAUsuario(idUsuario,idRecurso,horaInicio,horaFin);
         }

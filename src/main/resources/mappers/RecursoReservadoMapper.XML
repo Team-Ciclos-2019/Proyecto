@@ -4,4 +4,36 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoReservadoMapper">
+
+	<resultMap type='RecursoReservado' id='RecursoReservadoResult'>
+		<id property='id' column='id' />
+        <result property='horaInicio' column='horaInicio' />
+        <result property='horaFin' column='horaFin' />
+		<association property="estudiante" javaType="Estudiante" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.EstudianteMapper.EstudianteResult" columnPrefix="e_"></association>
+		<association property="recurso" javaType="Recurso" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix="r_"></association>
+    </resultMap>
+	
+	<select parameterType='map' id='consultarReserva' resultMap='RecursoReservadoResult' >
+		SELECT
+		reserva.id as id,
+		reserva.horaInicio as horaInicio,
+		reserva.horaFin as horaFin,
+		e.id as id_estudiante,
+		e.nombre as nombre_esudiante,
+		r.id as recurso,
+		FROM 
+		RECURSO_RESERVADO as reserva,
+		USUARIO as e,
+		RECURSO as r
+		WHERE
+		reserva.recurso=#{idr} AND reserva.recurso=r.id AND e.id=reserva.estudiante
+	</select>
+	
+	<update parameterType='map' id='cancelarReserva'>
+		update RECURSO_RESERVADO as reserva set id=id
+		where id=#{id}
+		
+	</update>
+	
+	
 </mapper>

@@ -24,9 +24,6 @@
 				<p:column headerText="Ubicacion">
 					<h:outputText value="#{re.getUbicacion()}" />
 				</p:column>
-				<p:column headerText="Estado">
-					<h:outputText value="#{re.getEstado()}" />
-				</p:column>
 				<p:column headerText="Capacidad">
 					<h:outputText value="#{re.getCapacidad()}" />
 				</p:column>
@@ -35,7 +32,7 @@
 				</p:column>
 				<p:column headerText="Reservar">
 					
-					<p:commandButton  class="btn pull-right" process="@form" value="Reservar" update="@all" actionListener="#{recursoBean.cambiarEstado(re.getID())}" />
+					<p:commandButton  class="btn pull-right" process="@form" value="Reservar" update="@form" onclick="PF('format').show();" />
 				
 				</p:column>
 				
@@ -44,6 +41,14 @@
 			 
 				
 			</p:dataTable>
+			<p:dialog header="Modal Dialog" widgetVar="format" modal="true" height="100">
+				<h:panelGrid id="eventDetails" columns="2">
+					<p:outputLabel for="id" value="id:" />
+					<p:inputText id="id" value="" required="true" />
+		 
+					
+				</h:panelGrid>
+			</p:dialog>    
 		 
 		 </h:form>
     </body>

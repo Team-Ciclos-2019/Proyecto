@@ -30,9 +30,9 @@
                             <label class="bmd-label-floating">Identificador</label>
                             <p:inputText class="form-control" id="Identificador" type="int" binding="#{identificador}"/>
 							<p:commandButton class="btn pull-left" value="Registrar">
-									<f:actionListener  update="@form" immediate="true"
+									<f:actionListener 
 										binding="#{recursoBean.registrarRecurso(identificador.value,nombre.value,tipo.value,ubicacion.value,estado.value,capacidad.value,disponibilidad.value)}"
-									/>
+										update="@form" immediate="true"/>
 							</p:commandButton>
                 </fieldset>
                
@@ -43,7 +43,7 @@
 			 
 			<h1>Recursos habilitados</h1>
 			
-			<p:dataTable var="re" value="#{recursoBean.consultarRecursosDisponibles()}">
+			<p:dataTable id="table1" var="re" value="#{recursoBean.consultarRecursosDisponibles()}">
 						<p:column headerText="Id">
 							<h:outputText value="#{re.getID()}" />
 						</p:column>

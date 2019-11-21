@@ -90,13 +90,11 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         }
         try{
             recursoDAO.save(r);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("inicio2.xhtml");
+           
         }
         catch (PersistenceException e){
            throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString());
-        } catch (IOException ex) {
-            Logger.getLogger(ServiciosReservaImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
     }
     
     @Override

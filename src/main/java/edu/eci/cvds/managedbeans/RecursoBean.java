@@ -2,6 +2,7 @@ package edu.eci.cvds.managedbeans;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
+import static edu.eci.cvds.services.ServiciosReserva.ubicaciones;
 import edu.eci.cvds.services.ServiciosReservaFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
+import java.util.Locale;
 
 
 
@@ -24,11 +26,26 @@ public class RecursoBean implements Serializable {
     private int identificador;
     private boolean estado;
     private int disponibilidad;
+     private List<Recurso> filteredRecurso;
     
     public RecursoBean(){
         ServiciosReserva = ServiciosReservaFactory.getInstance().getServiciosReserva();
     }
-
+    public List<String> getUbicaciones(){
+        return ServiciosReserva.getUbicaciones();
+    }
+    public List<String> getTipos() {
+        return ServiciosReserva.getTipos();
+    }
+    public List<Integer> getCapacidades(){
+        return ServiciosReserva.getCapacidades();
+    }
+    public List<Recurso> getFilteredRecurso(){
+         return filteredRecurso;
+    }
+     public void setFilteredRecurso(List<Recurso> filteredRecurso) {
+        this.filteredRecurso = filteredRecurso;
+    }
 
     public int getCapacidad() {
         return capacidad;

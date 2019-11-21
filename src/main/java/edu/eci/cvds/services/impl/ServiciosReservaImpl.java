@@ -14,6 +14,7 @@ import edu.eci.cvds.services.ServiciosReserva;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.transaction.Transactional;
 
@@ -26,6 +27,11 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     private EstudianteDAO estudianteDAO;
     @Inject
     private ReservaDAO reservaDAO;
+    
+    private List<Recurso> filteredrecurso;
+    
+
+     
     
     @Override
     public Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva {
@@ -144,6 +150,17 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error al agregar la reserva " + id);
         }
     }
-    
+    @Override
+     public List<String> getTipos() {
+        return tipos;
+    }
+    @Override
+    public List<String> getUbicaciones(){
+        return ubicaciones;
+    }
+    @Override
+    public List<Integer> getCapacidades(){
+        return capacidades;
+    }
     
 }

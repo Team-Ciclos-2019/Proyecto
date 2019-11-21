@@ -1,6 +1,9 @@
 
 package edu.eci.cvds.entities;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class Recurso {
     
@@ -11,6 +14,17 @@ public class Recurso {
     private boolean estado;
     private int capacidad;
     private int disponibilidad;
+    private final static String[] tipos;
+     
+    static {
+      
+         
+        tipos = new String[3];
+        tipos[0] = "computador";
+        tipos[1] = "sala de estudio";
+        tipos[2] = "tablero digital";
+        
+    }
     
     public Recurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         this.identificador=identificador;
@@ -72,6 +86,9 @@ public class Recurso {
     
     public void setCapacidad(int capacidad){
         this.capacidad=capacidad;
+    }
+     public List<String> getTipos() {
+        return Arrays.asList(tipos);
     }
     
     @Override

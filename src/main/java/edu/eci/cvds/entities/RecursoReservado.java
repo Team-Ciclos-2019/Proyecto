@@ -1,23 +1,23 @@
 
 package edu.eci.cvds.entities;
 
-import java.sql.Date;
+import java.util.Date;
 
 
 public class RecursoReservado {
     
     private int id;
     private Recurso recurso;
-    private Date horaInicio;
-    private Date horaFin;
+    private Date inicio;
+    private Date fin;
     private boolean activo;
     
-    public RecursoReservado(int id, Recurso recurso,boolean activo, Date horaInicio,Date horaFin){
+    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin){
         this.id=id;
         this.recurso=recurso;
         this.activo=activo;
-        this.horaInicio=horaInicio;
-        this.horaFin=horaFin;
+        this.inicio=inicio;
+        this.fin=fin;
     }
     
     public int getId(){
@@ -44,19 +44,19 @@ public class RecursoReservado {
         this.activo=activo;
     }
     
-    public Date getHoraInicio() {
-        return horaInicio;
+    public Date getInicio() {
+        return inicio;
     }
 
-    public void setHoraInicio(Date horaInicio) {
-        this.horaInicio = horaInicio;
+    public void setInicio(Date inicio) {
+        this.inicio = inicio;
     }
 
-    public Date getHoraFin() {
-        return horaFin;
+    public Date getFin() {
+        return fin;
     }
 
-    public void setHoraFin(Date fechafinrenta) {
-        this.horaFin = horaFin;
+    public void setFin(Date fin) {
+        this.fin = fin;
     }
 }

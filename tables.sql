@@ -14,4 +14,12 @@ CREATE TABLE if not exists Usuario (
 	carrera VARCHAR(100)  not null,
 	penalizado BOOLEAN not null);
 	
+CREATE TABLE if not exists Recurso_Reservado (
+	id int not null AUTO_INCREMENT,
+	recurso int  not null,
+	estudiante int  not null,
+	inicio TIMESTAMP  not null,
+	fin TIMESTAMP  not null,
+	activo BOOLEAN not null);
+	
 insert into Usuario(id,nombre,carrera,penalizado) values (1,'Mauricio Gonzalez','Ing Mecanica',false);

@@ -1,10 +1,11 @@
 package edu.eci.cvds.services.impl;
 
 import com.google.inject.Singleton;
-import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.RecursoReservado;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
+import java.text.SimpleDateFormat;
 import javax.ejb.Stateless;
 import javax.faces.bean.ViewScoped;
 import org.junit.Assert;
@@ -131,5 +132,17 @@ public class ServiciosReservaTest{
         }
     }
     
+    @Test
+    public void testCancelarReserva(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 17:00:00"),true);
+            ServiciosReserva.cancelarReservasFuturas(1);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     
 }

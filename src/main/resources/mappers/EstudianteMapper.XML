@@ -36,8 +36,8 @@
         </if>
 	</select>
   
-	<insert id="agregarReservaFuturaAUsuario" parameterType="map" >
-		insert into recurso_reservado(recurso,estudiante,horaInicio, horaFin) values (#{idr},#{ide},#{FechaI},#{FechaF});
+	<insert id="agregarRecursoAUsuario" parameterType="map" >
+		insert into recurso_reservado(recurso,estudiante,inicio, fin,activo) values (#{idr},#{ide},#{FechaI},#{FechaF},#{Activo});
 	</insert>
 	
 	<insert id="agregarUsuario" parameterType="map" >

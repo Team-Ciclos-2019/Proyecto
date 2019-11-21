@@ -12,7 +12,7 @@ import edu.eci.cvds.persistence.ReservaDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -100,7 +100,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Override
     @Transactional
-    public void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin) throws ExceptionServiciosReserva{
+    public void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
         if(horaInicio.compareTo(horaFin)>0){
             throw new ExceptionServiciosReserva("Error, la fecha de inicio no puede ser después de la fecha final");
         }
@@ -117,13 +117,11 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             }
         }
          try {
-            estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin);
+            estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin,activo);
         } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al agregar el recurso"
+            throw new ExceptionServiciosReserva("Error al agregar "
                     +r.toString()+" al usuario "+id);
         }
-        
-        
     }
     
     @Override

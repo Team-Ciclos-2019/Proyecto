@@ -7,8 +7,9 @@
 
 	<resultMap type='RecursoReservado' id='RecursoReservadoResult'>
 		<id property='id' column='id' />
-        <result property='horaInicio' column='horaInicio' />
-        <result property='horaFin' column='horaFin' />
+        <result property='inicio' column='inicio' />
+        <result property='fin' column='fin' />
+		<result property= 'activo' column='activo' />
 		<association property="estudiante" javaType="Estudiante" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.EstudianteMapper.EstudianteResult" columnPrefix="e_"></association>
 		<association property="recurso" javaType="Recurso" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix="r_"></association>
     </resultMap>
@@ -16,8 +17,8 @@
 	<select parameterType='map' id='consultarReserva' resultMap='RecursoReservadoResult' >
 		SELECT
 		reserva.id as id,
-		reserva.horaInicio as horaInicio,
-		reserva.horaFin as horaFin,
+		reserva.inicio as inicio,
+		reserva.fin as fin,
 		e.id as id_estudiante,
 		e.nombre as nombre_esudiante,
 		r.id as recurso,
@@ -30,7 +31,7 @@
 	</select>
 	
 	<update parameterType='map' id='cancelarReserva'>
-		update RECURSO_RESERVADO as reserva set id=id
+		update RECURSO_RESERVADO as reserva set activo=false
 		where id=#{id}
 		
 	</update>

@@ -10,7 +10,7 @@ import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.EstudianteMapper;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,11 +43,12 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
     }
     
     @Override
-    public void agregarReservaFuturaAUsuario(int idUsuario, int idRecurso, Date horaInicio, Date horaFin)  throws PersistenceException{
+    public void agregarReservaFuturaAUsuario(int idUsuario, int idRecurso, Date horaInicio, Date horaFin,boolean activo)  throws PersistenceException{
         try{
-            estudianteMapper.agregarRecursoAUsuario(idUsuario,idRecurso,horaInicio,horaFin);
+            estudianteMapper.agregarRecursoAUsuario(idUsuario,idRecurso,horaInicio,horaFin,activo);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            e.printStackTrace();
             throw new PersistenceException("Error al consultar los estudiantes");
         }
     }

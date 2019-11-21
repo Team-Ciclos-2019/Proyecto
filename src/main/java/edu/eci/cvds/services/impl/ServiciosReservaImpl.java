@@ -51,6 +51,14 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error al consultar recurso");
         }
      }
+     @Override
+     public List<Recurso> consultarRecursosNoDisponibles() throws ExceptionServiciosReserva{
+        try {
+            return recursoDAO.consultarRecursosNoDisponibles();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar recurso");
+        }
+     }
     @Override
     public List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva {
         try {

@@ -94,20 +94,13 @@ public class RecursoBean implements Serializable {
             e.printStackTrace();
         }
     }
-    public void cambiarEstado(int id){
+    public void cambiarEstado(boolean var, int id){
          try{
-			 if(estado){
 				System.out.println(this.estado);
-				ServiciosReserva.cambiarEstado(false,id);
-                                this.setEstado(false);
+				ServiciosReserva.cambiarEstado(var,id);
+                this.setEstado(var);
 				System.out.println("fin");
-			 }
-			 else{
-				System.out.println(this.estado);
-				ServiciosReserva.cambiarEstado(true,id);
-                                this.setEstado(true);
-				System.out.println("fin");
-			 }
+			 
 
         } catch (ExceptionServiciosReserva e) {
             e.printStackTrace();
@@ -129,6 +122,17 @@ public class RecursoBean implements Serializable {
 			 
             System.out.println("lista");
             return ServiciosReserva.consultarRecursosDisponibles();
+          
+        } catch (ExceptionServiciosReserva e) {
+            e.printStackTrace();
+            return null;
+        }
+     }
+     public  List<Recurso> consultarRecursosNoDisponibles(){
+         try{
+			 
+            System.out.println("lista");
+            return ServiciosReserva.consultarRecursosNoDisponibles();
           
         } catch (ExceptionServiciosReserva e) {
             e.printStackTrace();

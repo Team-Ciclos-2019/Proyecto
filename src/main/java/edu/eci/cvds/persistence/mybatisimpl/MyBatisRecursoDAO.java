@@ -57,6 +57,16 @@ public class MyBatisRecursoDAO implements RecursoDAO{
             return null;
         } 
      }
+     @Override
+    public List<Recurso> consultarRecursosNoDisponibles() throws PersistenceException{
+         try{
+            return (recursoMapper.consultarRecursosNoDisponibles());
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            e.printStackTrace();
+            return null;
+        } 
+     }
  
 
 }

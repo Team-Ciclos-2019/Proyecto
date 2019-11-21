@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface ServiciosReserva{
+    public abstract List<Recurso> consultarRecursosNoDisponibles() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursosDisponibles() throws ExceptionServiciosReserva;
     public abstract  Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
     public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;

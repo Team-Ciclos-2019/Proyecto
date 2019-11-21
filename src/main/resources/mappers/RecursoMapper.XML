@@ -26,6 +26,20 @@
         Recurso as re
         WHERE
         re.estado=true
+     </select>
+      <select id="consultarRecursosNoDisponibles" resultMap="RecursoResult">
+        SELECT
+        re.id,
+        re.nombre,
+        re.tipo,
+        re.ubicacion,
+        re.estado,
+        re.capacidad,
+        re.disponibilidad
+        FROM
+        Recurso as re
+        WHERE
+        re.estado=false
      </select>    
     <select id="consultarRecursos" resultMap="RecursoResult">
         SELECT

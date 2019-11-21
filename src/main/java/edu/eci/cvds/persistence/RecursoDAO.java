@@ -15,4 +15,6 @@ public interface RecursoDAO {
     
     public List<Recurso> consultarRecursosDisponibles() throws PersistenceException;
     
+    public List<Recurso> consultarRecursosNoDisponibles() throws PersistenceException;
+    
 }

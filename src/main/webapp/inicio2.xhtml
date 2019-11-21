@@ -46,8 +46,9 @@
 			
 			
 			 
+			<h1>Recursos habilitados</h1>
 			
-			<p:dataTable var="re" value="#{recursoBean.consultarRecursos()}">
+			<p:dataTable var="re" value="#{recursoBean.consultarRecursosDisponibles()}">
 						<p:column headerText="Id">
 							<h:outputText value="#{re.getID()}" />
 						</p:column>
@@ -61,8 +62,39 @@
 						<p:column headerText="Ubicacion">
 							<h:outputText value="#{re.getUbicacion()}" />
 						</p:column>
-						<p:column headerText="Estado">
-							<h:outputText value="#{re.getEstado()}" />
+					
+						<p:column headerText="Capacidad">
+							<h:outputText value="#{re.getCapacidad()}" />
+						</p:column>
+						<p:column headerText="Disponibilidad">
+							<h:outputText value="#{re.getDisponibilidad()}" />
+						</p:column>
+						<p:column headerText="Reservar">
+							
+							<p:commandButton  class="btn pull-right" value="Deshabilitar" update="@form" immediate="true" actionListener="#{recursoBean.cambiarEstado(false,re.getID())}" />
+						
+						</p:column>
+						
+						
+						
+					 
+						
+			</p:dataTable>
+			<h1>Recursos deshabilitados</h1>
+			
+			<p:dataTable var="re" value="#{recursoBean.consultarRecursosNoDisponibles()}">
+						<p:column headerText="Id">
+							<h:outputText value="#{re.getID()}" />
+						</p:column>
+					 
+						<p:column headerText="Nombre">
+							<h:outputText value="#{re.getNombre()}" />
+						</p:column>
+						<p:column headerText="Tipo">
+							<h:outputText value="#{re.getTipo()}" />
+						</p:column>
+						<p:column headerText="Ubicacion">
+							<h:outputText value="#{re.getUbicacion()}" />
 						</p:column>
 						<p:column headerText="Capacidad">
 							<h:outputText value="#{re.getCapacidad()}" />
@@ -72,7 +104,7 @@
 						</p:column>
 						<p:column headerText="Reservar">
 							
-							<p:commandButton  class="btn pull-right" process="@form" value="#{re.getEstado() ? 'Deshabilitar' : 'Habilitar'}" update="@all" actionListener="#{recursoBean.cambiarEstado(re.getID())}" />
+							<p:commandButton  class="btn pull-right" value="Habilitar" update="@form" immediate="true" actionListener="#{recursoBean.cambiarEstado(true,re.getID())}" />
 						
 						</p:column>
 						

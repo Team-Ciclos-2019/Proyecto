@@ -11,7 +11,6 @@ public interface ServiciosReserva{
     public abstract  Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
     public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursos() throws ExceptionServiciosReserva;
-    public RecursoReservado consultarReserva(int id)throws ExceptionServiciosReserva;
     public abstract void registrarRecurso(Recurso r) throws ExceptionServiciosReserva;
     public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva;
     public abstract void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva;

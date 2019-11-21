@@ -67,7 +67,7 @@ public class ServiciosReservaTest{
             ServiciosReserva.consultarEstudiante(1);
         }
         catch(Exception e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
     

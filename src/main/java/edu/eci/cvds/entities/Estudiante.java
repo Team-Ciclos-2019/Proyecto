@@ -20,11 +20,11 @@ public class Estudiante {
     }
     
     
-    public Estudiante(int identificador,String nombre, String carrera){
+    public Estudiante(int identificador,String nombre, String carrera, boolean penalizado){
         this.identificador=identificador;
         this.nombre=nombre;
         this.carrera=carrera;
-        penalizado=false;
+        this.penalizado=penalizado;
         recursos=new ArrayList();
     }
     

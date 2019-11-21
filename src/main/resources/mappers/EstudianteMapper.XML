@@ -18,9 +18,9 @@
         u.id,
         u.nombre,
         u.carrera,
-        u.penalizado,
+        u.penalizado
         FROM
-        Usuarios as u
+        Usuario as u
     </select>
 	
 	<select parameterType='map' id='consultarEstudiante' resultMap='EstudianteResult'>
@@ -28,9 +28,9 @@
 		u.id,
         u.nombre,
         u.carrera,
-        u.penalizado,
+        u.penalizado
         FROM
-        Usuarios as u
+        Usuario as u
         <if test="ide != null">
             where u.id=#{ide}
         </if>

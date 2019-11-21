@@ -11,5 +11,6 @@ public interface EstudianteMapper {
     
     public Estudiante consultarEstudiante(@Param("ide") int id);
     public List<Estudiante> consultarEstudiantes();
+    public void agregarUsuario(@Param("usuario") Estudiante estudiante);
     public void agregarRecursoAUsuario(@Param("ide") int id,@Param("idr") int idr,@Param("FechaI") Date fechaInicio,@Param("FechaF") Date fechaFin);
 }

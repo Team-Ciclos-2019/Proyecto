@@ -26,18 +26,22 @@
 	<select parameterType='map' id='consultarEstudiante' resultMap='EstudianteResult'>
 		SELECT
 		u.id,
-                u.nombre,
-                u.carrera,
-                u.penalizado,
-                FROM
-                Usuarios as u
-                        <if test="ide != null">
-                                where u.id=#{ide}
-                        </if>
-  </select>
+        u.nombre,
+        u.carrera,
+        u.penalizado,
+        FROM
+        Usuarios as u
+        <if test="ide != null">
+            where u.id=#{ide}
+        </if>
+	</select>
   
-	<insert id="agregarItemRentadoACliente" parameterType="map" >
+	<insert id="agregarReservaFuturaAUsuario" parameterType="map" >
 		insert into recurso_reservado(recurso,estudiante,horaInicio, horaFin) values (#{idr},#{ide},#{FechaI},#{FechaF});
+	</insert>
+	
+	<insert id="agregarUsuario" parameterType="map" >
+		insert into usuario(id,nombre,carrera, penalizado) values (#{cliente.id},#{cliente.nombre},#{cliente.carrera},#{cliente.penalizado});
 	</insert>
 	
   </mapper>

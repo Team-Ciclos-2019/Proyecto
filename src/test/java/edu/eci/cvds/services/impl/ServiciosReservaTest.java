@@ -1,6 +1,7 @@
 package edu.eci.cvds.services.impl;
 
 import com.google.inject.Singleton;
+import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
@@ -60,6 +61,75 @@ public class ServiciosReservaTest{
         }
     }
   
+    @Test
+    public void testConsultarEstudiante(){
+        try{
+            ServiciosReserva.consultarEstudiante(1);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    
+    @Test
+    public void testConsultarEstudianteFallido(){
+        try{
+            ServiciosReserva.consultarEstudiante(3);
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error al consultar estudiante", e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testConsultarRecursos(){
+        Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+        Recurso recurso2= new Recurso(2,"salon1","salon","Bloque G",true,3,11);
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.registrarRecurso(recurso2);
+            ServiciosReserva.consultarRecursos();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testConsultarRecursosDisponibles(){
+        Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+        Recurso recurso2= new Recurso(2,"salon1","salon","Bloque G",false,3,11);
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.registrarRecurso(recurso2);
+            ServiciosReserva.consultarRecursosDisponibles();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        } 
+    }
+    
+    @Test
+    public void testConsultarEstudiantes(){
+        try{
+            ServiciosReserva.consultarEstudiantes();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testCambiarEstado(){
+        Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.cambiarEstado(false, 1);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     
     
 }

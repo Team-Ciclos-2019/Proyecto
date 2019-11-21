@@ -51,4 +51,14 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
             throw new PersistenceException("Error al consultar los estudiantes");
         }
     }
+    
+    @Override
+    public void save(Estudiante estudiante) throws PersistenceException{
+        try{
+            estudianteMapper.agregarUsuario(estudiante);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al agregar estudiante");
+        }
+    }
 }

@@ -78,12 +78,23 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     
     @Override
+    @Transactional
     public void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva {
         try{
             recursoDAO.setestado(var,id);
         }
         catch (PersistenceException e){
            throw new ExceptionServiciosReserva("Error al cambiar estado");
+        }
+    }
+    
+    @Override
+    @Transactional
+    public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva {
+        try {
+            estudianteDAO.save(estudiante);
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al registrar estudiante");
         }
     }
     

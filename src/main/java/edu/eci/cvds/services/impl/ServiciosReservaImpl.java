@@ -60,6 +60,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         }
     }
     
+    
     @Override
     @Transactional
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
@@ -127,7 +128,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     @Override
     @Transactional
     public void cancelarReservasFuturas(int id) throws ExceptionServiciosReserva{
-        //if (consultarReserva(id)== null)throw new ExceptionServiciosReserva("Error,la reserva no está registrada")
+        //if (consultarReserva(id)== null)throw new ExceptionServiciosReserva("Error,la reserva no está registrada");
         try{
             reservaDAO.cancelarReservaFutura(id);
         }

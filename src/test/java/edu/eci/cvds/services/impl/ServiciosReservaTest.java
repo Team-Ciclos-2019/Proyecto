@@ -141,8 +141,25 @@ public class ServiciosReservaTest{
             ServiciosReserva.cancelarReservasFuturas(1);
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() + "adsaf");
         }
     }
     
+    @Test
+    public void testCancelarReservaUsuarioNoExistente(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(2,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 17:00:00"),true);
+            ServiciosReserva.cancelarReservasFuturas(1);
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
+        }
+    }
+    
+    
+    
 }
+    
+

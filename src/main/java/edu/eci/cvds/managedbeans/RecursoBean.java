@@ -102,7 +102,7 @@ public class RecursoBean implements Serializable {
     public void registrarRecurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         try{
             System.out.println("si");
-            Recurso recurso = new Recurso(identificador,nombre,tipo,ubicacion,estado, capacidad,disponibilidad);
+            Recurso recurso = new Recurso(identificador,nombre,tipo,ubicacion,estado,capacidad,disponibilidad);
             System.out.println("recurso");
             ServiciosReserva.registrarRecurso(recurso);
             System.out.println("fin");

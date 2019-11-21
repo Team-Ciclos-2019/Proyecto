@@ -11,11 +11,15 @@ import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.ReservaDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.context.FacesContext;
 import javax.transaction.Transactional;
 
 
@@ -86,9 +90,12 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         }
         try{
             recursoDAO.save(r);
+            FacesContext.getCurrentInstance().getExternalContext().redirect("inicio2.xhtml");
         }
         catch (PersistenceException e){
            throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString());
+        } catch (IOException ex) {
+            Logger.getLogger(ServiciosReservaImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

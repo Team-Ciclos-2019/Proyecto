@@ -29,18 +29,13 @@
                             <p:inputText class="form-control" id="Disponibilidad" type="int" binding="#{disponibilidad}"/>
                             <label class="bmd-label-floating">Identificador</label>
                             <p:inputText class="form-control" id="Identificador" type="int" binding="#{identificador}"/>
-	                    <p:commandButton class="btn pull-right" value="Registrar" actionListener="#{recursoBean.registrarRecurso(identificador.value,nombre.value,tipo.value,ubicacion.value,estado.value,capacidad.value,disponibilidad.value)}" />
+							<p:commandButton class="btn pull-left" value="Registrar">
+									<f:actionListener  update="@form" immediate="true"
+										binding="#{recursoBean.registrarRecurso(identificador.value,nombre.value,tipo.value,ubicacion.value,estado.value,capacidad.value,disponibilidad.value)}"
+									/>
+							</p:commandButton>
                 </fieldset>
-                <fieldset>
-                        <legend>Cambiar estado</legend>             
-                            <label class="bmd-label-floating">setid</label>
-                            <p:inputText class="form-control" id="setid" type="int" binding="#{setid}"/>
-                           
-                            
-                        
-                	
-	                    <p:commandButton class="btn pull-right" value="cambiar" actionListener="#{recursoBean.cambiarEstado(setid.value)}" />
-	        </fieldset> 
+               
 			</center>
 			
 			

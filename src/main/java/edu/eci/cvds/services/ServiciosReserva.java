@@ -2,6 +2,7 @@ package edu.eci.cvds.services;
 
 import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.RecursoReservado;
 import java.util.Date;
 import java.util.List;
 

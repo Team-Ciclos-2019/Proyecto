@@ -21,7 +21,7 @@
 		reserva.fin as fin,
 		e.id as id_estudiante,
 		e.nombre as nombre_esudiante,
-		r.id as recurso,
+		r.id as recurso
 		FROM 
 		RECURSO_RESERVADO as reserva,
 		USUARIO as e,
@@ -32,7 +32,7 @@
 	
 	<update parameterType='map' id='cancelarReserva'>
 		update RECURSO_RESERVADO as reserva set activo=false
-		where id=#{id}
+		where reserva.recurso=#{idr}
 		
 	</update>
 	

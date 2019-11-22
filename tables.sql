@@ -15,7 +15,7 @@ CREATE TABLE if not exists Usuario (
 	penalizado BOOLEAN not null);
 	
 CREATE TABLE if not exists Recurso_Reservado (
-	id int not null AUTO_INCREMENT,
+	id SERIAL PRIMARY KEY,
 	recurso int  not null,
 	estudiante int  not null,
 	inicio TIMESTAMP  not null,

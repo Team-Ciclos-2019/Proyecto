@@ -16,6 +16,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,6 +79,14 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         }
     }
     
+    @Override
+    public RecursoReservado consultarReserva(int id) throws ExceptionServiciosReserva {
+        try {
+            return reservaDAO.consultarReservaFutura(id);
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reserva");
+        }
+    }
     
     @Override
     @Transactional
@@ -127,17 +136,12 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         if(consultarEstudiante(id)==null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
         //if(consultarRecurso(r.getID())==null)throw new ExceptionServiciosReserva("Eror, el recurso no esta registrado");
         List<Estudiante> listaEstudiantes = consultarEstudiantes();
-        for (int i=0; i< listaEstudiantes.size();i++){
-            listaEstudiantes.get(i).getID();
-            ArrayList<RecursoReservado> listaRecursos= listaEstudiantes.get(i).getRecursos();
-            for (int j=0; j<listaRecursos.size(); j++){
-                if(listaRecursos.get(j).getRecurso()== r){
-                    throw new ExceptionServiciosReserva("Este recurso ya se encuentra rentado");
-                }
-            }
-        }
+        if(r.getEstado()== false) throw new ExceptionServiciosReserva("Error, el recurso no está disponible");
+        long diff = horaFin.getTime() - horaInicio.getTime();
+        if(diff/(60*60*1000) > 2) throw new ExceptionServiciosReserva("Error, la reserva no se puede realizar por mas de 2 horas");
          try {
             estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin,activo);
+            cambiarEstado(false,r.getID());
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar "
                     +r.toString()+" al usuario "+id);
@@ -147,14 +151,19 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     @Override
     @Transactional
     public void cancelarReservasFuturas(int id) throws ExceptionServiciosReserva{
-        //if (consultarReserva(id)== null)throw new ExceptionServiciosReserva("Error,la reserva no está registrada");
+        if (consultarReserva(id)== null)throw new ExceptionServiciosReserva("Error,la reserva no esta registrada");
         try{
+            RecursoReservado reserva=consultarReserva(id);
+            Date today = Calendar.getInstance().getTime();
+            if(today.compareTo(reserva.getFin())>0) throw new ExceptionServiciosReserva("Error, la reserva ya ha acabado");
+            if(today.compareTo(reserva.getInicio())>0 && (today.compareTo(reserva.getFin())<0)) throw new ExceptionServiciosReserva("Error, la reserva ya ha empezado");
             reservaDAO.cancelarReservaFutura(id);
         }
         catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar la reserva " + id);
         }
     }
+    
     @Override
      public List<String> getTipos() {
         return tipos;

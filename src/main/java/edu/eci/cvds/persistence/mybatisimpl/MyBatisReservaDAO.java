@@ -19,6 +19,7 @@ public class MyBatisReservaDAO implements ReservaDAO {
             return recursoReservadoMapper.consultarReserva(id);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            
             throw new PersistenceException("Error al consultar la reserva");
         }
     }
@@ -29,6 +30,7 @@ public class MyBatisReservaDAO implements ReservaDAO {
             recursoReservadoMapper.cancelarReserva(id);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            
             throw new PersistenceException("Error al cancelar la reserva");
         }
     }

@@ -12,10 +12,11 @@ import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @Named
 @Stateless
-@ViewScoped
+@SessionScoped
 @ManagedBean(name="InicioBean",eager =true)
 public class App implements Serializable{
     private static final Logger log = LoggerFactory.getLogger(App.class);

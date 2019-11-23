@@ -11,11 +11,12 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.Locale;
+import javax.faces.bean.ViewScoped;
 
 
 
 @ManagedBean(name = "recursoBean")
-@SessionScoped
+@ViewScoped
 public class RecursoBean implements Serializable {
     private static final Logger log = LoggerFactory.getLogger( RecursoBean.class);
     private final ServiciosReserva ServiciosReserva;

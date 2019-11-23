@@ -8,10 +8,31 @@
         <title>login</title>
     </h:head>
     <body>
+       
         <h1>Hello team!</h1>
+        <h:outputText value="#{InicioBean.getCorreo()}" />
 		<h:form id = "consultar">
 			<p:dataTable var="re" value="#{recursoBean.consultarRecursosDisponibles()}">
+                                
 				<p:column headerText="Id">
+                                        <p:growl id="growl" sticky="true" showDetail="true" />
+                                        <p:dialog  header="Reserva" widgetVar="#{re.getID()}" showEffect="clip" hideEffect="clip" modal="true">
+                                              
+                                                <p:outputLabel value="Recurso: " />
+                                                <h:outputText value="#{re.getID()}"/> 
+                                                <br/>
+                                                <p:outputLabel value="Usuario: " />
+                                                <h:outputText value="#{InicioBean.getCorreo()}"/> 
+                                                  <br/>
+                                                <p:outputLabel for="datetime" value="Hora de inicio:" />
+                                                <p:calendar id="datetime" value="#{calendarBean.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+                                                  <br/>
+                                                <p:outputLabel for="date" value="Hora de fin:" />
+                                                <p:calendar id="date" value="#{calendarBean.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+                                                
+                                              
+                                               
+                                        </p:dialog> 
 					<h:outputText value="#{re.getID()}" />
 				</p:column>
 			 
@@ -32,7 +53,8 @@
 				</p:column>
 				<p:column headerText="Reservar">
 					
-					<p:commandButton  class="btn pull-right" process="@form" value="Reservar" update="@form" onclick="PF('format').show();" />
+                                    <p:commandButton  class="btn pull-right" process="@form" value="Reservar" onclick="PF('#{re.getID()}').show();" oncomplete="PF('#{re.getID()}').show();" />
+                                       
 				
 				</p:column>
 				
@@ -41,14 +63,7 @@
 			 
 				
 			</p:dataTable>
-			<p:dialog header="Modal Dialog" widgetVar="format" modal="true" height="100">
-				<h:panelGrid id="eventDetails" columns="2">
-					<p:outputLabel for="id" value="id:" />
-					<p:inputText id="id" value="" required="true" />
-		 
-					
-				</h:panelGrid>
-			</p:dialog>    
+			
 		 
 		 </h:form>
     </body>

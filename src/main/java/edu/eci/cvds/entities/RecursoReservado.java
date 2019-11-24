@@ -1,6 +1,7 @@
 
 package edu.eci.cvds.entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -11,13 +12,27 @@ public class RecursoReservado {
     private Date inicio;
     private Date fin;
     private boolean activo;
+    private String tipo;
+    private ArrayList<ReservaSimple> reservaRecurrente;
     
-    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin){
+    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente ){
         this.id=id;
         this.recurso=recurso;
         this.activo=activo;
         this.inicio=inicio;
         this.fin=fin;
+        this.tipo=tipo;
+        this.reservaRecurrente=reservaRecurrente;
+    }
+    
+    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo){
+        this.id=id;
+        this.recurso=recurso;
+        this.activo=activo;
+        this.inicio=inicio;
+        this.fin=fin;
+        this.tipo=tipo;
+        reservaRecurrente=new ArrayList();
     }
     
     public int getId(){
@@ -58,5 +73,21 @@ public class RecursoReservado {
 
     public void setFin(Date fin) {
         this.fin = fin;
+    }
+    
+    public String getTipo(){
+        return tipo;
+    }
+    
+    public void setTipo(String tipo){
+        this.tipo=tipo;
+    }
+    
+    public ArrayList<ReservaSimple> getReservaRecurrente(){
+        return reservaRecurrente;
+    }
+    
+    public void setReservaRecurrente(ArrayList<ReservaSimple> reservaRecurrente){
+        this.reservaRecurrente=reservaRecurrente;
     }
 }

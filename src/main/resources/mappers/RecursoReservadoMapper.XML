@@ -12,7 +12,9 @@
 		<result property= 'activo' column='activo' />
 		<association property="estudiante" javaType="Estudiante" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.EstudianteMapper.EstudianteResult" columnPrefix="e_"></association>
 		<association property="recurso" javaType="Recurso" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.RecursoMapper.RecursoResult" columnPrefix="r_"></association>
-    </resultMap>
+		<collection property='reservaSimple' ofType='ReservaSimple'
+					resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaSimpleMapper.ReservaSimpleResult" columnPrefix="rs_"></collection>
+	</resultMap>
 	
 	<select parameterType='map' id='consultarReserva' resultMap='RecursoReservadoResult' >
 		SELECT

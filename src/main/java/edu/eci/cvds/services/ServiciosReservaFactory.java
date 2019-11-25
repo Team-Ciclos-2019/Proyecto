@@ -6,9 +6,11 @@ import com.google.inject.Injector;
 import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.ReservaDAO;
+import edu.eci.cvds.persistence.ReservaSimpleDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisEstudianteDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisRecursoDAO;
 import edu.eci.cvds.persistence.mybatisimpl.MyBatisReservaDAO;
+import edu.eci.cvds.persistence.mybatisimpl.MyBatisReservaSimpleDAO;
 import edu.eci.cvds.services.impl.ServiciosReservaImpl;
 
 import org.mybatis.guice.XMLMyBatisModule;
@@ -32,6 +34,7 @@ public class ServiciosReservaFactory {
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
                 bind(EstudianteDAO.class).to(MyBatisEstudianteDAO.class);
                 bind(ReservaDAO.class).to(MyBatisReservaDAO.class);
+                bind(ReservaSimpleDAO.class).to(MyBatisReservaSimpleDAO.class);
             }
         }
         );
@@ -44,6 +47,7 @@ public class ServiciosReservaFactory {
                 bind(RecursoDAO.class).to(MyBatisRecursoDAO.class);
                 bind(EstudianteDAO.class).to(MyBatisEstudianteDAO.class);
                 bind(ReservaDAO.class).to(MyBatisReservaDAO.class);
+                bind(ReservaSimpleDAO.class).to(MyBatisReservaSimpleDAO.class);
             }
         }
         );

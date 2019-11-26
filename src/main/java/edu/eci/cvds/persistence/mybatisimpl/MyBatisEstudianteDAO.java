@@ -48,7 +48,6 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
             estudianteMapper.agregarRecursoAUsuario(idUsuario,idRecurso,horaInicio,horaFin,activo);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            e.printStackTrace();
             throw new PersistenceException("Error al consultar los estudiantes");
         }
     }

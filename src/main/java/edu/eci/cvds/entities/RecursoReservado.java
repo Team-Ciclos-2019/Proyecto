@@ -13,9 +13,10 @@ public class RecursoReservado {
     private Date fin;
     private boolean activo;
     private String tipo;
+    private int duracion;
     private ArrayList<ReservaSimple> reservaRecurrente;
     
-    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente ){
+    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente, int duracion ){
         this.id=id;
         this.recurso=recurso;
         this.activo=activo;
@@ -23,6 +24,7 @@ public class RecursoReservado {
         this.fin=fin;
         this.tipo=tipo;
         this.reservaRecurrente=reservaRecurrente;
+        this.duracion=duracion;
     }
     
     public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo){
@@ -33,6 +35,7 @@ public class RecursoReservado {
         this.fin=fin;
         this.tipo=tipo;
         reservaRecurrente=new ArrayList();
+        duracion=2;
     }
     
     public int getId(){
@@ -81,6 +84,14 @@ public class RecursoReservado {
     
     public void setTipo(String tipo){
         this.tipo=tipo;
+    }
+    
+    public int getDuracion(){
+        return duracion;
+    }
+    
+    public void setDuracion(int duracion){
+        this.duracion=duracion;
     }
     
     public ArrayList<ReservaSimple> getReservaRecurrente(){

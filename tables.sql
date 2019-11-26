@@ -22,4 +22,11 @@ CREATE TABLE if not exists Recurso_Reservado (
 	fin TIMESTAMP  not null,
 	activo BOOLEAN not null);
 	
+CREATE TABLE if not exists Reserva_Simple (
+	id SERIAL PRIMARY KEY,
+	reserva int  not null,
+	inicio TIMESTAMP  not null,
+	fin TIMESTAMP  not null,
+	activo BOOLEAN not null);
+	
 insert into Usuario(id,nombre,carrera,penalizado) values (1,'Mauricio Gonzalez','Ing Mecanica',false);

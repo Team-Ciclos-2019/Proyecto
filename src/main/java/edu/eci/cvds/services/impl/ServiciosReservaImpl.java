@@ -9,6 +9,7 @@ import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.EstudianteDAO;
 import edu.eci.cvds.persistence.ReservaDAO;
+import edu.eci.cvds.persistence.ReservaSimpleDAO;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import edu.eci.cvds.services.ServiciosReserva;
 import java.io.IOException;
@@ -32,6 +33,8 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     private EstudianteDAO estudianteDAO;
     @Inject
     private ReservaDAO reservaDAO;
+    @Inject
+    private ReservaSimpleDAO reservaSimpleDAO;
     
     private List<Recurso> filteredrecurso;
     
@@ -129,23 +132,69 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Override
     @Transactional
-    public void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
+    public void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin,boolean activo,String tipo) throws ExceptionServiciosReserva{
         if(horaInicio.compareTo(horaFin)>0){
             throw new ExceptionServiciosReserva("Error, la fecha de inicio no puede ser después de la fecha final");
         }
         if(consultarEstudiante(id)==null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
         //if(consultarRecurso(r.getID())==null)throw new ExceptionServiciosReserva("Eror, el recurso no esta registrado");
-        List<Estudiante> listaEstudiantes = consultarEstudiantes();
         if(r.getEstado()== false) throw new ExceptionServiciosReserva("Error, el recurso no está disponible");
-        long diff = horaFin.getTime() - horaInicio.getTime();
-        if(diff/(60*60*1000) > 2) throw new ExceptionServiciosReserva("Error, la reserva no se puede realizar por mas de 2 horas");
-         try {
+        try {
             estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin,activo);
-            cambiarEstado(false,r.getID());
+            RecursoReservado reserva= consultarReserva(r.getID());
+            registrarReservaSimple(reserva,horaInicio,horaFin,tipo);
+            //cambiarEstado(false,r.getID());
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar "
                     +r.toString()+" al usuario "+id);
         }
+    }
+    
+    @Override
+    @Transactional
+    public void registrarReservaSimple(RecursoReservado reserva,Date horaInicio, Date horaFin, String tipo) throws ExceptionServiciosReserva{
+        try{
+            if(null != tipo)switch (tipo) {
+                case "Simple":
+                    reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,horaFin,true);
+                    break;
+                case "Diaria":
+                    while (horaFin.compareTo(horaInicio)>0){
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.HOUR, 2);
+                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.DATE, 1);
+                        horaInicio=cal.getTime();
+                    }   break;
+                case "Semanal":
+                    while (horaFin.compareTo(horaInicio)>0){
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.HOUR, 2);
+                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.DATE, 7);
+                        horaInicio=cal.getTime();
+                    }   break;
+                case "Mensual":
+                    while (horaFin.compareTo(horaInicio)>0){
+                        Calendar cal = Calendar.getInstance();
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.HOUR, 2);
+                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        cal.setTime(horaInicio);
+                        cal.add(Calendar.MONTH, 1);
+                        horaInicio=cal.getTime();
+                    }   break;
+                default:
+                    break;
+            }
+        }catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al agregar reserva");
+        }
+    
     }
     
     @Override

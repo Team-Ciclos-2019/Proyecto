@@ -3,15 +3,20 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoReservadoMapper">
+<mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaSimpleMapper">
 
 	<resultMap type='ReservaSimple' id='ReservaSimpleResult'>
 		<id property='id' column='id' />
         <result property='inicio' column='inicio' />
         <result property='fin' column='fin' />
 		<result property= 'activo' column='activo' />
+		<association property="reserva" javaType="RecursoReservado" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.RecursoReservadoMapper.RecursoReservadoResult" columnPrefix="rr_"></association>
 		
     </resultMap>
 
-
+	
+	<insert id="saveReservaSimple" parameterType="map" >
+		insert into reserva_simple(reserva,inicio, fin,activo) values (#{idr},#{FechaI},#{FechaF},#{Activo});
+	</insert>
+	
 </mapper>

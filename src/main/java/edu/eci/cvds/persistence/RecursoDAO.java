@@ -9,6 +9,8 @@ public interface RecursoDAO {
     
     public void save(Recurso r) throws PersistenceException;
     
+    public Recurso consultarRecurso(int id)throws PersistenceException;
+    
     public void setestado(boolean var,int id) throws PersistenceException;
     
     public List<Recurso> consultarRecursos() throws PersistenceException;

@@ -27,6 +27,21 @@
         WHERE
         re.estado=true
      </select>
+       <select parameterType='map' id='consultarRecurso' resultMap='RecursoResult'>
+        SELECT
+        re.id,
+        re.nombre,
+        re.tipo,
+        re.ubicacion,
+        re.estado,
+        re.capacidad,
+        re.disponibilidad
+        FROM
+        Recurso as re
+        <if test="ide != null">
+            where re.id=#{ide}
+        </if>
+    </select>
       <select id="consultarRecursosNoDisponibles" resultMap="RecursoResult">
         SELECT
         re.id,

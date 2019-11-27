@@ -12,5 +12,6 @@ public interface RecursoMapper {
     public List<Recurso> consultarRecursosDisponibles();
     public List<Recurso> consultarRecursos();
     public void insertarRecurso(@Param("recurso")Recurso r);
+    public Recurso consultarRecurso(@Param("ide") int id);
     public void cambiarEstado(@Param("est") boolean var, @Param("ide") int id);
 }

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.Locale;
@@ -35,6 +36,15 @@ public class RecursoBean implements Serializable {
     public List<String> getUbicaciones(){
         return ServiciosReserva.getUbicaciones();
     }
+    public void registrarReservaFutura(int id,int re, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
+        Recurso tempo= consultarRecurso(re);
+        ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,"Simple");
+        
+  
+    }
+     public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
+         return ServiciosReserva.consultarRecurso(id);
+     }
     public List<String> getTipos() {
         return ServiciosReserva.getTipos();
     }

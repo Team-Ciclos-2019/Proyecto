@@ -23,6 +23,17 @@ public class MyBatisRecursoDAO implements RecursoDAO{
         } 
         
     }
+     @Override
+    public Recurso consultarRecurso(int id)throws PersistenceException{
+        try{
+            return recursoMapper.consultarRecurso(id);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            e.printStackTrace();
+            return null;
+        } 
+    
+    }
     @Override
     public void setestado(boolean var,int id) throws PersistenceException{
          try{

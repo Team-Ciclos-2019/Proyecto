@@ -17,21 +17,28 @@
 				<p:column headerText="Id">
                                         <p:growl id="growl" sticky="true" showDetail="true" />
                                         <p:dialog  header="Reserva" widgetVar="#{re.getID()}" showEffect="clip" hideEffect="clip" modal="true">
-                                              
+                                                
                                                 <p:outputLabel value="Recurso: " />
                                                 <h:outputText value="#{re.getID()}"/> 
                                                 <br/>
                                                 <p:outputLabel value="Usuario: " />
                                                 <h:outputText value="#{InicioBean.getCorreo()}"/> 
                                                   <br/>
-                                                <p:outputLabel for="datetime" value="Hora de inicio:" />
-                                                <p:calendar id="datetime" value="#{calendarBean.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
+                                      
+                                                <h:outputLabel value="ini: " />
+                                                <p:calendar value="#{calendarBean.date}" showOn="button" pattern="MM/dd/yyyy HH:mm:ss">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                    <p:ajax update="xd"/>
+                                                </p:calendar>
                                                   <br/>
-                                                <p:outputLabel for="date" value="Hora de fin:" />
-                                                <p:calendar id="date" value="#{calendarBean.date10}" pattern="MM/dd/yyyy HH:mm:ss" />
-                                                
-                                              
-                                               
+                                                <h:outputLabel value="fin: " />
+                                                <p:calendar value="#{calendarBean.date15}" showOn="button" pattern="MM/dd/yyyy HH:mm:ss">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                     <p:ajax update="xd"/>
+                                                </p:calendar>
+                                                   <br/>
+                                                 <p:commandButton id="xd" class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true)}" />  
+
                                         </p:dialog> 
 					<h:outputText value="#{re.getID()}" />
 				</p:column>

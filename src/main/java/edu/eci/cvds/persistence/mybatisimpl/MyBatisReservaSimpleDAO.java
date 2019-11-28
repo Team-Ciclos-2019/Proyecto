@@ -20,7 +20,7 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             
-            throw new PersistenceException("Error al agregar la reserva");
+           e.printStackTrace();
         }
         
     }

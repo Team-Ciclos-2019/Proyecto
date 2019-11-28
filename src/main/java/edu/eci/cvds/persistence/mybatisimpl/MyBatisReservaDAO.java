@@ -20,7 +20,8 @@ public class MyBatisReservaDAO implements ReservaDAO {
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             
-            throw new PersistenceException("Error al consultar la reserva");
+            e.printStackTrace();
+            return null;
         }
     }
     

@@ -20,17 +20,17 @@
         u.carrera,
         u.penalizado
         FROM
-        Usuario as u
+        Usuarios as u
     </select>
 	
 	<select parameterType='map' id='consultarEstudiante' resultMap='EstudianteResult'>
-		SELECT
-		u.id,
+	SELECT
+	u.id,
         u.nombre,
         u.carrera,
         u.penalizado
         FROM
-        Usuario as u
+        Usuarios as u
         <if test="ide != null">
             where u.id=#{ide}
         </if>
@@ -41,7 +41,7 @@
 	</insert>
 	
 	<insert id="agregarUsuario" parameterType="map" >
-		insert into usuario(id,nombre,carrera, penalizado) values (#{cliente.id},#{cliente.nombre},#{cliente.carrera},#{cliente.penalizado});
+		insert into usuarios(id,nombre,carrera, penalizado) values (#{cliente.id},#{cliente.nombre},#{cliente.carrera},#{cliente.penalizado});
 	</insert>
 	
   </mapper>

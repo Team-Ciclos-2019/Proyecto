@@ -8,7 +8,7 @@ CREATE TABLE if not exists Recurso (
   capacidad INT not null,
   disponibilidad INT not null);
 
-CREATE TABLE if not exists Usuario (
+CREATE TABLE if not exists Usuarios (
 	id int not null,
 	nombre VARCHAR(100)  not null,
 	carrera VARCHAR(100)  not null,
@@ -29,4 +29,4 @@ CREATE TABLE if not exists Reserva_Simple (
 	fin TIMESTAMP  not null,
 	activo BOOLEAN not null);
 	
-insert into Usuario(id,nombre,carrera,penalizado) values (1,'Mauricio Gonzalez','Ing Mecanica',false);
+insert into Usuarios(id,nombre,carrera,penalizado) values (1,'Mauricio Gonzalez','Ing Mecanica',false);

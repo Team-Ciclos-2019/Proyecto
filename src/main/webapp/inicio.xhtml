@@ -37,7 +37,7 @@
                                                      <p:ajax update="xd"/>
                                                 </p:calendar>
                                                    <br/>
-                                                 <p:commandButton id="xd" class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true)}" />  
+                                                 <p:commandButton id="xd" ajax="true" class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true)}" />  
 
                                         </p:dialog> 
 					<h:outputText value="#{re.getID()}" />
@@ -60,7 +60,7 @@
 				</p:column>
 				<p:column headerText="Reservar">
 					
-                                    <p:commandButton  class="btn pull-right" process="@form" value="Reservar" onclick="PF('#{re.getID()}').show();" oncomplete="PF('#{re.getID()}').show();" />
+                                    <p:commandButton  class="btn pull-right" update="consultar" process="@form" value="Reservar" onclick="PF('#{re.getID()}').show();" oncomplete="PF('#{re.getID()}').show();" />
                                        
 				
 				</p:column>

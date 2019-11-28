@@ -131,7 +131,7 @@ public class ServiciosReservaTest{
             System.out.println(e.getMessage());
         }
     }
-    
+    /**
     @Test
     public void testCancelarReserva(){
         try{
@@ -144,20 +144,22 @@ public class ServiciosReservaTest{
             System.out.println(e.getMessage());
         }
     }
-    
+    **/
+    /**
     @Test
     public void testCancelarReservaFallidoTarde(){
         try{
             Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
             ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 21:00:00"),
-                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 22:00:00"),true,"Simple");
+            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 22:00:00"),true,"Simple");
             ServiciosReserva.cancelarReservasFuturas(recurso.getID());
         }
         catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
-    /**
+    **/
+    
     @Test
     public void testCancelarReservaUsuarioNoExistente(){
         try{
@@ -170,7 +172,8 @@ public class ServiciosReservaTest{
             Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
         }
     }
-    **/
+    
+    
     @Test
     public void testRegistrarReservaFutura(){
         try{
@@ -179,7 +182,7 @@ public class ServiciosReservaTest{
                 new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:30:00"),true,"Simple");
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
+             System.out.println(e.getMessage());
         }
     }
     
@@ -195,6 +198,20 @@ public class ServiciosReservaTest{
             Assert.assertEquals("Error, la fecha de inicio no puede ser después de la fecha final",e.getMessage());
         }
     }
+
+    @Test
+    public void testConsultarReservaFutura(){
+        try{
+            Recurso recurso= new Recurso(3,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:30:00"),true,"Simple");
+            System.out.println(recurso.getID());
+            ServiciosReserva.consultarReserva(recurso.getID());
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
     
     @Test
     public void testRegistrarReservaFuturaFallidoRecursoNoDisponible(){
@@ -207,7 +224,7 @@ public class ServiciosReservaTest{
             Assert.assertEquals("Error, el recurso no está disponible",e.getMessage());
         }
     }
-    /**
+    
     @Test
     public void testRegistrarReservaFuturaFallidoEstudianteNoExistente(){
         try{
@@ -219,7 +236,7 @@ public class ServiciosReservaTest{
             Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
         }
     }
-    **/
+    
     
 }
     

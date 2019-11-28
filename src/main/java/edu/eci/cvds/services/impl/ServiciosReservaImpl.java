@@ -46,7 +46,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         try {
             return estudianteDAO.consultarEstudiante(id);
         } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al consultar estudiante");
+              throw new ExceptionServiciosReserva("Error al consultar estudiantes");
         }
     }
     @Override
@@ -88,6 +88,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             return reservaDAO.consultarReservaFutura(id);
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al consultar reserva");
+           
         }
     }
     
@@ -145,13 +146,12 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         if(horaInicio.compareTo(horaFin)>0){
             throw new ExceptionServiciosReserva("Error, la fecha de inicio no puede ser después de la fecha final");
         }
-        //if((consultarEstudiante(id)) == null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
+        if((consultarEstudiante(id)) == null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
         //if(consultarRecurso(r.getID())==null)throw new ExceptionServiciosReserva("Eror, el recurso no esta registrado");
         if(r.getEstado()== false) throw new ExceptionServiciosReserva("Error, el recurso no está disponible");
         try {
             estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin,activo);
-           // RecursoReservado reserva= consultarReserva(r.getID());
-            //registrarReservaSimple(reserva,horaInicio,horaFin,tipo);
+            registrarReservaSimple(r.getID(),horaInicio,horaFin,tipo);
             cambiarEstado(false,r.getID());
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar "
@@ -161,18 +161,20 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
     @Override
     @Transactional
-    public void registrarReservaSimple(RecursoReservado reserva,Date horaInicio, Date horaFin, String tipo) throws ExceptionServiciosReserva{
+    public void registrarReservaSimple(int reserva,Date horaInicio, Date horaFin, String tipo) throws ExceptionServiciosReserva{
         try{
             if(null != tipo)switch (tipo) {
                 case "Simple":
-                    reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,horaFin,true);
+                    System.out.println(reserva);
+                    System.out.println(horaInicio);
+                    reservaSimpleDAO.agregarReservaSimple(reserva,horaInicio,horaFin,true);
                     break;
                 case "Diaria":
                     while (horaFin.compareTo(horaInicio)>0){
                         Calendar cal = Calendar.getInstance();
                         cal.setTime(horaInicio);
                         cal.add(Calendar.HOUR, 2);
-                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        reservaSimpleDAO.agregarReservaSimple(reserva,horaInicio,cal.getTime(),true);
                         cal.setTime(horaInicio);
                         cal.add(Calendar.DATE, 1);
                         horaInicio=cal.getTime();
@@ -182,7 +184,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
                         Calendar cal = Calendar.getInstance();
                         cal.setTime(horaInicio);
                         cal.add(Calendar.HOUR, 2);
-                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        reservaSimpleDAO.agregarReservaSimple(reserva,horaInicio,cal.getTime(),true);
                         cal.setTime(horaInicio);
                         cal.add(Calendar.DATE, 7);
                         horaInicio=cal.getTime();
@@ -192,7 +194,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
                         Calendar cal = Calendar.getInstance();
                         cal.setTime(horaInicio);
                         cal.add(Calendar.HOUR, 2);
-                        reservaSimpleDAO.agregarReservaSimple(reserva.getId(),horaInicio,cal.getTime(),true);
+                        reservaSimpleDAO.agregarReservaSimple(reserva,horaInicio,cal.getTime(),true);
                         cal.setTime(horaInicio);
                         cal.add(Calendar.MONTH, 1);
                         horaInicio=cal.getTime();

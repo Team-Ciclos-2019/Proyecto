@@ -28,7 +28,7 @@ public interface ServiciosReserva{
     public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva;
     public abstract void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva;
     public abstract void registrarReservaFutura(int id, Recurso r, Date horaInicio, Date horaFin,boolean activo, String tipo) throws ExceptionServiciosReserva;
-    public void registrarReservaSimple(RecursoReservado reserva,Date horaInicio, Date horaFin, String Tipo) throws ExceptionServiciosReserva;
+    public void registrarReservaSimple(int reserva,Date horaInicio, Date horaFin, String Tipo) throws ExceptionServiciosReserva;
     public void cancelarReservasFuturas(int id) throws ExceptionServiciosReserva; 
      
 }

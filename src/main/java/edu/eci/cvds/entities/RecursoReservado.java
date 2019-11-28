@@ -8,16 +8,18 @@ import java.util.Date;
 public class RecursoReservado {
     
     private int id;
-    private Recurso recurso;
-    private Date inicio;
-    private Date fin;
+    private int estudiante;
+    private int recurso;
+    private java.sql.Timestamp inicio;
+    private java.sql.Timestamp fin;
     private boolean activo;
     private String tipo;
     private int duracion;
     private ArrayList<ReservaSimple> reservaRecurrente;
     
-    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente, int duracion ){
+    public RecursoReservado(int id, int recurso ,int estudiante,boolean activo, java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente, int duracion ){
         this.id=id;
+        this.estudiante=estudiante;
         this.recurso=recurso;
         this.activo=activo;
         this.inicio=inicio;
@@ -27,9 +29,10 @@ public class RecursoReservado {
         this.duracion=duracion;
     }
     
-    public RecursoReservado(int id, Recurso recurso,boolean activo, Date inicio,Date fin, String tipo){
+    public RecursoReservado(int id, int recurso,int estudiante,boolean activo,java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo){
         this.id=id;
         this.recurso=recurso;
+        this.estudiante=estudiante;
         this.activo=activo;
         this.inicio=inicio;
         this.fin=fin;
@@ -37,20 +40,35 @@ public class RecursoReservado {
         reservaRecurrente=new ArrayList();
         duracion=2;
     }
+    public RecursoReservado(int id, int recurso,int estudiante, java.sql.Timestamp inicio,java.sql.Timestamp fin,boolean activo){
+        this.id=id;
+        this.recurso=recurso;
+        this.estudiante=estudiante;
+        this.activo=activo;
+        this.inicio=inicio;
+        this.fin=fin;
+        reservaRecurrente=new ArrayList();
+        duracion=2;
+    }
     
     public int getId(){
         return id;
     }
-    
+    public int getEstudiante(){
+        return estudiante;
+    }
+    public void setEstudiante(int estudiante){
+        this.estudiante=estudiante;
+    }
     public void setId(int id){
         this.id=id;
     }
     
-    public Recurso getRecurso() {
+    public int getRecurso() {
         return recurso;
     }
 
-    public void setRecurso(Recurso recurso) {
+    public void setRecurso(int recurso) {
         this.recurso = recurso;
     }
 
@@ -62,19 +80,19 @@ public class RecursoReservado {
         this.activo=activo;
     }
     
-    public Date getInicio() {
+    public java.sql.Timestamp getInicio() {
         return inicio;
     }
 
-    public void setInicio(Date inicio) {
+    public void setInicio(java.sql.Timestamp inicio) {
         this.inicio = inicio;
     }
 
-    public Date getFin() {
+    public java.sql.Timestamp getFin() {
         return fin;
     }
 
-    public void setFin(Date fin) {
+    public void setFin(java.sql.Timestamp fin) {
         this.fin = fin;
     }
     

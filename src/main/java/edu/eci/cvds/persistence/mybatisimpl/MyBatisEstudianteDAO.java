@@ -28,7 +28,7 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
             return estudianteMapper.consultarEstudiante(id);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            throw new PersistenceException("Error al consultar los estudiante");
+               throw new PersistenceException("Error al consultar los estudiante");
         }
     }
     
@@ -38,7 +38,7 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
             return estudianteMapper.consultarEstudiantes();
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            throw new PersistenceException("Error al consultar los estudiantes");
+              throw new PersistenceException("Error al consultar los estudiantes");
         }
     }
     

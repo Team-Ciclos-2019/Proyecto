@@ -5,13 +5,11 @@
 
 <mapper namespace="edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaSimpleMapper">
 
-	<resultMap type='ReservaSimple' id='ReservaSimpleResult'>
-		<id property='id' column='id' />
+    <resultMap type='ReservaSimple' id='ReservaSimpleResult'>
+	<id property='id' column='id' />
         <result property='inicio' column='inicio' />
         <result property='fin' column='fin' />
-		<result property= 'activo' column='activo' />
-		<association property="reserva" javaType="RecursoReservado" resultMap="edu.eci.cvds..persistence.mybatisimpl.mappers.RecursoReservadoMapper.RecursoReservadoResult" columnPrefix="rr_"></association>
-		
+	<result property= 'activo' column='activo' />		
     </resultMap>
 
 	

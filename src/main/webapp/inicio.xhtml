@@ -70,8 +70,28 @@
 			 
 				
 			</p:dataTable>
-			
-		 
+                       <p:schedule id="schedule" value="#{recursoBean.eventModel}" widgetVar="myschedule">
+
+                            <p:ajax event="dateSelect" listener="#{recursoBean.onDateSelect}" update="eventDetails"
+                             oncomplete="PF('eventDialog').show();"/>
+                             <p:ajax event="eventSelect" listener="#{recursoBean.onEventSelect}" update="eventDetails"
+                             oncomplete="PF('eventDialog').show();"/>
+                            <p:ajax event="eventMove" listener="#{recursoBean.onEventMove}" update="@form"/>
+                            <p:ajax event="eventResize" listener="#{recursoBean.onEventResize}" update="@form"/>
+
+                        </p:schedule>
+                    <p:dialog widgetVar="eventDialog" header="Horario de reserva" showEffect="clip" hideEffect="clip"
+                      modal="true">
+                        <h:panelGrid id="eventDetails" columns="2">
+                            <p:outputLabel for="title" value="Título:"/>
+                            <p:inputText id="title" value="#{recursoBean.event.title}"/>
+
+                            <p:outputLabel for="from" value="Fecha Inicio:"/>
+                            <p:calendar id="from" value="#{recursoBean.event.startDate}" pattern="dd/MM/yyyy HH:mm"/>
+
+                        </h:panelGrid>
+                    </p:dialog>
+
 		 </h:form>
     </body>
 </html>

@@ -8,11 +8,21 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.Locale;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.ScheduleEntryMoveEvent;
+import org.primefaces.event.ScheduleEntryResizeEvent;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 
 
 
@@ -28,7 +38,9 @@ public class RecursoBean implements Serializable {
     private int identificador;
     private boolean estado;
     private int disponibilidad;
-     private List<Recurso> filteredRecurso;
+    private List<Recurso> filteredRecurso;
+    private ScheduleModel eventModel = new DefaultScheduleModel();;
+    private ScheduleEvent event = new DefaultScheduleEvent();
     
     public RecursoBean(){
         ServiciosReserva = ServiciosReservaFactory.getInstance().getServiciosReserva();
@@ -38,10 +50,64 @@ public class RecursoBean implements Serializable {
     }
     public void registrarReservaFutura(int id,int re, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
         Recurso tempo= consultarRecurso(re);
+        event = new DefaultScheduleEvent(tempo.getNombre() ,horaInicio, horaFin);
         ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,"Simple");
-        
-  
+        if(event.getId() == null)
+            eventModel.addEvent(event);
+        else
+            eventModel.updateEvent(event);
+         
+        event = new DefaultScheduleEvent();
+
     }
+    
+     
+   
+    
+    public void onEventSelect(SelectEvent selectEvent) {
+        event = (ScheduleEvent) selectEvent.getObject();
+    }
+
+    public void onDateSelect(SelectEvent selectEvent) {
+        event = new DefaultScheduleEvent("",(Date) selectEvent.getObject(),(Date) selectEvent.getObject(),"simple");
+    }
+
+    public void onEventMove(ScheduleEntryMoveEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
+
+        addMessage(message);
+    }
+
+    public void onEventResize(ScheduleEntryResizeEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
+
+        addMessage(message);
+    }
+
+    private void addMessage(FacesMessage message) {
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public void deleteEvent() {
+        eventModel.deleteEvent(event);
+    }
+
+    public ScheduleModel getEventModel() {
+        return eventModel;
+    }
+
+    public void setEventModel(ScheduleModel eventModel) {
+        this.eventModel = eventModel;
+    }
+
+    public ScheduleEvent getEvent() {
+        return event;
+    }
+
+    public void setEvent(ScheduleEvent event) {
+        this.event = event;
+    }
+     
      public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
          return ServiciosReserva.consultarRecurso(id);
      }

@@ -16,9 +16,9 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
     private ReservaSimpleMapper reservaSimpleMapper;
     
     @Override
-    public void agregarReservaSimple(int reserva,Date horaInicio, Date horaFin,boolean activo) throws PersistenceException{
+    public void agregarReservaSimple(int recurso,int estudiante,Date horaInicio, Date horaFin,boolean activo) throws PersistenceException{
         try{
-            reservaSimpleMapper.saveReservaSimple(reserva,horaInicio,horaFin,activo);
+            reservaSimpleMapper.saveReservaSimple(recurso,estudiante,horaInicio,horaFin,activo);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             
@@ -27,9 +27,9 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
     }
     
     @Override    
-    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso) throws PersistenceException{
+    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws PersistenceException{
         try{
-            return reservaSimpleMapper.consultarReservaSimpleConRecurso(idRecurso);
+            return reservaSimpleMapper.consultarReservaSimpleConRecurso(idRecurso,idEstudiante);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
              e.printStackTrace();

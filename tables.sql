@@ -25,6 +25,7 @@ CREATE TABLE if not exists Recurso_Reservado (
 CREATE TABLE if not exists Reserva_Simple (
 	id SERIAL PRIMARY KEY,
 	reserva int  not null,
+	estudiante int  not null,
 	inicio TIMESTAMP  not null,
 	fin TIMESTAMP  not null,
 	activo BOOLEAN not null);

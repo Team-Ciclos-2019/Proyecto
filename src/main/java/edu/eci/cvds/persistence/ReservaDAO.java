@@ -14,6 +14,6 @@ import edu.eci.cvds.entities.RecursoReservado;
 public interface ReservaDAO {
     
     
-    public RecursoReservado consultarReservaFutura(int id) throws PersistenceException;
-    public void cancelarReservaFutura(int id) throws PersistenceException; 
+    public RecursoReservado consultarReservaFutura(int idRecurso,int idEstudiante) throws PersistenceException;
+    public void cancelarReservaFutura(int idRecurso,int idEstudiante) throws PersistenceException; 
 }

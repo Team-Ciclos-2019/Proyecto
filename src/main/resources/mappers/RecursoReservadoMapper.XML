@@ -27,12 +27,12 @@
 		FROM 
 		Recurso_Reservado as re
 		WHERE
-		re.recurso=#{idr}  
+		re.recurso=#{idr} AND re.estudiante=#{ide}
 	</select>
 	
 	<update parameterType='map' id='cancelarReserva'>
 		update RECURSO_RESERVADO as reserva set activo=false
-		where reserva.recurso=#{idr}
+		where reserva.recurso=#{idr} AND reserva.estudiante=#{ide}
 		
 	</update>
 	

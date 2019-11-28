@@ -8,6 +8,7 @@
     <resultMap type='ReservaSimple' id='ReservaSimpleResult'>
 	<id property='id' column='id' />
 	<result property='reserva' column='reserva' />
+	<result property='estudiante' column='estudiante' />
         <result property='inicio' column='inicio' />
         <result property='fin' column='fin' />
 	<result property= 'activo' column='activo' />		
@@ -18,17 +19,18 @@
 		SELECT
 		re.id ,
         re.reserva ,
+		re.estudiante,
 		re.inicio ,
 		re.fin ,
 		re.activo
 		FROM 
 		Reserva_Simple as re
 		WHERE
-		re.reserva=#{idr}  
+		re.reserva=#{idr}  AND re.activo=True AND re.estudiante=#{ide}
 	</select>
 	
 	<insert id="saveReservaSimple" parameterType="map" >
-		insert into reserva_simple(reserva,inicio, fin,activo) values (#{idr},#{FechaI},#{FechaF},#{Activo});
+		insert into reserva_simple(reserva,estudiante,inicio, fin,activo) values (#{idr},#{ide},#{FechaI},#{FechaF},#{Activo});
 	</insert>
 	
 </mapper>

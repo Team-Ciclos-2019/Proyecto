@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface RecursoReservadoMapper {
     
-    public RecursoReservado consultarReserva(@Param("idr") int id);
-    public void cancelarReserva(@Param("idr") int id);
+    public RecursoReservado consultarReserva(@Param("idr") int idr,@Param("ide") int ide);
+    public void cancelarReserva(@Param("idr") int id,@Param("ide") int ide);
     
 }

@@ -14,14 +14,16 @@ import java.util.Date;
 public class ReservaSimple {
     
     private int id;
+    private int estudiante;
     private int reserva;
     private java.sql.Timestamp inicio;
     private java.sql.Timestamp fin;
     private boolean activo;
     
-    public ReservaSimple(int id,int reserva, java.sql.Timestamp inicio, java.sql.Timestamp fin, boolean activo){
+    public ReservaSimple(int id,int reserva,int estudiante, java.sql.Timestamp inicio, java.sql.Timestamp fin, boolean activo){
         this.id=id;
         this.reserva=reserva;
+        this.estudiante=estudiante;
         this.inicio=inicio;
         this.fin=fin;
         this.activo=activo;
@@ -65,6 +67,14 @@ public class ReservaSimple {
     
     public void setReserva(int reserva){
         this.reserva=reserva;
+    }
+    
+    public int getEstudiante(){
+        return estudiante;
+    }
+    
+    public void setEstudiante(int estudiante){
+        this.estudiante=estudiante;
     }
 
 }

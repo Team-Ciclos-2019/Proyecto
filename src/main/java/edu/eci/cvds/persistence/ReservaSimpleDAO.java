@@ -9,6 +9,6 @@ import java.util.List;
 public interface ReservaSimpleDAO {
  
     
-    public void agregarReservaSimple(int reserva,Date horaInicio, Date horaFin,boolean activo)throws PersistenceException;
-    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso) throws PersistenceException;
+    public void agregarReservaSimple(int recurso,int estudiante,Date horaInicio, Date horaFin,boolean activo)throws PersistenceException;
+    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws PersistenceException;
 }

@@ -14,9 +14,9 @@ public class MyBatisReservaDAO implements ReservaDAO {
     
     
     @Override
-    public RecursoReservado consultarReservaFutura(int id) throws PersistenceException{
+    public RecursoReservado consultarReservaFutura(int idRecurso,int idEstudiante) throws PersistenceException{
         try{
-            return recursoReservadoMapper.consultarReserva(id);
+            return recursoReservadoMapper.consultarReserva(idRecurso,idEstudiante);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             
@@ -26,9 +26,9 @@ public class MyBatisReservaDAO implements ReservaDAO {
     }
     
     @Override
-    public void cancelarReservaFutura(int id) throws PersistenceException{
+    public void cancelarReservaFutura(int idRecurso,int idEstudiante) throws PersistenceException{
         try{
-            recursoReservadoMapper.cancelarReserva(id);
+            recursoReservadoMapper.cancelarReserva(idRecurso,idEstudiante);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             

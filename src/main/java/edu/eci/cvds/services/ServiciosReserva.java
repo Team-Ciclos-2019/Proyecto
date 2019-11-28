@@ -3,6 +3,7 @@ package edu.eci.cvds.services;
 import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.RecursoReservado;
+import edu.eci.cvds.entities.ReservaSimple;
 import static edu.eci.cvds.services.ServiciosReserva.tipos;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +24,7 @@ public interface ServiciosReserva{
     public abstract  Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
     public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursos() throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso) throws ExceptionServiciosReserva;
     public RecursoReservado consultarReserva(int id) throws ExceptionServiciosReserva ;
     public abstract void registrarRecurso(Recurso r) throws ExceptionServiciosReserva;
     public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva;

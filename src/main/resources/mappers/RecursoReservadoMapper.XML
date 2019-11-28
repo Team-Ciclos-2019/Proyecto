@@ -19,8 +19,8 @@
 	<select parameterType='map' id='consultarReserva' resultMap='RecursoReservadoResult' >
 		SELECT
 		re.id ,
-                re.recurso ,
-                re.estudiante ,
+        re.recurso ,
+        re.estudiante ,
 		re.inicio ,
 		re.fin ,
 		re.activo

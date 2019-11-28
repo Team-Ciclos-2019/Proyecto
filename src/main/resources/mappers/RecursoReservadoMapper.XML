@@ -18,11 +18,11 @@
 	
 	<select parameterType='map' id='consultarReserva' resultMap='RecursoReservadoResult' >
 		SELECT
-		re.id ,
+		re.id,
         re.recurso ,
-        re.estudiante ,
-		re.inicio ,
-		re.fin ,
+        re.estudiante,
+		re.inicio,
+		re.fin,
 		re.activo
 		FROM 
 		Recurso_Reservado as re

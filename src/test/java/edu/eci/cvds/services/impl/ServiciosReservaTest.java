@@ -178,11 +178,11 @@ public class ServiciosReservaTest{
     public void testRegistrarReservaFutura(){
         try{
             Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
-            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
-                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:30:00"),true,"Simple");
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/07/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/07/2019 08:30:00"),true,"Simple");
         }
         catch(Exception e){
-             System.out.println(e.getMessage());
+             System.out.println(e.getMessage() +" 4sfdg");
         }
     }
     
@@ -205,11 +205,10 @@ public class ServiciosReservaTest{
             Recurso recurso= new Recurso(3,"salon1","salon","Bloque G",true,3,11);
             ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
             new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:30:00"),true,"Simple");
-            System.out.println(recurso.getID());
             ServiciosReserva.consultarReserva(recurso.getID());
         }
         catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage() );
         }
     }
     
@@ -237,6 +236,32 @@ public class ServiciosReservaTest{
         }
     }
     
+    @Test
+    public void testRegistrarReservaFuturaFallidoYaExistente(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/09/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/09/2019 08:30:00"),true,"Simple");
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/09/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("05/09/2019 08:30:00"),true,"Diaria");
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error, ya hay una reserva existente a esa hora",e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testconsultarReservaSimplesConRecurso(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("05/08/2019 08:30:00"),true,"Diaria");
+            System.out.println(ServiciosReserva.consultarReservaSimplesConRecurso(1));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage() +"sfdg");
+        }
+    }
     
 }
     

@@ -2,10 +2,12 @@
 package edu.eci.cvds.persistence.mybatisimpl;
 
 import com.google.inject.Inject;
+import edu.eci.cvds.entities.ReservaSimple;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.ReservaSimpleDAO;
 import edu.eci.cvds.persistence.mybatisimpl.mappers.ReservaSimpleMapper;
 import java.util.Date;
+import java.util.List;
 
 
 public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
@@ -22,6 +24,19 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
             
            e.printStackTrace();
         }
-        
     }
+    
+    @Override    
+    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso) throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimpleConRecurso(idRecurso);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+             e.printStackTrace();
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
 }
+        
+

@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.RecursoReservado;
+import edu.eci.cvds.entities.ReservaSimple;
 import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.persistence.RecursoDAO;
 import edu.eci.cvds.persistence.EstudianteDAO;
@@ -122,14 +123,27 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     @Override
     @Transactional
-     public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
+    public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
         try {
             return recursoDAO.consultarRecurso(id);
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al consultar reserva");
             
         }
-     }
+    }
+    
+    @Override
+    @Transactional
+    public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso) throws ExceptionServiciosReserva{
+        try{
+            return reservaSimpleDAO.consultarReservaSimplesConRecurso(idRecurso);
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reservas simples");
+            
+        }
+    }
+    
     @Override
     @Transactional
     public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva {
@@ -147,12 +161,17 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error, la fecha de inicio no puede ser después de la fecha final");
         }
         if((consultarEstudiante(id)) == null)throw new ExceptionServiciosReserva("Error, el estudiante no esta registrado");
-        //if(consultarRecurso(r.getID())==null)throw new ExceptionServiciosReserva("Eror, el recurso no esta registrado");
         if(r.getEstado()== false) throw new ExceptionServiciosReserva("Error, el recurso no está disponible");
+        List<ReservaSimple> listaDeReservas=consultarReservaSimplesConRecurso(r.getID());
+        for(int i=0; i<listaDeReservas.size();i++){
+            
+            if (horaInicio.compareTo(listaDeReservas.get(i).getInicio())>0 && horaInicio.compareTo(listaDeReservas.get(i).getFin())<0 
+                    || horaFin.compareTo(listaDeReservas.get(i).getInicio())>0 && horaInicio.compareTo(listaDeReservas.get(i).getFin())<0)
+            throw new ExceptionServiciosReserva("Error, ya hay una reserva existente a esa hora");   
+        }
         try {
             estudianteDAO.agregarReservaFuturaAUsuario(id,r.getID(),horaInicio,horaFin,activo);
             registrarReservaSimple(r.getID(),horaInicio,horaFin,tipo);
-            cambiarEstado(false,r.getID());
         } catch (PersistenceException e) {
             throw new ExceptionServiciosReserva("Error al agregar "
                     +r.toString()+" al usuario "+id);
@@ -165,8 +184,6 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         try{
             if(null != tipo)switch (tipo) {
                 case "Simple":
-                    System.out.println(reserva);
-                    System.out.println(horaInicio);
                     reservaSimpleDAO.agregarReservaSimple(reserva,horaInicio,horaFin,true);
                     break;
                 case "Diaria":

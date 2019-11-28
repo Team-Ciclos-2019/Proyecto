@@ -14,12 +14,14 @@ import java.util.Date;
 public class ReservaSimple {
     
     private int id;
-    private Date inicio;
-    private Date fin;
+    private int reserva;
+    private java.sql.Timestamp inicio;
+    private java.sql.Timestamp fin;
     private boolean activo;
     
-    public ReservaSimple(int id, Date inicio, Date fin, boolean activo){
+    public ReservaSimple(int id,int reserva, java.sql.Timestamp inicio, java.sql.Timestamp fin, boolean activo){
         this.id=id;
+        this.reserva=reserva;
         this.inicio=inicio;
         this.fin=fin;
         this.activo=activo;
@@ -33,19 +35,19 @@ public class ReservaSimple {
         this.id=id;
     }
     
-    public Date getInicio(){
+    public java.sql.Timestamp getInicio(){
         return inicio;
     }
     
-    public void setInicio(Date inicio){
+    public void setInicio(java.sql.Timestamp inicio){
         this.inicio=inicio;
     }
     
-    public Date getFin(){
+    public java.sql.Timestamp getFin(){
         return fin;
     }
     
-    public void setFin(Date fin){
+    public void setFin(java.sql.Timestamp fin){
         this.fin=fin;
     }
     
@@ -55,6 +57,14 @@ public class ReservaSimple {
     
     public void setActivo(boolean activo){
         this.activo=activo;
+    }
+    
+    public int getReserva(){
+        return reserva;
+    }
+    
+    public void setReserva(int reserva){
+        this.reserva=reserva;
     }
 
 }

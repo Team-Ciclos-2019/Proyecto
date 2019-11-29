@@ -2,7 +2,6 @@
 package edu.eci.cvds.entities;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class RecursoReservado {
@@ -14,10 +13,9 @@ public class RecursoReservado {
     private java.sql.Timestamp fin;
     private boolean activo;
     private String tipo;
-    private int duracion;
     private ArrayList<ReservaSimple> reservaRecurrente;
     
-    public RecursoReservado(int id, int recurso ,int estudiante,boolean activo, java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente, int duracion ){
+    public RecursoReservado(int id, int recurso ,int estudiante,boolean activo, java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente){
         this.id=id;
         this.estudiante=estudiante;
         this.recurso=recurso;
@@ -26,7 +24,6 @@ public class RecursoReservado {
         this.fin=fin;
         this.tipo=tipo;
         this.reservaRecurrente=reservaRecurrente;
-        this.duracion=duracion;
     }
     
     public RecursoReservado(int id, int recurso,int estudiante,boolean activo,java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo){
@@ -38,7 +35,6 @@ public class RecursoReservado {
         this.fin=fin;
         this.tipo=tipo;
         reservaRecurrente=new ArrayList();
-        duracion=2;
     }
     public RecursoReservado(int id, int recurso,int estudiante, java.sql.Timestamp inicio,java.sql.Timestamp fin,boolean activo){
         this.id=id;
@@ -48,7 +44,6 @@ public class RecursoReservado {
         this.inicio=inicio;
         this.fin=fin;
         reservaRecurrente=new ArrayList();
-        duracion=2;
     }
     
     public int getId(){
@@ -102,14 +97,6 @@ public class RecursoReservado {
     
     public void setTipo(String tipo){
         this.tipo=tipo;
-    }
-    
-    public int getDuracion(){
-        return duracion;
-    }
-    
-    public void setDuracion(int duracion){
-        this.duracion=duracion;
     }
     
     public ArrayList<ReservaSimple> getReservaRecurrente(){

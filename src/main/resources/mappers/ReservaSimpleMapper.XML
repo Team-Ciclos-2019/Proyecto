@@ -33,4 +33,10 @@
 		insert into reserva_simple(reserva,estudiante,inicio, fin,activo) values (#{idr},#{ide},#{FechaI},#{FechaF},#{Activo});
 	</insert>
 	
+	<update parameterType='map' id='cancelarReservaSimpleFutura'>
+		update RESERVA_SIMPLE as reserva set activo=false
+		where reserva.reserva=#{idr} AND reserva.estudiante=#{ide} AND reserva.inicio=#{fechaIni}
+		
+	</update>
+	
 </mapper>

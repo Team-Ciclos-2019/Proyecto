@@ -19,7 +19,6 @@ public class MyBatisReservaDAO implements ReservaDAO {
             return recursoReservadoMapper.consultarReserva(idRecurso,idEstudiante);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            
             e.printStackTrace();
             return null;
         }

@@ -31,3 +31,5 @@ CREATE TABLE if not exists Reserva_Simple (
 	activo BOOLEAN not null);
 	
 insert into Usuarios(id,nombre,carrera,penalizado) values (1,'Mauricio Gonzalez','Ing Mecanica',false);
+insert into Usuarios(id,nombre,carrera,penalizado) values (2,'Felipe Gonzalez','Ing Sistema',false);
+insert into Usuarios(id,nombre,carrera,penalizado) values (3,'Maria Perez','Administrasion',false);

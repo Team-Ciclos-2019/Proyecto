@@ -131,47 +131,8 @@ public class ServiciosReservaTest{
             System.out.println(e.getMessage());
         }
     }
-    /**
-    @Test
-    public void testCancelarReservaCompleta(){
-        try{
-            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
-            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
-                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 09:00:00"),true,"Simple");
-            ServiciosReserva.cancelarReservasFuturas(recurso.getID());
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    **/
-    /**
-    @Test
-    public void testCancelarReservaFallidoTardeCompleta(){
-        try{
-            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
-            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 21:00:00"),
-            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 22:00:00"),true,"Simple");
-            ServiciosReserva.cancelarReservasFuturas(recurso.getID());
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
-    **/
-    
-    @Test
-    public void testCancelarReservaUsuarioCompletaNoExistente(){
-        try{
-            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
-            ServiciosReserva.registrarReservaFutura(2,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
-                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:00:00"),true,"Simple");
-            ServiciosReserva.cancelarReservasFuturasCompleta(recurso.getID(),1);
-        }
-        catch(Exception e){
-            Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
-        }
-    }
+
+
     
             
     
@@ -183,7 +144,7 @@ public class ServiciosReservaTest{
                 new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/07/2019 08:30:00"),true,"Simple");
         }
         catch(Exception e){
-             System.out.println(e.getMessage() +" 4sfdg");
+             System.out.println(e.getMessage());
         }
     }
     
@@ -228,12 +189,24 @@ public class ServiciosReservaTest{
     @Test
     public void testRegistrarReservaFuturaFallidoEstudianteNoExistente(){
         try{
-            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",false,3,11);
-            ServiciosReserva.registrarReservaFutura(2,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(6,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
                 new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:30:00"),true,"Simple");
         }
         catch(Exception e){
             Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testRegistrarReservaFuturaFallidoReservaSimpleMasDeDosHoras(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 010:30:00"),true,"Simple");
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error, la reserva Simple no se puede realizar por mas de 2 horas",e.getMessage());
         }
     }
     
@@ -260,8 +233,77 @@ public class ServiciosReservaTest{
             System.out.println(ServiciosReserva.consultarReservaSimplesConRecurso(recurso.getID(),1));
         }
         catch(Exception e){
-            System.out.println(e.getMessage() +"sfdg");
+            System.out.println(e.getMessage());
         }
+    }
+    
+    @Test
+    public void testCancelarReservaCompleta(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(2,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("07/12/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("07/12/2019 09:00:00"),true,"Simple");
+            ServiciosReserva.cancelarReservasFuturasCompleta(recurso.getID(),2);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage()+" HOLA");
+        }
+    }
+
+    
+    /**
+    @Test
+    public void testCancelarReservaFallidoTardeCompleta(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 21:00:00"),
+            new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("21/11/2019 22:00:00"),true,"Simple");
+            ServiciosReserva.cancelarReservasFuturas(recurso.getID());
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    **/
+    
+    @Test
+    public void testCancelarReservaCompletaUsuarioNoExistente(){
+        try{
+            Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+            ServiciosReserva.registrarReservaFutura(2,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 08:00:00"),true,"Simple");
+            ServiciosReserva.cancelarReservasFuturasCompleta(recurso.getID(),1);
+        }
+        catch(Exception e){
+            Assert.assertEquals("Error, el estudiante no esta registrado",e.getMessage());
+        }
+    }
+    
+    
+    @Test
+    public void testCancelarReservaSimpleAPartirDeFecha(){
+        try{
+            Recurso recurso= new Recurso(1,"salon2","salon5","Bloque H",true,4,12);
+            ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/12/2020 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("05/12/2020 09:00:00"),true,"Diaria");
+            ServiciosReserva.cancelarReservasFuturasAPartirFecha(recurso.getID(),1,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("03/12/2020 07:00:00"));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+     @Test
+    public void testCancelarReservaSimple(){
+       try{
+            Recurso recurso= new Recurso(3,"salon2","salon5","Bloque H",true,4,12);
+            ServiciosReserva.registrarReservaFutura(3,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/12/2020 07:00:00"),
+                new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("05/12/2020 09:00:00"),true,"Diaria");
+            ServiciosReserva.cancelarReservaFuturaSimple(recurso.getID(),3,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("03/12/2020 07:00:00"));
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage() + " dfsf");
+        } 
     }
     
 }

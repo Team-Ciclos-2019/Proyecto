@@ -93,7 +93,11 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
            
         }
     }
-    
+    @Override
+    @Transactional
+    public List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva{
+        return reservaSimpleDAO.consultarReservaSimples();
+    }
     @Override
     @Transactional
     public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {

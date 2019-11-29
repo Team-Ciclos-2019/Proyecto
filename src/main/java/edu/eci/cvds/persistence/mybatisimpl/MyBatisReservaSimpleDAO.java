@@ -15,6 +15,19 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
     @Inject
     private ReservaSimpleMapper reservaSimpleMapper;
     
+     @Override
+    public List<ReservaSimple> consultarReservaSimples(){
+         try{
+            return reservaSimpleMapper.consultarReservaSimples();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            
+           e.printStackTrace();
+           return null;
+           
+        }
+    }
+    
     @Override
     public void agregarReservaSimple(int recurso,int estudiante,Date horaInicio, Date horaFin,boolean activo) throws PersistenceException{
         try{

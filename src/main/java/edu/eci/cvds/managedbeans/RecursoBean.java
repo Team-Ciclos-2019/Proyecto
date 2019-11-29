@@ -1,5 +1,7 @@
 package edu.eci.cvds.managedbeans;
 import edu.eci.cvds.entities.Recurso;
+import edu.eci.cvds.entities.ReservaSimple;
+import edu.eci.cvds.persistence.PersistenceException;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ExceptionServiciosReserva;
 import static edu.eci.cvds.services.ServiciosReserva.ubicaciones;
@@ -13,6 +15,7 @@ import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Level;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
@@ -51,13 +54,26 @@ public class RecursoBean implements Serializable {
     public void registrarReservaFutura(int id,int re, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
         Recurso tempo= consultarRecurso(re);
         event = new DefaultScheduleEvent(tempo.getNombre() ,horaInicio, horaFin);
-        ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,"Simple");
-        if(event.getId() == null)
-            eventModel.addEvent(event);
-        else
-            eventModel.updateEvent(event);
+        ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,"Diaria");
+        eventModel.addEvent(event);
+        eventModel.updateEvent(event);
          
         event = new DefaultScheduleEvent();
+
+    }
+     public void loadEvents() throws ExceptionServiciosReserva{
+        eventModel = new DefaultScheduleModel();
+        List<ReservaSimple> reservas = ServiciosReserva.consultarReservaSimples();
+        reservas.stream().map((reserva) -> {
+            try {
+                event = new DefaultScheduleEvent((consultarRecurso(reserva.getReserva())).getNombre()+"  "+(Integer.toString(reserva.getReserva())), reserva.getInicio(), reserva.getFin());
+            } catch (ExceptionServiciosReserva ex) {
+                java.util.logging.Logger.getLogger(RecursoBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return reserva;
+        }).forEachOrdered((_item) -> {
+            eventModel.addEvent(event);
+        });
 
     }
     

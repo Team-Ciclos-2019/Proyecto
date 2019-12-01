@@ -15,16 +15,35 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
     @Inject
     private ReservaSimpleMapper reservaSimpleMapper;
     
-     @Override
-    public List<ReservaSimple> consultarReservaSimples(){
-         try{
+    
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimples()throws PersistenceException{
+        try{
             return reservaSimpleMapper.consultarReservaSimples();
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            
-           e.printStackTrace();
-           return null;
-           
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesHorariosMasRecurrentes() throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesHorariosMasRecurrentes();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesHorariosMenosRecurrentes() throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesHorariosMenosRecurrentes();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
         }
     }
     
@@ -34,7 +53,7 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
             reservaSimpleMapper.saveReservaSimple(recurso,estudiante,horaInicio,horaFin,activo);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-
+            throw new PersistenceException("Error al agergar reserva simple");
         }
     }
     
@@ -54,10 +73,11 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
             reservaSimpleMapper.cancelarReservaSimpleFutura(idRecurso,idEstudiante,fechaInicio);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            e.printStackTrace();
             throw new PersistenceException("Error al cancelar reserva simples");
         }
     }
+    
+    
     
 }
         

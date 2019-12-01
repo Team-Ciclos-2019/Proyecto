@@ -16,6 +16,8 @@ public interface ServiciosReserva{
     List<String> tipos=new ArrayList<>(Arrays.asList("Computador", "Sala de estudio", "Tablero digital"));
     List<Integer> capacidades=new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
     public abstract List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesHorariosMasRecurrentes() throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesHorariosMenosRecurrentes() throws ExceptionServiciosReserva;
     public abstract Recurso consultarRecurso(int id)throws ExceptionServiciosReserva;
     public abstract List<Integer> getCapacidades();
     public abstract List<String> getTipos();

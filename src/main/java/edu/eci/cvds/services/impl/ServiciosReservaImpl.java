@@ -69,7 +69,6 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     
     @Override
-    @Transactional
     public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
         try {
             return recursoDAO.consultarRecurso(id);
@@ -126,13 +125,16 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     
     @Override
-    @Transactional
     public List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva{
-        return reservaSimpleDAO.consultarReservaSimples();
+        try{
+            return reservaSimpleDAO.consultarReservaSimples();
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reservas simples");
+        }
     }
     
     @Override
-    @Transactional
     public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva{
         try{
             return reservaSimpleDAO.consultarReservaSimplesConRecurso(idRecurso,idEstudiante);
@@ -143,6 +145,25 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         }
     }
     
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesHorariosMasRecurrentes() throws ExceptionServiciosReserva{
+        try{
+            return reservaSimpleDAO.consultarReservaSimplesHorariosMasRecurrentes();
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesHorariosMenosRecurrentes() throws ExceptionServiciosReserva{
+        try{
+            return reservaSimpleDAO.consultarReservaSimplesHorariosMenosRecurrentes();
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reservas simples");
+        }
+    }
     
     @Override
     @Transactional

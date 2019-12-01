@@ -2,7 +2,6 @@ package edu.eci.cvds.services.impl;
 
 import com.google.inject.Singleton;
 import edu.eci.cvds.entities.Recurso;
-import edu.eci.cvds.entities.RecursoReservado;
 import edu.eci.cvds.services.ServiciosReserva;
 import edu.eci.cvds.services.ServiciosReservaFactory;
 import java.text.SimpleDateFormat;
@@ -160,10 +159,6 @@ public class ServiciosReservaTest{
         }
     }
 
-
-    
-            
-    
     @Test
     public void testRegistrarReservaFutura(){
         try{

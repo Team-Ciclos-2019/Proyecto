@@ -41,6 +41,14 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     
 
      
+    @Override
+    public List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva {
+        try {
+            return estudianteDAO.consultarEstudiantes();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar estudiantes");
+        }
+    }
     
     @Override
     public Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva {
@@ -59,73 +67,7 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error al consultar recurso");
         }
     }
-     @Override
-     public List<Recurso> consultarRecursosDisponibles() throws ExceptionServiciosReserva{
-        try {
-            return recursoDAO.consultarRecursosDisponibles();
-        } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al consultar recurso");
-        }
-     }
-     @Override
-     public List<Recurso> consultarRecursosNoDisponibles() throws ExceptionServiciosReserva{
-        try {
-            return recursoDAO.consultarRecursosNoDisponibles();
-        } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al consultar recurso");
-        }
-     }
-    @Override
-    public List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva {
-        try {
-            return estudianteDAO.consultarEstudiantes();
-        } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al consultar estudiantes");
-        }
-    }
     
-    @Override
-    public RecursoReservado consultarReserva(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva {
-        try {
-            return reservaDAO.consultarReservaFutura(idRecurso,idEstudiante);
-        } catch (PersistenceException e) {
-            throw new ExceptionServiciosReserva("Error al consultar reserva");
-           
-        }
-    }
-    @Override
-    @Transactional
-    public List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva{
-        return reservaSimpleDAO.consultarReservaSimples();
-    }
-    @Override
-    @Transactional
-    public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
-        if(r.getCapacidad()<=0){
-           throw new ExceptionServiciosReserva("Error, la capacidad debe ser mayor que 0"); 
-        }
-        if(r.getDisponibilidad()<=0){
-            throw new ExceptionServiciosReserva("Error, la disponibilidad debe ser mayor que 0");
-        }
-        try{
-            recursoDAO.save(r);
-           
-        }
-        catch (PersistenceException e){
-           throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString());
-        } 
-    }
-    
-    @Override
-    @Transactional
-    public void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva {
-        try{
-            recursoDAO.setestado(var,id);
-        }
-        catch (PersistenceException e){
-           throw new ExceptionServiciosReserva("Error al cambiar estado");
-        }
-    }
     @Override
     @Transactional
     public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
@@ -138,6 +80,58 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     
     @Override
+    public List<Recurso> consultarRecursosDisponibles() throws ExceptionServiciosReserva{
+        try {
+            return recursoDAO.consultarRecursosDisponibles();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar recurso");
+        }
+    }
+    
+    @Override
+    public List<Recurso> consultarRecursosNoDisponibles() throws ExceptionServiciosReserva{
+        try {
+            return recursoDAO.consultarRecursosNoDisponibles();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar recurso");
+        }
+    }
+    
+    @Override
+    public List<Recurso> consultarRecursosMasUsados() throws ExceptionServiciosReserva{
+        try {
+            return recursoDAO.consultarRecursosMasUsados();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar recursos");
+        }
+    }
+    
+    @Override
+    public List<Recurso> consultarRecursosMenosUsados() throws ExceptionServiciosReserva{
+        try {
+            return recursoDAO.consultarRecursosMenosUsados();
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar recursos");
+        }
+    }
+    
+    @Override
+    public RecursoReservado consultarReserva(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva {
+        try {
+            return reservaDAO.consultarReservaFutura(idRecurso,idEstudiante);
+        } catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reserva");
+           
+        }
+    }
+    
+    @Override
+    @Transactional
+    public List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva{
+        return reservaSimpleDAO.consultarReservaSimples();
+    }
+    
+    @Override
     @Transactional
     public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva{
         try{
@@ -147,6 +141,24 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error al consultar reservas simples");
             
         }
+    }
+    
+    
+    @Override
+    @Transactional
+    public void registrarRecurso(Recurso r) throws ExceptionServiciosReserva {
+        if(r.getCapacidad()<=0){
+           throw new ExceptionServiciosReserva("Error, la capacidad debe ser mayor que 0"); 
+        }
+        if(r.getDisponibilidad()<=0){
+            throw new ExceptionServiciosReserva("Error, la disponibilidad debe ser mayor que 0");
+        }
+        try{
+            recursoDAO.save(r);
+        }
+        catch (PersistenceException e){
+           throw new ExceptionServiciosReserva("Error al registrar el recurso" + r.toString());
+        } 
     }
     
     @Override
@@ -283,6 +295,17 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
         catch (PersistenceException e) {
             
             throw new ExceptionServiciosReserva("Error al cancelar las reservas");
+        }
+    }
+    
+    @Override
+    @Transactional
+    public void cambiarEstado(boolean var,int id) throws ExceptionServiciosReserva {
+        try{
+            recursoDAO.setestado(var,id);
+        }
+        catch (PersistenceException e){
+           throw new ExceptionServiciosReserva("Error al cambiar estado");
         }
     }
     

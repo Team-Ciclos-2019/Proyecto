@@ -26,6 +26,10 @@ public class Recurso {
         
     }
     
+    public Recurso(){
+        super();
+    }
+    
     public Recurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         this.identificador=identificador;
         this.nombre=nombre;

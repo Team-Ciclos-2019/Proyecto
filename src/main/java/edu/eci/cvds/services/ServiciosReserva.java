@@ -22,6 +22,8 @@ public interface ServiciosReserva{
     public abstract List<String> getUbicaciones();
     public abstract List<Recurso> consultarRecursosNoDisponibles() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursosDisponibles() throws ExceptionServiciosReserva;
+    public List<Recurso> consultarRecursosMasUsados() throws ExceptionServiciosReserva;
+    public List<Recurso> consultarRecursosMenosUsados() throws ExceptionServiciosReserva;
     public abstract  Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva;
     public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursos() throws ExceptionServiciosReserva;

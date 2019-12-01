@@ -15,6 +15,10 @@ public class RecursoReservado {
     private String tipo;
     private ArrayList<ReservaSimple> reservaRecurrente;
     
+    public RecursoReservado(){
+        super();
+    }
+    
     public RecursoReservado(int id, int recurso ,int estudiante,boolean activo, java.sql.Timestamp inicio,java.sql.Timestamp fin, String tipo,ArrayList<ReservaSimple> reservaRecurrente){
         this.id=id;
         this.estudiante=estudiante;

@@ -11,6 +11,10 @@ public class Estudiante {
     private boolean penalizado;
     private ArrayList<RecursoReservado> recursos;
     
+    public Estudiante(){
+        super();
+    }
+    
     public Estudiante(int identificador,String nombre, String carrera,boolean penalizado, ArrayList<RecursoReservado> recursos){
         this.identificador=identificador;
         this.nombre=nombre;

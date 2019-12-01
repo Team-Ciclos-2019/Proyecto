@@ -5,8 +5,6 @@
  */
 package edu.eci.cvds.entities;
 
-import java.util.Date;
-
 /**
  *
  * @author gemec
@@ -19,6 +17,10 @@ public class ReservaSimple {
     private java.sql.Timestamp inicio;
     private java.sql.Timestamp fin;
     private boolean activo;
+    
+    public ReservaSimple(){
+        super();
+    }
     
     public ReservaSimple(int id,int reserva,int estudiante, java.sql.Timestamp inicio, java.sql.Timestamp fin, boolean activo){
         this.id=id;

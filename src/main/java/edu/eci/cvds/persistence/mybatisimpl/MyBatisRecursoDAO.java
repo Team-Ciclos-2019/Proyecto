@@ -60,7 +60,7 @@ public class MyBatisRecursoDAO implements RecursoDAO{
     }
     @Override
     public List<Recurso> consultarRecursosDisponibles() throws PersistenceException{
-         try{
+        try{
             return (recursoMapper.consultarRecursosDisponibles());
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
@@ -70,7 +70,7 @@ public class MyBatisRecursoDAO implements RecursoDAO{
      }
      @Override
     public List<Recurso> consultarRecursosNoDisponibles() throws PersistenceException{
-         try{
+        try{
             return (recursoMapper.consultarRecursosNoDisponibles());
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e){
@@ -78,6 +78,24 @@ public class MyBatisRecursoDAO implements RecursoDAO{
             return null;
         } 
      }
- 
+    
+    @Override
+    public List<Recurso> consultarRecursosMasUsados() throws PersistenceException{
+        try{
+            return recursoMapper.consultarRecursosMasUsados();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al consultar recursos");
+        } 
+    }
 
+    @Override
+    public List<Recurso> consultarRecursosMenosUsados() throws PersistenceException{
+        try{
+            return recursoMapper.consultarRecursosMenosUsados();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e){
+            throw new PersistenceException("Error al consultar recursos");
+        } 
+    }
 }

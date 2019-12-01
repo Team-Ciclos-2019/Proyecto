@@ -111,6 +111,34 @@ public class ServiciosReservaTest{
     }
     
     @Test
+    public void testConsultarRecursosMasUsados(){
+        Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+        Recurso recurso2= new Recurso(2,"salon1","salon","Bloque G",false,3,11);
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.registrarRecurso(recurso2);
+            ServiciosReserva.consultarRecursosMasUsados();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        } 
+    }
+    
+    @Test
+    public void testConsultarRecursosMenosUsados(){
+        Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
+        Recurso recurso2= new Recurso(2,"salon1","salon","Bloque G",false,3,11);
+        try{
+            ServiciosReserva.registrarRecurso(recurso);
+            ServiciosReserva.registrarRecurso(recurso2);
+            ServiciosReserva.consultarRecursosMasUsados();
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage() + " hola");
+        } 
+    }
+    
+    @Test
     public void testConsultarEstudiantes(){
         try{
             ServiciosReserva.consultarEstudiantes();

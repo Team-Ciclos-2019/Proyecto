@@ -10,6 +10,8 @@ import org.apache.ibatis.annotations.Param;
 public interface RecursoMapper {
     public List<Recurso> consultarRecursosNoDisponibles();
     public List<Recurso> consultarRecursosDisponibles();
+    public List<Recurso> consultarRecursosMasUsados();
+    public List<Recurso> consultarRecursosMenosUsados();
     public List<Recurso> consultarRecursos();
     public void insertarRecurso(@Param("recurso")Recurso r);
     public Recurso consultarRecurso(@Param("ide") int id);

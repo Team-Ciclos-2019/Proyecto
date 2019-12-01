@@ -68,6 +68,38 @@
         FROM
         Recurso as re
     </select>
+	
+	<select id="consultarRecursosMasUsados" resultMap="RecursoResult">
+		SELECT  
+		count(reserva_simple.reserva) as numero, 
+		recurso.nombre,
+		recurso.id,
+		recurso.tipo
+		FROM 
+		reserva_simple, 
+		recurso 
+		WHERE 
+		reserva_simple.reserva= recurso.id AND reserva_simple.activo=true 
+		GROUP BY recurso.nombre,recurso.id, recurso.tipo
+		ORDER BY numero desc
+	</select>
+	
+	<select id="consultarRecursosMenosUsados" resultMap="RecursoResult">
+		SELECT  
+		count(reserva_simple.reserva) as numero, 
+		recurso.nombre,
+		recurso.id,
+		recurso.tipo
+		FROM 
+		reserva_simple, 
+		recurso 
+		WHERE 
+		reserva_simple.reserva= recurso.id AND reserva_simple.activo=true 
+		GROUP BY recurso.nombre,recurso.id, recurso.tipo
+		ORDER BY numero
+	</select>
+	
+	
     <insert parameterType="map" id="insertarRecurso">
         insert into Recurso (id,nombre,tipo,ubicacion,estado,capacidad,disponibilidad)
         values (#{recurso.identificador},#{recurso.nombre},#{recurso.tipo},#{recurso.ubicacion},#{recurso.estado},#{recurso.capacidad},#{recurso.disponibilidad})

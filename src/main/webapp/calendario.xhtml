@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:jsf="http://xmlns.jcp.org/jsf" xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Calendario</title>
+	
+</h:head>
+<body bgcolor="800000">
+      
+		
+			
+                    <h:form>
+						
+                        #{recursoBean.loadEvents()}
+                       
+                       <p:schedule id="schedule" value="#{recursoBean.eventModel}" widgetVar="myschedule" >
+                         
+                            <p:ajax event="dateSelect" listener="#{recursoBean.onDateSelect}" update="eventDetails"
+                             oncomplete="PF('eventDialog').show();"/>
+                             <p:ajax event="eventSelect" listener="#{recursoBean.onEventSelect}" update="eventDetails"
+                             oncomplete="PF('eventDialog').show();"/>
+                            <p:ajax event="eventMove" listener="#{recursoBean.onEventMove}" update="eventDetails"/>
+                            <p:ajax event="eventResize" listener="#{recursoBean.onEventResize}" update="eventDetails"/>
+
+                        </p:schedule>
+                    <p:dialog widgetVar="eventDialog" header="Horario de reserva" showEffect="clip" hideEffect="clip"
+                      modal="true">
+                        <h:panelGrid id="eventDetails" columns="2">
+                            <p:outputLabel value="Recurso:"/>
+                            <h:outputText value="#{recursoBean.event.title}"/>
+                             <p:outputLabel value="Fecha inicio:"/>
+                            <h:outputText value="#{recursoBean.event.startDate}"/>
+                            <p:outputLabel value="Fecha Fin:"/>
+                            <h:outputText value="#{recursoBean.event.endDate}"/>
+                           
+                                    
+                           
+                        </h:panelGrid>
+                    </p:dialog>
+                    </h:form>
+		
+	
+	
+
+	
+</body>
+</html>

@@ -123,7 +123,12 @@ public class RecursoBean implements Serializable {
     public void setEvent(ScheduleEvent event) {
         this.event = event;
     }
-     
+    public List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva{
+       
+            return ServiciosReserva.consultarReservaSimples();
+        
+       
+    }
      public Recurso consultarRecurso(int id) throws ExceptionServiciosReserva{
          return ServiciosReserva.consultarRecurso(id);
      }

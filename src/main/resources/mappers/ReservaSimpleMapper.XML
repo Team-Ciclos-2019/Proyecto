@@ -13,7 +13,7 @@
         <result property='fin' column='fin' />
 	<result property= 'activo' column='activo' />		
     </resultMap>
-             <select parameterType='map' id='consultarReservaSimples' resultMap='ReservaSimpleResult' >
+    <select parameterType='map' id='consultarReservaSimples' resultMap='ReservaSimpleResult' >
 		SELECT
 		re.id ,
         re.reserva ,
@@ -25,6 +25,20 @@
 		Reserva_Simple as re
 		WHERE
 		re.activo=True 
+	</select>
+	
+	<select parameterType='map' id='consultarReservaSimplesCanceladas' resultMap='ReservaSimpleResult' >
+		SELECT
+		re.id ,
+        re.reserva as recurso ,
+		re.estudiante,
+		re.inicio ,
+		re.fin ,
+		re.activo
+		FROM 
+		Reserva_Simple as re
+		WHERE
+		re.activo=False 
 	</select>
 	
 	<select parameterType='map' id='consultarReservaSimpleConRecurso' resultMap='ReservaSimpleResult' >

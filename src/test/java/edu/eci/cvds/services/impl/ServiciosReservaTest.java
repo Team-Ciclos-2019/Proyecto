@@ -33,6 +33,7 @@ public class ServiciosReservaTest{
     public void testRegistrarRecurso(){
         Recurso recurso= new Recurso(2,"salon1","salon","Bloque G",true,3,11);
         try{
+			
             ServiciosReserva.registrarRecurso(recurso);
         }
         catch(Exception e){

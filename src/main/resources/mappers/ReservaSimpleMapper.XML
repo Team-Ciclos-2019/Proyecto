@@ -42,25 +42,21 @@
 	</select>
 	
 	<select parameterType='map' id='consultarReservaSimpleHorariosMasRecurrentes' resultMap='ReservaSimpleResult' >
-		SELECT  
-		count(reserva_simple.inicio) as numero, 
-		reserva_simple.inicio,
-		reserva_simple.fin 
-		FROM 
-		reserva_simple 
-		GROUP BY reserva_simple.inicio,reserva_simple.fin 
-		ORDER BY numero desc
+		SELECT 
+		count (*) as cantidad, 
+		EXTRACT(HOUR from reserva_simple.inicio) as HoraInicio 
+		FROM reserva_simple 
+		GROUP BY EXTRACT(HOUR from reserva_simple.inicio) 
+		ORDER BY cantidad desc
 	</select>
 	
 	<select parameterType='map' id='consultarReservaSimpleHorariosMenosRecurrentes' resultMap='ReservaSimpleResult' >
-		SELECT  
-		count(reserva_simple.inicio) as numero, 
-		reserva_simple.inicio,
-		reserva_simple.fin 
-		FROM 
-		reserva_simple 
-		GROUP BY reserva_simple.inicio,reserva_simple.fin 
-		ORDER BY numero
+		SELECT 
+		count (*) as cantidad, 
+		EXTRACT(HOUR from reserva_simple.inicio) as HoraInicio 
+		FROM reserva_simple 
+		GROUP BY EXTRACT(HOUR from reserva_simple.inicio) 
+		ORDER BY cantidad
 	</select>
 	
 	<insert id="saveReservaSimple" parameterType="map" >

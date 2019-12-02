@@ -28,6 +28,16 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
     }
     
     @Override
+    public List<ReservaSimple> consultarReservaSimplesCanceladas() throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesCanceladas();
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
     public List<ReservaSimple> consultarReservaSimplesHorariosMasRecurrentes() throws PersistenceException{
         try{
             return reservaSimpleMapper.consultarReservaSimplesHorariosMasRecurrentes();

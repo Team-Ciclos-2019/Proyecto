@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 public interface ReservaSimpleMapper {
     public List<ReservaSimple> consultarReservaSimples();
+    public List<ReservaSimple> consultarReservaSimplesCanceladas();
     public List<ReservaSimple> consultarReservaSimplesHorariosMasRecurrentes();
     public List<ReservaSimple> consultarReservaSimplesHorariosMenosRecurrentes();
     public void saveReservaSimple(@Param("idr") int idr,@Param("ide") int ide,@Param("FechaI") Date fechaInicio,@Param("FechaF") Date fechaFin,@Param("Activo")boolean activo);

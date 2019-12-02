@@ -248,7 +248,7 @@ public class ServiciosReservaTest{
     }
     
     @Test
-    public void testconsultarReservaSimplesConRecurso(){
+    public void testConsultarReservaSimplesConRecurso(){
         try{
             Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);
             ServiciosReserva.registrarReservaFutura(1,recurso,new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").parse("01/08/2019 07:00:00"),

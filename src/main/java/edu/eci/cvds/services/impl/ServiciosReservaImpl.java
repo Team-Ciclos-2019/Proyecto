@@ -135,6 +135,16 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     }
     
     @Override
+    public List<ReservaSimple> consultarReservaSimplesCanceladas() throws ExceptionServiciosReserva{
+        try{
+            return reservaSimpleDAO.consultarReservaSimplesCanceladas();
+        }
+        catch (PersistenceException e) {
+            throw new ExceptionServiciosReserva("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
     public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva{
         try{
             return reservaSimpleDAO.consultarReservaSimplesConRecurso(idRecurso,idEstudiante);

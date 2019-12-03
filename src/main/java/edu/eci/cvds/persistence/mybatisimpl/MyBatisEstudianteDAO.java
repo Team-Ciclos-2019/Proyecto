@@ -21,6 +21,16 @@ public class MyBatisEstudianteDAO implements EstudianteDAO{
     
     @Inject
     private EstudianteMapper estudianteMapper;
+    @Override
+    public Estudiante consultarIdEstudiante(String correo) throws PersistenceException{
+        try{
+            return estudianteMapper.consultarIdEstudiante(correo);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+               e.printStackTrace();;
+               return null;
+        }
+    }
     
     @Override
     public Estudiante consultarEstudiante(int id) throws PersistenceException{

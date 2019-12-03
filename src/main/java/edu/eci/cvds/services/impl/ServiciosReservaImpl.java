@@ -49,7 +49,16 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
             throw new ExceptionServiciosReserva("Error al consultar estudiantes");
         }
     }
-    
+    @Override
+    public Estudiante consultarIdEstudiante(String correo) throws PersistenceException{
+        try{
+            return estudianteDAO.consultarIdEstudiante(correo);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                e.printStackTrace();;
+               return null;
+        }
+    }
     @Override
     public Estudiante consultarEstudiante(int id) throws ExceptionServiciosReserva {
         try {

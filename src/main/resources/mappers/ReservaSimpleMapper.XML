@@ -44,7 +44,7 @@
 	<select parameterType='map' id='consultarReservaSimplesPorEstudiante' resultMap='ReservaSimpleResult' >
 		SELECT
 		re.id ,
-        re.reserva as recurso ,
+                re.reserva  ,
 		re.estudiante,
 		re.inicio ,
 		re.fin ,

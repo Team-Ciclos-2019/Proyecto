@@ -21,11 +21,15 @@
         <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <body>
+    <h:form>
+
+                             
+               
       
 		
 		<div id="home" class="intro route bg-image" style="background-image: url(img/xd.jpg)">
                        
-			<h:form>  
+			 
                             <p:growl id="messages"/>
                             <style>
                                     .menubar {
@@ -33,7 +37,7 @@
                                     }
 
                             </style>
-
+                   
                            <p:toolbar styleClass="menubar">
                                 <f:facet name="left">
                                     <p:link outcome="VistaUsuario.xhtml" value="Inicio" style="margin-left:20px;color:white;" />
@@ -52,38 +56,78 @@
                                 </f:facet>
 
                             </p:toolbar>
-<style>
-.xd {
-  position: absolute;
-  right: 600px;
-  top: 230px;
+                               <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Mis Reservas
+            </h3>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+	  <style type="text/css">
+			.ui-datatable .ui-datatable-header {
+				text-align: right !important;
+			}
+			 
+			.ui-button-text-only .ui-button-text {
+				padding: 0.3em 0.4em;
+			}
+			 
+			.ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-header .ui-chkbox {
+				visibility: hidden;
+			}
+			 
+			.ui-filter-column .ui-column-customfilter .custom-filter {
+				width: 100%;
+				box-sizing: border-box;
+			}
+			 
+			.year-spinner input {
+				width: 100%;
+				box-sizing: border-box;
+			}
+	</style>
+                            <style>
+                            .container {
+                              position: absolute;
+                              top: 100px;
+                              right: 100px;
 
-}
-</style>
-                             
-                           <div class="xd">
-                                  
-                                <p:panelMenu style="width:300px">
-                                    <p:submenu label="Recursos">
-                                        <p:menuitem value="Consultar recursos disponibles" outcome="consultaUsuarios.xhtml"/>
-                                       
-                                    </p:submenu>
-                                    <p:submenu label="Reservas">
-                                        <p:menuitem value="Mis Reservas" outcome="consultaReservaUsuario.xhtml" />
-                                        <p:menuitem value="Calendario" outcome="calendarioUsuario.xhtml"/>
-                                    </p:submenu>
-                                    <p:separator />
-                                    <p:submenu label="Profile" >
-                                         <p:menuitem value="Mis datos" />
-                                    </p:submenu>
-                                </p:panelMenu>
-                             </div>  
-                          
-                            
-                             
-                        </h:form>
+                            }
+                            </style>
+                            <div id="xd" class="container"> 
+                               
+                            <center>    
+                             <p:dataTable var="rese" value="#{recursoBean.consultarReservaSimplesPorEstudiante(recursoBean.consultarIdEstudiante(InicioBean.getCorreo()))}"  widgetVar="reserva1">
+							
+                                                        <p:column headerText="Recurso">
+								<h:outputText value="#{(recursoBean.consultarRecurso(rese.getReserva())).getNombre()}" />
+							</p:column>
+                                                        <p:column headerText="Fecha de Inicio">
+								<h:outputText value="#{rese.getInicio()}" />
+							</p:column>
+                                                        <p:column headerText="Fecha de Finalizacion">
+								<h:outputText value="#{rese.getFin()}" />
+							</p:column>			
+				</p:dataTable>
+                                </center>
+						 
+							
+							
+							
+							
+							
+						 
+							
+				
+                          </div>   
+                        </div>
+
+                    </h:form>
                       
-		</div>
+		
 	
 	
 	

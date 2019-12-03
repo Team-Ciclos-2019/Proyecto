@@ -2,13 +2,14 @@
 package edu.eci.cvds.persistence.mybatisimpl.mappers;
 
 import edu.eci.cvds.entities.Estudiante;
+import edu.eci.cvds.persistence.PersistenceException;
 import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 
 public interface EstudianteMapper {
-    
+    public Estudiante consultarIdEstudiante(@Param("co") String correo);
     public Estudiante consultarEstudiante(@Param("ide") int id);
     public List<Estudiante> consultarEstudiantes();
     public void agregarUsuario(@Param("usuario") Estudiante estudiante);

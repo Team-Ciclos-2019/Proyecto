@@ -1,4 +1,5 @@
 package edu.eci.cvds.managedbeans;
+import edu.eci.cvds.entities.Estudiante;
 import edu.eci.cvds.entities.Recurso;
 import edu.eci.cvds.entities.ReservaSimple;
 import edu.eci.cvds.persistence.PersistenceException;
@@ -204,10 +205,16 @@ public class RecursoBean implements Serializable {
     public void setEstado(boolean estado){
         this.estado=estado;
     }
+    public List<ReservaSimple> consultarReservaSimplesPorEstudiante(int idEstudiante) throws ExceptionServiciosReserva{
+        System.out.println((ServiciosReserva.consultarReservaSimplesPorEstudiante(idEstudiante)).size());
+        return ServiciosReserva.consultarReservaSimplesPorEstudiante(idEstudiante);
+    }
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-
+    public int consultarIdEstudiante(String correo) throws PersistenceException{
+       return  (ServiciosReserva.consultarIdEstudiante(correo)).getID();
+    }
     public void registrarRecurso(int identificador,String nombre,String tipo,String ubicacion,boolean estado,int capacidad,int disponibilidad){
         try{
             System.out.println("si");

@@ -12,7 +12,19 @@
         <collection property='recursos' ofType='RecursoReservado'
 					resultMap="edu.eci.cvds.persistence.mybatisimpl.mappers.RecursoReservadoMapper.RecursoReservadoResult" columnPrefix="rr_"></collection>    
     </resultMap>
-
+    <select parameterType='map' id="consultarIdEstudiante" resultMap="EstudianteResult">
+        SELECT
+        u.id,
+        u.nombre,
+        u.carrera,
+        u.penalizado
+        from
+        Usuarios as u
+         <if test="co != null">
+            where u.correo=#{co}
+        </if>
+        
+    </select>
     <select id="consultarEstudiantes" resultMap="EstudianteResult">
         SELECT
         u.id,

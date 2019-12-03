@@ -58,6 +58,6 @@ El panel principal se divide en dos areas:
 ### 2.1 Barra de menu.
 ### 2.2 Área principal.
 
-![Manual de Usuario](manual.jpg)
+![Manual de Usuario](1.png)
 
        

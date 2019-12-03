@@ -112,6 +112,12 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 6.3 Menu: Funciones asignadas a la cuenta estudiante.
 
+6.4 Recursos disponiibles
+
+![Manual de Usuario](10.png)
+
+
+
 ## 7. Calendario
 
 ![Manual de Usuario](6.png)

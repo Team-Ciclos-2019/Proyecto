@@ -51,5 +51,6 @@ La aplicación es intuitiva y fácil de usar: no necesita tener conocimientos de
 
 La pagina se adapta a cualquier dispositivo (PCs, Tablets y Smartphones) sin necesidad de ningún paso extra.
 
+## 2. Visión general de la aplicación online 
 
        

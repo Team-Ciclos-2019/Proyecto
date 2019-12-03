@@ -116,6 +116,10 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 ![Manual de Usuario](10.png)
 
+6.5 Consultar mis recursos
+
+![Manual de Usuario](11.png)
+
 
 
 ## 7. Calendario

@@ -118,9 +118,15 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 7.1 Felchas para pasar al siguiente mes o retroceder.
 
+![Manual de Usuario](7.png)
+
 7.2 Formas diferentes de ver el calendario, dia, mes y semana.
 
-![Manual de Usuario](7.png)
+![Manual de Usuario](8.png)
+
+
+![Manual de Usuario](9.png)
+
 
 7.3 Current Date: Selecciona el dia actual.
 

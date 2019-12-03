@@ -48,6 +48,7 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 ### 3. Consultar recursos
 ### 4. Consultar reservas 
 ### 5. Iniciar sesión
+### 6. Cuenta estudiante
 
 
 ## 1. Introducción
@@ -99,6 +100,10 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 5.2 Constraseña: Campo para escribir la contraseña del usuario.
 
 5.3 Boton Iniciar Sesión: Boton para confirmar datos e ingresar como usuario.
+
+## 6. Cuenta estudiante 
+
+![Manual de Usuario](5.png)
 
 
 
@@ -178,6 +183,4 @@ No se manejó de manera adecuada el tiempo, ni priorizamos las tareas actuales
 - Uno de los desarrolladores del Front no se comunicó con el equipo, y no entregó vistas 
 - A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front quedó mas atrasada que la del Back.
 
-## Reporte de pruebas ##
 
-![jacoco](https://user-images.githubusercontent.com/53835467/70027166-88450800-156f-11ea-8fbd-76be458c5344.PNG)

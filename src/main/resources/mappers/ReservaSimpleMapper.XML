@@ -41,6 +41,36 @@
 		re.activo=False 
 	</select>
 	
+	<select parameterType='map' id='consultarReservaSimplesPorEstudiante' resultMap='ReservaSimpleResult' >
+		SELECT
+		re.id ,
+        re.reserva as recurso ,
+		re.estudiante,
+		re.inicio ,
+		re.fin ,
+		re.activo
+		FROM 
+		Reserva_Simple as re
+		WHERE
+		re.activo=True  AND re.estudiante=#{ide}
+		ORDER BY inicio
+	</select>
+	
+	<select parameterType='map' id='consultarReservaSimplesCanceladasPorEstudiante' resultMap='ReservaSimpleResult' >
+		SELECT
+		re.id ,
+        re.reserva as recurso ,
+		re.estudiante,
+		re.inicio ,
+		re.fin ,
+		re.activo
+		FROM 
+		Reserva_Simple as re
+		WHERE
+		re.activo=False  AND re.estudiante=#{ide}
+		ORDER BY inicio
+	</select>
+	
 	<select parameterType='map' id='consultarReservaSimpleConRecurso' resultMap='ReservaSimpleResult' >
 		SELECT
 		re.id ,
@@ -53,6 +83,20 @@
 		Reserva_Simple as re
 		WHERE
 		re.reserva=#{idr}  AND re.activo=True AND re.estudiante=#{ide}
+	</select>
+	
+	<select parameterType='map' id='consultarReservaSimplesPasadasPorEstudiante' resultMap='ReservaSimpleResult' >
+		SELECT 
+		re.id,
+		re.reserva as recurso,
+		re.inicio, 
+		re.fin, 
+		re.estudiante 
+		FROM 
+		reserva_simple as re 
+		WHERE 
+		re.inicio &lt; current_date AND re.estudiante=#{ide}
+		order by re.inicio
 	</select>
 	
 	<select parameterType='map' id='consultarReservaSimpleHorariosMasRecurrentes' resultMap='ReservaSimpleResult' >

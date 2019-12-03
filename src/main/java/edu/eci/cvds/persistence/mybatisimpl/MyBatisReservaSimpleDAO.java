@@ -77,6 +77,36 @@ public class MyBatisReservaSimpleDAO implements ReservaSimpleDAO {
         }
     }
     
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesCanceladasPorEstudiante(int idEstudiante) throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesCanceladasPorEstudiante(idEstudiante);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesPorEstudiante(int idEstudiante) throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesPorEstudiante(idEstudiante);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
+    @Override
+    public List<ReservaSimple> consultarReservaSimplesPasadasPorEstudiante(int idEstudiante) throws PersistenceException{
+        try{
+            return reservaSimpleMapper.consultarReservaSimplesPasadasPorEstudiante(idEstudiante);
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar reservas simples");
+        }
+    }
+    
     @Override 
     public void cancelarReservaSimpleFutura(int idRecurso,int idEstudiante,Date fechaInicio) throws PersistenceException{
         try{

@@ -45,11 +45,12 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 
 ### 1. Instroducción
 ### 2. Visión general de la aplicación online 
-### 3. Consultando recursos
-### 4. Consultando reservas 
+### 3. Consultar recursos
+### 4. Consultar reservas 
+### 5. Iniciar sesión
 
 
-## Introducción
+## 1. Introducción
 
 La appbiblioteca15 es una herramienta donde el personal de la biblioteca pertenecientes a la Escuela Colombiana de Ingeniería Julio Garavito, pueden registrar las salas de estudio, equipos de cómputo y demás recursos con los que cuenta la biblioteca, junto con los horarios de disponibilidad y demás información importante.
 
@@ -87,9 +88,15 @@ Desde la pagina principal, por medio del boton RESERVAS ubicado en la barra de m
 
 ![Manual de Usuario](3.png)
 
+## 5. Iniciar sesión
 
+Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la barra de menu.
 
+![Manual de Usuario](4.png)
 
+5.1 Usuario: Campo para escribir el usuario asignado.
+5.2 Constraseña: Campo para escribir la contraseña del usuario.
+5.3 Boton Iniciar Sesión: Boton para confirmar datos e ingresar como usuario.
 
 
 

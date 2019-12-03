@@ -208,18 +208,19 @@ SCRUM cuenta con una planeaci처n, antes de iniciar el tiempo de la implementaci�
 - Falta de trabajo del desarrollador encargado de la parte visual, no se hizo ninguna vista de las tareas de este Sprint.
 - Por parte de los desarrolladores del Back hubo un buen trabajo.
 - Hubo un cambio de roles en cuanto a Front y Back viendo las necesidades del equipo.
+- No se manej처 de manera adecuada el tiempo, ni priorizamos las tareas actuales.
 
-No se manej처 de manera adecuada el tiempo, ni priorizamos las tareas actuales 
 ## Sprint #3 ##
 
 ### Sprint - Backlog ###
+![Sprint3Back](https://user-images.githubusercontent.com/53835467/70053727-08856080-15a4-11ea-95c5-8e3196d8e0e5.PNG)
 
 ### Sprint - BurnDown Chart ###
+![Sprint3Burm](https://user-images.githubusercontent.com/53835467/70053554-a9275080-15a3-11ea-81ed-f7089b6977b5.PNG)
 
 ### FeedBack ###
-
-- Uno de los desarrolladores del Front no se comunic처 con el equipo, y no entreg처 vistas 
-- A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front qued처 mas atrasada que la del Back.
+- Uno de los desarrolladores del Front no se comunic처 con el equipo, y no entreg처 vistas.
+- A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front qued처 mas atrasada.
 
 ## Reporte de pruebas ##
 ![jacoco](https://user-images.githubusercontent.com/53835467/70027166-88450800-156f-11ea-8fbd-76be458c5344.PNG)

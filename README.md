@@ -220,6 +220,7 @@ SCRUM cuenta con una planeación, antes de iniciar el tiempo de la implementaci�
 - Por parte de los desarrolladores del Back hubo un buen trabajo.
 - Hubo un cambio de roles en cuanto a Front y Back viendo las necesidades del equipo.
 - No se manejó de manera adecuada el tiempo, ni priorizamos las tareas actuales.
+- De la parte visual, se entrego en este sprint la pagina principal con todas sus animaciones y menu, y el login. Hubo un atraso, pero se definio y se dio enfoque a la parte visual de la pagina web
 
 ## Sprint #3 ##
 
@@ -232,6 +233,7 @@ SCRUM cuenta con una planeación, antes de iniciar el tiempo de la implementaci�
 ### FeedBack ###
 - Uno de los desarrolladores del Front no se comunicó con el equipo, y no entregó vistas.
 - A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front quedó mas atrasada.
+- Se presento un atraso en el front en comparacion del back, pero gracias a todo el equipo se entrego una buena pagina web. La unica parte que visualmente falto, fue la cuenta de administrador.
 
 ## Reporte de pruebas ##
 ![jacoco](https://user-images.githubusercontent.com/53835467/70027166-88450800-156f-11ea-8fbd-76be458c5344.PNG)

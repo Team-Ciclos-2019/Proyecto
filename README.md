@@ -155,7 +155,7 @@ SCRUM cuenta con una planeaci√≥n, antes de iniciar el tiempo de la implementaci√
 ## Sprint #2 ##
 
 ### Sprint - Backlog ###
-![Sprint2Back](https://user-images.githubusercontent.com/53835467/70021316-4cee0d80-155e-11ea-9d48-a83a18a3fdc6.PNG)
+![Sprint2Back](https://user-images.githubusercontent.com/53835467/70024723-ecb09900-1568-11ea-90e5-81a0befa8748.PNG)
 
 ### Sprint - BurnDown Chart ###
 ![Sprint2Burn](https://user-images.githubusercontent.com/53835467/70021330-58413900-155e-11ea-8e06-63e39b860493.PNG)

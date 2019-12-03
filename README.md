@@ -24,4 +24,7 @@
 ## Modelo relacional
 
 ![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/modelo%20relacional.PNG)  
+
+## Manual de Usuario
+![Manual de Usuario](manual.jpg)
        

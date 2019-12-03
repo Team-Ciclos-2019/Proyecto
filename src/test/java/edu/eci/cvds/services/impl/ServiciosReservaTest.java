@@ -262,6 +262,36 @@ public class ServiciosReservaTest{
     }
     
     @Test
+    public void testConsultarReservaSimplesCanceladasPorEstudiante(){
+        try{
+            ServiciosReserva.consultarReservaSimplesCanceladasPorEstudiante(1);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testConsultarReservaSimplesPorEstudiante(){
+        try{
+            ServiciosReserva.consultarReservaSimplesPorEstudiante(1);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testConsultarReservaSimplesPasadasPorEstudiante(){
+        try{
+            ServiciosReserva.consultarReservaSimplesPasadasPorEstudiante(1);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
     public void testCancelarReservaCompleta(){
         try{
             Recurso recurso= new Recurso(1,"salon1","salon","Bloque G",true,3,11);

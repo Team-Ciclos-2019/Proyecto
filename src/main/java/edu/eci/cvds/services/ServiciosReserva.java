@@ -31,6 +31,9 @@ public interface ServiciosReserva{
     public abstract List<Estudiante> consultarEstudiantes() throws ExceptionServiciosReserva;
     public abstract List<Recurso> consultarRecursos() throws ExceptionServiciosReserva;
     public List<ReservaSimple> consultarReservaSimplesConRecurso(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesCanceladasPorEstudiante(int idEstudiante) throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesPorEstudiante(int idEstudiante) throws ExceptionServiciosReserva;
+    public List<ReservaSimple> consultarReservaSimplesPasadasPorEstudiante(int idEstudiante) throws ExceptionServiciosReserva;
     public RecursoReservado consultarReserva(int idRecurso,int idEstudiante) throws ExceptionServiciosReserva ;
     public abstract void registrarRecurso(Recurso r) throws ExceptionServiciosReserva;
     public void registrarEstudiante(Estudiante estudiante) throws ExceptionServiciosReserva;

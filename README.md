@@ -49,6 +49,7 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 ### 4. Consultar reservas 
 ### 5. Iniciar sesión
 ### 6. Cuenta estudiante
+### 7. Calendario
 
 
 ## 1. Introducción
@@ -110,6 +111,16 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 6.2 Salir: Boton que redirecciona a la pagina principal.
 
 6.3 Menu: Funciones asignadas a la cuenta estudiante.
+
+## 7. Calendario
+
+![Manual de Usuario](6.png)
+
+7.1 Felchas para pasar al siguiente mes o retroceder.
+
+7.2 Formas diferentes de ver el calendario, dia, mes y semana.
+
+![Manual de Usuario](7.png)
 
 
 

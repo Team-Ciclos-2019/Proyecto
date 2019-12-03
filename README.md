@@ -50,6 +50,7 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 ### 5. Iniciar sesión
 ### 6. Cuenta estudiante
 ### 7. Calendario
+### 8. Horario de reserva
 
 
 ## 1. Introducción
@@ -134,11 +135,13 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 ![Manual de Usuario](8.png)
 
-
 ![Manual de Usuario](9.png)
 
-
 7.3 Current Date: Selecciona el dia actual.
+
+## 8. Horario de reserva
+
+![Manual de Usuario](12.png)
 
 
 

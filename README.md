@@ -25,16 +25,17 @@
 
 ![imgen1](https://github.com/fernando-b15/Cnyt-lab1/blob/master/modelo%20relacional.PNG)  
 
-## Manual de Usuario
+# Manual de Usuario
 ![Manual de Usuario](manual.jpg)
 
-### Contenido
+## Contenido
 
 ### 1. Instroducción
+### 2. Visión general de la aplicación online 
 
 
 
-### Introducción
+## Introducción
 
 La appbiblioteca15 es una herramienta donde el personal de la biblioteca pertenecientes a la Escuela Colombiana de Ingeniería Julio Garavito, pueden registrar las salas de estudio, equipos de cómputo y demás recursos con los que cuenta la biblioteca, junto con los horarios de disponibilidad y demás información importante.
 

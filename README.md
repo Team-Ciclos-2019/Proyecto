@@ -56,6 +56,7 @@ La pagina se adapta a cualquier dispositivo (PCs, Tablets y Smartphones) sin nec
 El panel principal se divide en dos areas:
 
 2.1 Barra de menu: Muestra información sobre el área o contenido que haya seleccionado. 
+
 2.2 Área principal:  Por defecto, muestra el contenido de la web. Muetra algunos anuncios, como funcionalidades nuevas, proximas actualizaciones y etc.
 
 ![Manual de Usuario](1.png)

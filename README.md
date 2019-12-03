@@ -64,7 +64,7 @@ La aplicación es intuitiva y fácil de usar: no necesita tener conocimientos de
 
 La pagina se adapta a cualquier dispositivo (PCs, Tablets y Smartphones) sin necesidad de ningún paso extra.
 
-## 2. Visión general de la aplicación online 
+## 2. Pagina principal. 
 
 El panel principal se divide en dos areas:
 
@@ -73,6 +73,15 @@ El panel principal se divide en dos areas:
 2.2 Área principal:  Por defecto, muestra el contenido de la web. Muetra algunos anuncios, como funcionalidades nuevas, proximas actualizaciones y etc.
 
 ![Manual de Usuario](1.png)
+
+## 3. Consultando recursos
+
+Desde la pagina principal, por medio del boton RECURSOS ubicado en la barra de menu. Accederemos a los recursos disponibles.
+
+![Manual de Usuario](2.png)
+
+
+
 
 ## Badges ##
 [![CircleCI](https://circleci.com/gh/Team-Ciclos-2019/Proyecto.svg?style=svg)](https://circleci.com/gh/Team-Ciclos-2019/Proyecto)

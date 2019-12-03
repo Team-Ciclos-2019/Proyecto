@@ -45,7 +45,8 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 
 ### 1. Instroducción
 ### 2. Visión general de la aplicación online 
-
+### 3. Consultando recursos
+### 4. Consultando reservas 
 
 
 ## Introducción
@@ -79,6 +80,17 @@ El panel principal se divide en dos areas:
 Desde la pagina principal, por medio del boton RECURSOS ubicado en la barra de menu. Accederemos a los recursos disponibles.
 
 ![Manual de Usuario](2.png)
+
+## 4. Consultando reservas
+
+Desde la pagina principal, por medio del boton RESERVAS ubicado en la barra de menu. Accederemos a las reservas disponibles.
+
+![Manual de Usuario](3.png)
+
+
+
+
+
 
 
 

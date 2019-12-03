@@ -107,7 +107,7 @@
                             <p:commandButton id="xd1" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(recursoBean.consultarIdEstudiante(InicioBean.getCorreo()),recursoBean.getIdentificador(),recursoBean.event.startDate,recursoBean.event.endDate,true,recursoBean.getTipoReserva()) }"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
                             
                             <br/>
-                            <p:commandButton id="xd2" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Cancelar" action="#{recursoBean.cancelarReservaFuturaSimple(recursoBean.getIdentificador(), recursoBean.consultarIdEstudiante(InicioBean.getCorreo()), recursoBean.event.startDate)}"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
+                            <p:commandButton id="xd2" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Cancelar" action="#{recursoBean.cancelarReservaFuturaSimple(6,4, recursoBean.event.startDate)}"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
 
                         </h:panelGrid>
                     </p:dialog>

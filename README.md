@@ -183,4 +183,5 @@ No se manejó de manera adecuada el tiempo, ni priorizamos las tareas actuales
 - Uno de los desarrolladores del Front no se comunicó con el equipo, y no entregó vistas 
 - A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front quedó mas atrasada que la del Back.
 
-
+## Reporte de pruebas ##
+![jacoco](https://user-images.githubusercontent.com/53835467/70027166-88450800-156f-11ea-8fbd-76be458c5344.PNG)

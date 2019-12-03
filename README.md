@@ -53,4 +53,11 @@ La pagina se adapta a cualquier dispositivo (PCs, Tablets y Smartphones) sin nec
 
 ## 2. Visión general de la aplicación online 
 
+El panel principal se divide en dos areas:
+
+### 2.1 Barra de menu.
+### 2.2 Área principal.
+
+![Manual de Usuario](manual.jpg)
+
        

@@ -29,5 +29,12 @@
 ![Manual de Usuario](manual.jpg)
 
 ### Contenido
+### 1. Instroducción
+
+
+
+### Introducción
+       La appbiblioteca15 es una herramienta donde el personal de la biblioteca pertenecientes a la Escuela Colombiana de Ingeniería            Julio Garavito, pueden registrar las salas de estudio, equipos de cómputo y demás recursos con los que cuenta la biblioteca,            junto con los horarios de disponibilidad y demás información importante
+
 
        

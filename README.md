@@ -105,6 +105,12 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 ![Manual de Usuario](5.png)
 
+6.1 Inicio: Boton que redirecciona a la cuenta estudiante.
+
+6.2 Salir: Boton que redirecciona a la pagina principal.
+
+6.3 Menu: Funciones asignadas a la cuenta estudiante.
+
 
 
 

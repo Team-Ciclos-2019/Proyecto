@@ -48,6 +48,8 @@ A continuación veremos algunas de las cuentas administradoras y de estudiantes
 ### 3. Consultar recursos
 ### 4. Consultar reservas 
 ### 5. Iniciar sesión
+### 6. Cuenta estudiante
+### 7. Calendario
 
 
 ## 1. Introducción
@@ -99,6 +101,44 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 5.2 Constraseña: Campo para escribir la contraseña del usuario.
 
 5.3 Boton Iniciar Sesión: Boton para confirmar datos e ingresar como usuario.
+
+## 6. Cuenta estudiante 
+
+![Manual de Usuario](5.png)
+
+6.1 Inicio: Boton que redirecciona a la cuenta estudiante.
+
+6.2 Salir: Boton que redirecciona a la pagina principal.
+
+6.3 Menu: Funciones asignadas a la cuenta estudiante.
+
+6.4 Consultar recursos disponiibles
+
+![Manual de Usuario](10.png)
+
+6.5 Consultar mis recursos
+
+![Manual de Usuario](11.png)
+
+
+
+## 7. Calendario
+
+![Manual de Usuario](6.png)
+
+7.1 Felchas para pasar al siguiente mes o retroceder.
+
+![Manual de Usuario](7.png)
+
+7.2 Formas diferentes de ver el calendario, dia, mes y semana.
+
+![Manual de Usuario](8.png)
+
+
+![Manual de Usuario](9.png)
+
+
+7.3 Current Date: Selecciona el dia actual.
 
 
 
@@ -178,4 +218,5 @@ No se manejó de manera adecuada el tiempo, ni priorizamos las tareas actuales
 - Uno de los desarrolladores del Front no se comunicó con el equipo, y no entregó vistas 
 - A pesar de dividir las tareas y dedicar mas tiempo del estimado, la parte del Front quedó mas atrasada que la del Back.
 
-
+## Reporte de pruebas ##
+![jacoco](https://user-images.githubusercontent.com/53835467/70027166-88450800-156f-11ea-8fbd-76be458c5344.PNG)

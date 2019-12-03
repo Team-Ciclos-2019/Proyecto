@@ -121,8 +121,6 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 ![Manual de Usuario](11.png)
 
-
-
 ## 7. Calendario
 
 ![Manual de Usuario](6.png)
@@ -142,6 +140,16 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 ## 8. Horario de reserva
 
 ![Manual de Usuario](12.png)
+
+8.1 Recurso: Nombre del recurso a reservar.
+
+8.2 Fechas: Fecha de inicio y fecha de fin, tiempo de duración con el recurso.
+
+8.3 Tipo de reserva: Los tipos son, simple, diaria, semanal y mensual.
+
+8.4 Reservar: Boton de confirmacion para hacer la reserva.
+
+8.5 Cancelar: Boton para cancelar la reserva actual.
 
 
 

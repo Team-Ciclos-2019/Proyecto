@@ -48,5 +48,7 @@ Todas estas funcionalidad se usas hacia los recursos existente en la biblioteca.
 
 La aplicación es intuitiva y fácil de usar: no necesita tener conocimientos de programación, ni nociones de diseño, etc. Tan sólo tiene que iniciar sesión y manipular los recursos a su acomodo, con las accione descritas anteriormenmte. 
 
+La pagina se adapta a cualquier dispositivo (PCs, Tablets y Smartphones) sin necesidad de ningún paso extra.
+
 
        

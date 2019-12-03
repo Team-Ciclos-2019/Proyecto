@@ -4,10 +4,62 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:p="http://primefaces.org/ui">
-    <h:head>
-        <title>administrador</title>
-    </h:head>
-    <h:body>
+<h:head>    
+    <meta charset="utf-8"/>
+	<title>ECI-Administrador</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="" name="keywords"/>
+        <meta content="" name="description"/>
+
+        <link href="https://landing.escuelaing.edu.co/wp-content/themes/juliogaravito/favicon/apple-icon-57x57.png" rel="icon"/>
+        <link href="https://landing.escuelaing.edu.co/wp-content/themes/juliogaravito/favicon/apple-icon-60x60.png" rel="apple-touch-icon"/>
+
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+
+        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+        <link href="lib/animate/animate.min.css" rel="stylesheet"/>
+        <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet"/>
+        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet"/>
+        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet"/>
+
+        <link href="css/style.css" rel="stylesheet"/>
+</h:head>
+<body>
+    <style>
+                                    .menubar {
+                                     background: #800000 !important;
+                                    }
+
+                            </style>
+      <p:toolbar styleClass="menubar">
+                                <f:facet name="left">
+                                    <p:link  value="Inicio" style="margin-left:20px;color:white;" />
+
+                                
+
+                                    <span class="ui-separator">
+                                        <span class="ui-icon pi pi-ellipsis-v" />
+                                    </span>
+
+                                </f:facet>
+
+                                <f:facet name="right">
+                                     <p:link outcome="index.xhtml" value="Salir" style="color:white;" />
+
+                                </f:facet>
+
+                            </p:toolbar>
+<style>
+.xd {
+  position: absolute;
+  right: 600px;
+  top: 230px;
+
+}
+</style>
+                  
+		
+		<div class="limiter" id="home"  style="background-image: url(img/escuela-1.jpg)">
         <h1>Hello administrador!</h1>
          <h:form id = "registro">
             <center>
@@ -112,8 +164,9 @@
             
          </h:form>
         
+        </div>
    
-     </h:body>
+     </body>
      
  
 </html>

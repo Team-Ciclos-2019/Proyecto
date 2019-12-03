@@ -205,6 +205,9 @@ public class RecursoBean implements Serializable {
     public void setEstado(boolean estado){
         this.estado=estado;
     }
+     public void cancelarReservaFuturaSimple(int idRecurso,int idEstudiante,Date fecha)  throws ExceptionServiciosReserva{
+         ServiciosReserva.cancelarReservaFuturaSimple(idRecurso,idEstudiante,fecha);
+     }
     public List<ReservaSimple> consultarReservaSimplesPorEstudiante(int idEstudiante) throws ExceptionServiciosReserva{
         System.out.println((ServiciosReserva.consultarReservaSimplesPorEstudiante(idEstudiante)).size());
         return ServiciosReserva.consultarReservaSimplesPorEstudiante(idEstudiante);

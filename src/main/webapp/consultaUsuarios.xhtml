@@ -21,7 +21,7 @@
         <link href="css/style.css" rel="stylesheet"/>
 </h:head>
 <body>
-    <h:form>
+    <h:form id = "consultar">
 
                              
                
@@ -97,10 +97,51 @@
                             }
                             </style>
                             <div class="xd">  
-							<p:dataTable var="re" value="#{recursoBean.consultarRecursos()}"  widgetVar="recurso"
+							<p:dataTable var="re" value="#{recursoBean.consultarRecursosDisponibles()}"  widgetVar="recurso"
 					 emptyMessage="No found recurso" filteredValue="#{recursoBean.filteredRecurso}">
 							<p:column headerText="Id">
-								<h:outputText value="#{re.getID()}" />
+								<p:growl id="growl" sticky="true" showDetail="true" />
+                                        <p:dialog  header="Reserva" widgetVar="#{re.getID()}" showEffect="clip" hideEffect="clip" modal="true">
+                                                
+                                                <p:ajax update="xd"/>
+                                      
+                                                <h:outputLabel value="ini: " />
+                                                <p:calendar value="#{calendarBean.date}" showOn="button" pattern="MM/dd/yyyy HH:mm:ss">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                    <p:ajax update="xd"/>
+                                                </p:calendar>
+                                                  <br/>
+                                                <h:outputLabel value="fin: " />
+                                                <p:calendar value="#{calendarBean.date15}" showOn="button" pattern="MM/dd/yyyy HH:mm:ss">
+                                                    <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                                     <p:ajax update="xd"/>
+                                                </p:calendar>
+                                                   <br/>
+                                                    <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">Tipo de Reserva:</label>
+                                                        <p:selectOneMenu id="console" value="#{recursoBean.tipoReserva}" >
+                                                            <f:selectItem itemLabel="Select One" itemValue="" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Simple" itemValue="Simple" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Diaria" itemValue="Diaria" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Semanal" itemValue="Semanal" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Mensual" itemValue="Mensual" />
+                                                            <p:ajax update="xd"/>
+                                                       
+
+                                                        </p:selectOneMenu>
+                                                    </div>
+                                                    </div>
+                                                       
+                                                 <br/>
+                                                 <p:commandButton id="xd" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true,recursoBean.getTipoReserva()) }" />  
+                                                 
+                                        </p:dialog> 
+					<h:outputText value="#{re.getID()}" />
 							</p:column>
 						 
 							<p:column headerText="Nombre">
@@ -142,6 +183,12 @@
 							<p:column headerText="Disponibilidad">
 								<h:outputText value="#{re.getDisponibilidad()}" />
 							</p:column>
+                                                        <p:column headerText="Reservar">
+					
+                                                            <p:commandButton  class="btn pull-right" update="consultar" process="@form" value="Reservar" onclick="PF('#{re.getID()}').show();" oncomplete="PF('#{re.getID()}').show();" />
+
+
+                                                        </p:column>    
 							
 							
 							

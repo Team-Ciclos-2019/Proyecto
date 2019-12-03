@@ -27,7 +27,7 @@
 		FROM 
 		Recurso_Reservado as re
 		WHERE
-		re.recurso=#{idr} AND re.estudiante=#{ide}
+		re.activo=True AND re.recurso=#{idr} AND re.estudiante=#{ide}  
 	</select>
 	
 	<update parameterType='map' id='cancelarReserva'>

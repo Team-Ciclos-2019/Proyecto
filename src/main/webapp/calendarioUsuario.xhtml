@@ -54,14 +54,17 @@
                             <p:outputLabel for="title" value="Recurso:"/>
                             <p:inputText id="title" value="#{recursoBean.identificador}">
                                  <p:ajax update="xd1"/>
+                                 <p:ajax update="xd2"/>
                             </p:inputText>
                             <p:outputLabel for="from" value="Fecha Inicio:"/>
-                            <p:calendar id="from" value="#{recursoBean.event.startDate}" pattern="dd/MM/yyyy HH:mm">
+                            <p:calendar id="from" value="#{recursoBean.event.startDate}" pattern="dd/MM/yyyy HH:mm:ss">
                                         <p:ajax update="xd1"/>
+                                        <p:ajax update="xd2"/>
                             </p:calendar>    
                             <p:outputLabel for="from1" value="Fecha fin:"/>
-                            <p:calendar id="from1" value="#{recursoBean.event.endDate}" pattern="dd/MM/yyyy HH:mm">
+                            <p:calendar id="from1" value="#{recursoBean.event.endDate}" pattern="dd/MM/yyyy HH:mm:ss">
                                         <p:ajax update="xd1" />
+                                        <p:ajax update="xd2"/>
                             </p:calendar>              
                             <br/>
            
@@ -73,14 +76,24 @@
                             <p:selectOneMenu id="console" value="#{recursoBean.tipoReserva}" >
                                 <f:selectItem itemLabel="Select One" itemValue="" />
                                 <p:ajax update="xd1"/>
+                                <p:ajax update="xd2"/>
+                    
                                 <f:selectItem itemLabel="Simple" itemValue="Simple" />
                                 <p:ajax update="xd1"/>
+                                <p:ajax update="xd2"/>
+                    
                                 <f:selectItem itemLabel="Diaria" itemValue="Diaria" />
                                 <p:ajax update="xd1"/>
+                                <p:ajax update="xd2"/>
+                    
                                 <f:selectItem itemLabel="Semanal" itemValue="Semanal" />
                                 <p:ajax update="xd1"/>
+                                <p:ajax update="xd2"/>
+                    
                                 <f:selectItem itemLabel="Mensual" itemValue="Mensual" />
                                 <p:ajax update="xd1"/>
+                                <p:ajax update="xd2"/>
+                    
                     
                             </p:selectOneMenu>            
                 </div>
@@ -92,6 +105,10 @@
                             <br/>
                             
                             <p:commandButton id="xd1" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(recursoBean.consultarIdEstudiante(InicioBean.getCorreo()),recursoBean.getIdentificador(),recursoBean.event.startDate,recursoBean.event.endDate,true,recursoBean.getTipoReserva()) }"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
+                            
+                            <br/>
+                            <p:commandButton id="xd2" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Cancelar" action="#{recursoBean.cancelarReservaFuturaSimple(recursoBean.getIdentificador(), recursoBean.consultarIdEstudiante(InicioBean.getCorreo()), recursoBean.event.startDate)}"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
+
                         </h:panelGrid>
                     </p:dialog>
 

@@ -205,6 +205,7 @@ SCRUM cuenta con una planeación, antes de iniciar el tiempo de la implementaci�
 - Falta de organizacón por parte de los desarrolladores del back, implementamos las tareas dos veces, causando perdida de tiempo.
 - Falta de trabajo del desarrollador encargado de la parte visual, no se hizo ninguna vista de las tareas.
 - Subtareas demasiado grandes.
+- Falto comunicacion, para que todos lo integrantes estuvieran enterados del avance. Y no se agrego de una vez alrepositorio github para poder editar este. 
 
 ## Sprint #2 ##
 

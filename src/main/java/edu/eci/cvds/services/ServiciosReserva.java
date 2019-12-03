@@ -13,7 +13,7 @@ import java.util.List;
 
 public interface ServiciosReserva{
     List<String> ubicaciones=new ArrayList<>(Arrays.asList("Centro","Oeste","Este"));
-    List<String> tipos=new ArrayList<>(Arrays.asList("Computador", "Sala de estudio", "Tablero digital"));
+    List<String> tipos=new ArrayList<>(Arrays.asList("Computador", "Sala de estudio", "Tablero digital","Libro"));
     List<Integer> capacidades=new ArrayList<>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
     public abstract List<ReservaSimple> consultarReservaSimples() throws ExceptionServiciosReserva;
     public List<ReservaSimple> consultarReservaSimplesCanceladas() throws ExceptionServiciosReserva;

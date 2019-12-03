@@ -37,7 +37,28 @@
                                                      <p:ajax update="xd"/>
                                                 </p:calendar>
                                                    <br/>
-                                                 <p:commandButton id="xd" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true) }" />  
+                                                    <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="bmd-label-floating">Tipo de Reserva:</label>
+                                                        <p:selectOneMenu id="console" value="#{recursoBean.tipoReserva}" >
+                                                            <f:selectItem itemLabel="Select One" itemValue="" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Simple" itemValue="Simple" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Diaria" itemValue="Diaria" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Semanal" itemValue="Semanal" />
+                                                            <p:ajax update="xd"/>
+                                                            <f:selectItem itemLabel="Mensual" itemValue="Mensual" />
+                                                            <p:ajax update="xd"/>
+                                                       
+
+                                                        </p:selectOneMenu>
+                                                    </div>
+                                                    </div>
+                                                       
+                                                 <br/>
+                                                 <p:commandButton id="xd" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,re.getID(),calendarBean.getDate(),calendarBean.getDate15(),true,recursoBean.getTipoReserva()) }" />  
                                              
                                         </p:dialog> 
 					<h:outputText value="#{re.getID()}" />
@@ -98,7 +119,34 @@
                                         <p:ajax update="xd1" />
                             </p:calendar>              
                             <br/>
-                            <p:commandButton id="xd1" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,recursoBean.getIdentificador(),recursoBean.event.startDate,recursoBean.event.endDate,true) }"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
+           
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Tipo de Reserva:</label>
+                           
+                           
+                            <p:selectOneMenu id="console" value="#{recursoBean.tipoReserva}" >
+                                <f:selectItem itemLabel="Select One" itemValue="" />
+                                <p:ajax update="xd1"/>
+                                <f:selectItem itemLabel="Simple" itemValue="Simple" />
+                                <p:ajax update="xd1"/>
+                                <f:selectItem itemLabel="Diaria" itemValue="Diaria" />
+                                <p:ajax update="xd1"/>
+                                <f:selectItem itemLabel="Semanal" itemValue="Semanal" />
+                                <p:ajax update="xd1"/>
+                                <f:selectItem itemLabel="Mensual" itemValue="Mensual" />
+                                <p:ajax update="xd1"/>
+                    
+                            </p:selectOneMenu>            
+                </div>
+                </div> 
+                                
+
+    
+                        
+                            <br/>
+                            
+                            <p:commandButton id="xd1" ajax="true"  class="btn pull-right" update="@all" immediate="true"  value="Reservar" action="#{recursoBean.registrarReservaFutura(4,recursoBean.getIdentificador(),recursoBean.event.startDate,recursoBean.event.endDate,true,recursoBean.getTipoReserva()) }"  oncomplete="PF('myschedule').update();PF('eventDialog').hide();"/>
                         </h:panelGrid>
                     </p:dialog>
 

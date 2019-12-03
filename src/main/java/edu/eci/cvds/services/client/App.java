@@ -49,7 +49,7 @@ public class App implements Serializable{
                     FacesContext.getCurrentInstance().getExternalContext().redirect("inicio2.xhtml");
                 }
                 else{
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("inicio.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("VistaUsuario.xhtml");
                 }
                 
             }

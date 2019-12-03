@@ -37,6 +37,7 @@ public class RecursoBean implements Serializable {
     private String nombre;
     private String ubicacion;
     private String tipo;
+    private String tipoReserva;
     private int capacidad;
     private int identificador;
     private boolean estado;
@@ -51,10 +52,10 @@ public class RecursoBean implements Serializable {
     public List<String> getUbicaciones(){
         return ServiciosReserva.getUbicaciones();
     }
-    public void registrarReservaFutura(int id,int re, Date horaInicio, Date horaFin,boolean activo) throws ExceptionServiciosReserva{
+    public void registrarReservaFutura(int id,int re, Date horaInicio, Date horaFin,boolean activo,String tipoxd) throws ExceptionServiciosReserva{
         Recurso tempo= consultarRecurso(re);
         event = new DefaultScheduleEvent(tempo.getNombre() ,horaInicio, horaFin);
-        ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,"Diaria");
+        ServiciosReserva.registrarReservaFutura(id,tempo,horaInicio,horaFin,activo,tipoxd);
         eventModel.addEvent(event);
         eventModel.updateEvent(event);
          
@@ -177,6 +178,16 @@ public class RecursoBean implements Serializable {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+    
+     public String getTipoReserva() {
+        return tipoReserva;
+    }
+
+    
+
+    public void setTipoReserva(String tipoxd) {
+        this.tipoReserva = tipoxd;
     }
     public int getDisponibilidad(){
         return disponibilidad;

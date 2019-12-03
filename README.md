@@ -154,6 +154,9 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 ### Modelo relacional ###
 ![Captura](https://user-images.githubusercontent.com/53835467/70019382-11037a00-1557-11ea-9697-92fb329503c9.PNG)
 
+### Diagrama de Clases ###
+![Diagrama](https://user-images.githubusercontent.com/53835467/70050190-61e99180-159c-11ea-9688-3bf068acdc20.PNG)
+
 ### Stack de tecnologías ###
 - PrimeFaces 
 - Guice
@@ -167,9 +170,9 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 ## Descripción del proceso ##
 
 ### Team ###
-- Fernando Barrera
-- Carlos Julian Gomez
-- Sebastian Caceres
+- Fernando Barrera (Back - Front)
+- Carlos Julian Gomez (Back)
+- Sebastian Caceres (Front)
 
 ### Metodología ###
 La metodología que se implementó fue SCRUM, la cual, es usada a nivel mundial por empresas lideres en el mercado tales como Microsoft, Google, BBC, entre otras.

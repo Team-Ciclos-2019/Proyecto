@@ -95,7 +95,9 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 ![Manual de Usuario](4.png)
 
 5.1 Usuario: Campo para escribir el usuario asignado.
+
 5.2 Constraseña: Campo para escribir la contraseña del usuario.
+
 5.3 Boton Iniciar Sesión: Boton para confirmar datos e ingresar como usuario.
 
 

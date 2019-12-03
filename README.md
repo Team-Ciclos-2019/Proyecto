@@ -122,6 +122,8 @@ Desde la pagina principal, por medio del boton INICIAR SESIÓN ubicado en la bar
 
 ![Manual de Usuario](7.png)
 
+7.3 Current Date: Selecciona el dia actual.
+
 
 
 

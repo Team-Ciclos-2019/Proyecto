@@ -63,10 +63,14 @@
         <h1>Hello administrador!</h1>
          <h:form id = "registro">
             <center>
-                <fieldset>
-                        <legend>Registrar Recurso</legend>
+         
                 
-
+                              <p:panel id="panel" header="Register">
+ 
+                                 <p:focus context="panel"/>
+                                  <h:panelGrid id="grid" columns="2">
+ 
+       
                             <label class="bmd-label-floating">Nombre</label>
                             <p:inputText class="form-control" id="Nombre" type="String"  binding="#{nombre}"/>
                             <label class="bmd-label-floating">Ubicacion</label>
@@ -86,7 +90,8 @@
 										binding="#{recursoBean.registrarRecurso(identificador.value,nombre.value,tipo.value,ubicacion.value,estado.value,capacidad.value,disponibilidad.value)}"
 										/>
 							</p:commandButton>
-                </fieldset>
+                            </h:panelGrid>
+                                   </p:panel>
                
 			</center>
 			

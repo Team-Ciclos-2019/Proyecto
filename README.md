@@ -27,4 +27,7 @@
 
 ## Manual de Usuario
 ![Manual de Usuario](manual.jpg)
+
+### Contenido
+
        

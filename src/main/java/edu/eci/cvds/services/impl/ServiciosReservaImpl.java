@@ -357,11 +357,8 @@ public class ServiciosReservaImpl implements ServiciosReserva,Serializable{
     @Override
     @Transactional
     public void cancelarReservaFuturaSimple(int idRecurso,int idEstudiante,Date fecha)  throws ExceptionServiciosReserva{
-        //if (consultarReserva(idRecurso,idEstudiante)== null)throw new ExceptionServiciosReserva("Error,la reserva no esta registrada");
-        RecursoReservado reserva=consultarReserva(idRecurso,idEstudiante);
-        Date today = Calendar.getInstance().getTime();
-        //if(today.compareTo(reserva.getFin())>0) throw new ExceptionServiciosReserva("Error, la reserva ya ha acabado");
-        //if(today.compareTo(reserva.getInicio())>0 && (today.compareTo(reserva.getFin())<0)) throw new ExceptionServiciosReserva("Error, la reserva ya ha empezado");
+        
+        
         try{
             reservaSimpleDAO.cancelarReservaSimpleFutura(idRecurso,idEstudiante,fecha);
         }

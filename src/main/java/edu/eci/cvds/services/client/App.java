@@ -11,6 +11,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import java.io.IOException;
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -54,10 +55,12 @@ public class App implements Serializable{
                 
             }
           catch (UnknownAccountException ex) {
-               FacesContext.getCurrentInstance().getExternalContext().redirect("error.xhtml");
+             
+               FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Fallo de autenticacion."));
            }
             catch (IncorrectCredentialsException ex) {
-                FacesContext.getCurrentInstance().getExternalContext().redirect("error.xhtml");
+                
+               FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Fallo de autenticacion."));
             }
         }        
 }

@@ -123,7 +123,7 @@
 	
 	<update parameterType='map' id='cancelarReservaSimpleFutura'>
 		update RESERVA_SIMPLE as reserva set activo=false
-		where reserva.reserva=#{idr} AND reserva.estudiante=#{ide} AND reserva.inicio=#{fechaIni}
+		where reserva.reserva=#{idr} AND reserva.estudiante=#{ide} AND reserva.inicio=#{fechaIni} AND reserva.inicio &gt; current_date
 		
 	</update>
 	
